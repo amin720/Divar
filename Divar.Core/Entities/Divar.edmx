@@ -1,0 +1,1258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DivarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Statistics">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IpAddress" Type="nvarchar(max)" />
+          <Property Name="UserAgent" Type="nvarchar(max)" />
+          <Property Name="UserOs" Type="nvarchar(max)" />
+          <Property Name="Referer" Type="nvarchar(max)" />
+          <Property Name="PageViewed" Type="nvarchar(max)" />
+          <Property Name="DateStamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_Advertisement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VehicleID" Type="int" />
+          <Property Name="CityID" Type="int" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TBL_AdvertisementType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="90" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_AdvertiserType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="90" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_Assembler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TBL_City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_Color">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_Employment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="90" Nullable="false" />
+          <Property Name="Link" Type="nvarchar" MaxLength="200" />
+          <Property Name="IdAdvertisement" Type="int" />
+        </EntityType>
+        <EntityType Name="TBL_Image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Url" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="IdAdvertising" Type="int" />
+        </EntityType>
+        <EntityType Name="TBL_Manufacturer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TBL_Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CreationDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ExpirationDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="KiloMeters" Type="int" Nullable="false" />
+          <Property Name="Color" Type="nvarchar" MaxLength="20" />
+          <Property Name="IdAdvertisement" Type="int" />
+          <Property Name="AdvertisementTypeID" Type="int" Nullable="false" />
+          <Property Name="AdvertiserTypeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_Service">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="90" Nullable="false" />
+          <Property Name="Link" Type="nvarchar" MaxLength="200" />
+          <Property Name="IdAdvertisement" Type="int" />
+        </EntityType>
+        <EntityType Name="TBL_State">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="CityID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_Vehicle">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Year" Type="nchar" MaxLength="4" Nullable="false" />
+          <Property Name="ColorID" Type="int" Nullable="false" />
+          <Property Name="VehicleTypeID" Type="int" Nullable="false" />
+          <Property Name="ManufacturerID" Type="int" Nullable="false" />
+          <Property Name="AssemblerID" Type="int" Nullable="false" />
+          <Property Name="Series" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBL_VehicleType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Advertisement_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="TBL_Advertisement" Type="Self.TBL_Advertisement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Advertisement">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Advertisement_TBL_City">
+          <End Role="TBL_City" Type="Self.TBL_City" Multiplicity="0..1" />
+          <End Role="TBL_Advertisement" Type="Self.TBL_Advertisement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Advertisement">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Advertisement_TBL_Vehicle">
+          <End Role="TBL_Vehicle" Type="Self.TBL_Vehicle" Multiplicity="0..1" />
+          <End Role="TBL_Advertisement" Type="Self.TBL_Advertisement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Vehicle">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Advertisement">
+              <PropertyRef Name="VehicleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Employment_TBL_Advertisement">
+          <End Role="TBL_Advertisement" Type="Self.TBL_Advertisement" Multiplicity="0..1" />
+          <End Role="TBL_Employment" Type="Self.TBL_Employment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Advertisement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Employment">
+              <PropertyRef Name="IdAdvertisement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Image_TBL_Advertising">
+          <End Role="TBL_Advertisement" Type="Self.TBL_Advertisement" Multiplicity="0..1" />
+          <End Role="TBL_Image" Type="Self.TBL_Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Advertisement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Image">
+              <PropertyRef Name="IdAdvertising" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Product_TBL_Advertisement">
+          <End Role="TBL_Advertisement" Type="Self.TBL_Advertisement" Multiplicity="0..1" />
+          <End Role="TBL_Product" Type="Self.TBL_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Advertisement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Product">
+              <PropertyRef Name="IdAdvertisement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Product_TBL_AdvertisementType">
+          <End Role="TBL_AdvertisementType" Type="Self.TBL_AdvertisementType" Multiplicity="1" />
+          <End Role="TBL_Product" Type="Self.TBL_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_AdvertisementType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Product">
+              <PropertyRef Name="AdvertisementTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Product_TBL_AdvertiserType">
+          <End Role="TBL_AdvertiserType" Type="Self.TBL_AdvertiserType" Multiplicity="1" />
+          <End Role="TBL_Product" Type="Self.TBL_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_AdvertiserType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Product">
+              <PropertyRef Name="AdvertiserTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Service_TBL_Advertisement">
+          <End Role="TBL_Advertisement" Type="Self.TBL_Advertisement" Multiplicity="0..1" />
+          <End Role="TBL_Service" Type="Self.TBL_Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Advertisement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Service">
+              <PropertyRef Name="IdAdvertisement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_State_TBL_City">
+          <End Role="TBL_City" Type="Self.TBL_City" Multiplicity="1" />
+          <End Role="TBL_State" Type="Self.TBL_State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_State">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Vehicle_TBL_Assembler">
+          <End Role="TBL_Assembler" Type="Self.TBL_Assembler" Multiplicity="1" />
+          <End Role="TBL_Vehicle" Type="Self.TBL_Vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Assembler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Vehicle">
+              <PropertyRef Name="AssemblerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Vehicle_TBL_Color">
+          <End Role="TBL_Color" Type="Self.TBL_Color" Multiplicity="1" />
+          <End Role="TBL_Vehicle" Type="Self.TBL_Vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Color">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Vehicle">
+              <PropertyRef Name="ColorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Vehicle_TBL_Manufacturer">
+          <End Role="TBL_Manufacturer" Type="Self.TBL_Manufacturer" Multiplicity="1" />
+          <End Role="TBL_Vehicle" Type="Self.TBL_Vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Manufacturer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Vehicle">
+              <PropertyRef Name="ManufacturerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Vehicle_TBL_VehicleType">
+          <End Role="TBL_VehicleType" Type="Self.TBL_VehicleType" Multiplicity="1" />
+          <End Role="TBL_Vehicle" Type="Self.TBL_Vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_VehicleType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Vehicle">
+              <PropertyRef Name="VehicleTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DivarModelStoreContainer">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Statistics" EntityType="Self.Statistics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Advertisement" EntityType="Self.TBL_Advertisement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_AdvertisementType" EntityType="Self.TBL_AdvertisementType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_AdvertiserType" EntityType="Self.TBL_AdvertiserType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Assembler" EntityType="Self.TBL_Assembler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_City" EntityType="Self.TBL_City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Color" EntityType="Self.TBL_Color" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Employment" EntityType="Self.TBL_Employment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Image" EntityType="Self.TBL_Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Manufacturer" EntityType="Self.TBL_Manufacturer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Product" EntityType="Self.TBL_Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Service" EntityType="Self.TBL_Service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_State" EntityType="Self.TBL_State" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Vehicle" EntityType="Self.TBL_Vehicle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_VehicleType" EntityType="Self.TBL_VehicleType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Advertisement_AspNetUsers" Association="Self.FK_TBL_Advertisement_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="TBL_Advertisement" EntitySet="TBL_Advertisement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Advertisement_TBL_City" Association="Self.FK_TBL_Advertisement_TBL_City">
+            <End Role="TBL_City" EntitySet="TBL_City" />
+            <End Role="TBL_Advertisement" EntitySet="TBL_Advertisement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Advertisement_TBL_Vehicle" Association="Self.FK_TBL_Advertisement_TBL_Vehicle">
+            <End Role="TBL_Vehicle" EntitySet="TBL_Vehicle" />
+            <End Role="TBL_Advertisement" EntitySet="TBL_Advertisement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Employment_TBL_Advertisement" Association="Self.FK_TBL_Employment_TBL_Advertisement">
+            <End Role="TBL_Advertisement" EntitySet="TBL_Advertisement" />
+            <End Role="TBL_Employment" EntitySet="TBL_Employment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Image_TBL_Advertising" Association="Self.FK_TBL_Image_TBL_Advertising">
+            <End Role="TBL_Advertisement" EntitySet="TBL_Advertisement" />
+            <End Role="TBL_Image" EntitySet="TBL_Image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Product_TBL_Advertisement" Association="Self.FK_TBL_Product_TBL_Advertisement">
+            <End Role="TBL_Advertisement" EntitySet="TBL_Advertisement" />
+            <End Role="TBL_Product" EntitySet="TBL_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Product_TBL_AdvertisementType" Association="Self.FK_TBL_Product_TBL_AdvertisementType">
+            <End Role="TBL_AdvertisementType" EntitySet="TBL_AdvertisementType" />
+            <End Role="TBL_Product" EntitySet="TBL_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Product_TBL_AdvertiserType" Association="Self.FK_TBL_Product_TBL_AdvertiserType">
+            <End Role="TBL_AdvertiserType" EntitySet="TBL_AdvertiserType" />
+            <End Role="TBL_Product" EntitySet="TBL_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Service_TBL_Advertisement" Association="Self.FK_TBL_Service_TBL_Advertisement">
+            <End Role="TBL_Advertisement" EntitySet="TBL_Advertisement" />
+            <End Role="TBL_Service" EntitySet="TBL_Service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_State_TBL_City" Association="Self.FK_TBL_State_TBL_City">
+            <End Role="TBL_City" EntitySet="TBL_City" />
+            <End Role="TBL_State" EntitySet="TBL_State" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Vehicle_TBL_Assembler" Association="Self.FK_TBL_Vehicle_TBL_Assembler">
+            <End Role="TBL_Assembler" EntitySet="TBL_Assembler" />
+            <End Role="TBL_Vehicle" EntitySet="TBL_Vehicle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Vehicle_TBL_Color" Association="Self.FK_TBL_Vehicle_TBL_Color">
+            <End Role="TBL_Color" EntitySet="TBL_Color" />
+            <End Role="TBL_Vehicle" EntitySet="TBL_Vehicle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Vehicle_TBL_Manufacturer" Association="Self.FK_TBL_Vehicle_TBL_Manufacturer">
+            <End Role="TBL_Manufacturer" EntitySet="TBL_Manufacturer" />
+            <End Role="TBL_Vehicle" EntitySet="TBL_Vehicle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Vehicle_TBL_VehicleType" Association="Self.FK_TBL_Vehicle_TBL_VehicleType">
+            <End Role="TBL_VehicleType" EntitySet="TBL_VehicleType" />
+            <End Role="TBL_Vehicle" EntitySet="TBL_Vehicle" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DivarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DivarEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetRoles" EntityType="DivarModel.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="DivarModel.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="DivarModel.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="DivarModel.AspNetUser" />
+          <EntitySet Name="Statistics" EntityType="DivarModel.Statistic" />
+          <EntitySet Name="TBL_Advertisement" EntityType="DivarModel.TBL_Advertisement" />
+          <EntitySet Name="TBL_AdvertisementType" EntityType="DivarModel.TBL_AdvertisementType" />
+          <EntitySet Name="TBL_AdvertiserType" EntityType="DivarModel.TBL_AdvertiserType" />
+          <EntitySet Name="TBL_Assembler" EntityType="DivarModel.TBL_Assembler" />
+          <EntitySet Name="TBL_City" EntityType="DivarModel.TBL_City" />
+          <EntitySet Name="TBL_Color" EntityType="DivarModel.TBL_Color" />
+          <EntitySet Name="TBL_Employment" EntityType="DivarModel.TBL_Employment" />
+          <EntitySet Name="TBL_Image" EntityType="DivarModel.TBL_Image" />
+          <EntitySet Name="TBL_Manufacturer" EntityType="DivarModel.TBL_Manufacturer" />
+          <EntitySet Name="TBL_Product" EntityType="DivarModel.TBL_Product" />
+          <EntitySet Name="TBL_Service" EntityType="DivarModel.TBL_Service" />
+          <EntitySet Name="TBL_State" EntityType="DivarModel.TBL_State" />
+          <EntitySet Name="TBL_Vehicle" EntityType="DivarModel.TBL_Vehicle" />
+          <EntitySet Name="TBL_VehicleType" EntityType="DivarModel.TBL_VehicleType" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="DivarModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="DivarModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Advertisement_AspNetUsers" Association="DivarModel.FK_TBL_Advertisement_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="TBL_Advertisement" EntitySet="TBL_Advertisement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Advertisement_TBL_City" Association="DivarModel.FK_TBL_Advertisement_TBL_City">
+            <End Role="TBL_City" EntitySet="TBL_City" />
+            <End Role="TBL_Advertisement" EntitySet="TBL_Advertisement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Advertisement_TBL_Vehicle" Association="DivarModel.FK_TBL_Advertisement_TBL_Vehicle">
+            <End Role="TBL_Vehicle" EntitySet="TBL_Vehicle" />
+            <End Role="TBL_Advertisement" EntitySet="TBL_Advertisement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Employment_TBL_Advertisement" Association="DivarModel.FK_TBL_Employment_TBL_Advertisement">
+            <End Role="TBL_Advertisement" EntitySet="TBL_Advertisement" />
+            <End Role="TBL_Employment" EntitySet="TBL_Employment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Image_TBL_Advertising" Association="DivarModel.FK_TBL_Image_TBL_Advertising">
+            <End Role="TBL_Advertisement" EntitySet="TBL_Advertisement" />
+            <End Role="TBL_Image" EntitySet="TBL_Image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Product_TBL_Advertisement" Association="DivarModel.FK_TBL_Product_TBL_Advertisement">
+            <End Role="TBL_Advertisement" EntitySet="TBL_Advertisement" />
+            <End Role="TBL_Product" EntitySet="TBL_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Service_TBL_Advertisement" Association="DivarModel.FK_TBL_Service_TBL_Advertisement">
+            <End Role="TBL_Advertisement" EntitySet="TBL_Advertisement" />
+            <End Role="TBL_Service" EntitySet="TBL_Service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Product_TBL_AdvertisementType" Association="DivarModel.FK_TBL_Product_TBL_AdvertisementType">
+            <End Role="TBL_AdvertisementType" EntitySet="TBL_AdvertisementType" />
+            <End Role="TBL_Product" EntitySet="TBL_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Product_TBL_AdvertiserType" Association="DivarModel.FK_TBL_Product_TBL_AdvertiserType">
+            <End Role="TBL_AdvertiserType" EntitySet="TBL_AdvertiserType" />
+            <End Role="TBL_Product" EntitySet="TBL_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Vehicle_TBL_Assembler" Association="DivarModel.FK_TBL_Vehicle_TBL_Assembler">
+            <End Role="TBL_Assembler" EntitySet="TBL_Assembler" />
+            <End Role="TBL_Vehicle" EntitySet="TBL_Vehicle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_State_TBL_City" Association="DivarModel.FK_TBL_State_TBL_City">
+            <End Role="TBL_City" EntitySet="TBL_City" />
+            <End Role="TBL_State" EntitySet="TBL_State" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Vehicle_TBL_Color" Association="DivarModel.FK_TBL_Vehicle_TBL_Color">
+            <End Role="TBL_Color" EntitySet="TBL_Color" />
+            <End Role="TBL_Vehicle" EntitySet="TBL_Vehicle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Vehicle_TBL_Manufacturer" Association="DivarModel.FK_TBL_Vehicle_TBL_Manufacturer">
+            <End Role="TBL_Manufacturer" EntitySet="TBL_Manufacturer" />
+            <End Role="TBL_Vehicle" EntitySet="TBL_Vehicle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Vehicle_TBL_VehicleType" Association="DivarModel.FK_TBL_Vehicle_TBL_VehicleType">
+            <End Role="TBL_VehicleType" EntitySet="TBL_VehicleType" />
+            <End Role="TBL_Vehicle" EntitySet="TBL_Vehicle" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="DivarModel.AspNetUserRoles">
+            <End Role="AspNetRole" EntitySet="AspNetRoles" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="DivarModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="DivarModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="DivarModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="DivarModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="DivarModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="TBL_Advertisement" Relationship="DivarModel.FK_TBL_Advertisement_AspNetUsers" FromRole="AspNetUser" ToRole="TBL_Advertisement" />
+          <NavigationProperty Name="AspNetRoles" Relationship="DivarModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+        </EntityType>
+        <EntityType Name="Statistic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IpAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserAgent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserOs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Referer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PageViewed" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateStamp" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="TBL_Advertisement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VehicleID" Type="Int32" />
+          <Property Name="CityID" Type="Int32" />
+          <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="DivarModel.FK_TBL_Advertisement_AspNetUsers" FromRole="TBL_Advertisement" ToRole="AspNetUser" />
+          <NavigationProperty Name="TBL_City" Relationship="DivarModel.FK_TBL_Advertisement_TBL_City" FromRole="TBL_Advertisement" ToRole="TBL_City" />
+          <NavigationProperty Name="TBL_Vehicle" Relationship="DivarModel.FK_TBL_Advertisement_TBL_Vehicle" FromRole="TBL_Advertisement" ToRole="TBL_Vehicle" />
+          <NavigationProperty Name="TBL_Employment" Relationship="DivarModel.FK_TBL_Employment_TBL_Advertisement" FromRole="TBL_Advertisement" ToRole="TBL_Employment" />
+          <NavigationProperty Name="TBL_Image" Relationship="DivarModel.FK_TBL_Image_TBL_Advertising" FromRole="TBL_Advertisement" ToRole="TBL_Image" />
+          <NavigationProperty Name="TBL_Product" Relationship="DivarModel.FK_TBL_Product_TBL_Advertisement" FromRole="TBL_Advertisement" ToRole="TBL_Product" />
+          <NavigationProperty Name="TBL_Service" Relationship="DivarModel.FK_TBL_Service_TBL_Advertisement" FromRole="TBL_Advertisement" ToRole="TBL_Service" />
+        </EntityType>
+        <EntityType Name="TBL_AdvertisementType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="90" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TBL_Product" Relationship="DivarModel.FK_TBL_Product_TBL_AdvertisementType" FromRole="TBL_AdvertisementType" ToRole="TBL_Product" />
+        </EntityType>
+        <EntityType Name="TBL_AdvertiserType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="90" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TBL_Product" Relationship="DivarModel.FK_TBL_Product_TBL_AdvertiserType" FromRole="TBL_AdvertiserType" ToRole="TBL_Product" />
+        </EntityType>
+        <EntityType Name="TBL_Assembler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TBL_Vehicle" Relationship="DivarModel.FK_TBL_Vehicle_TBL_Assembler" FromRole="TBL_Assembler" ToRole="TBL_Vehicle" />
+        </EntityType>
+        <EntityType Name="TBL_City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TBL_Advertisement" Relationship="DivarModel.FK_TBL_Advertisement_TBL_City" FromRole="TBL_City" ToRole="TBL_Advertisement" />
+          <NavigationProperty Name="TBL_State" Relationship="DivarModel.FK_TBL_State_TBL_City" FromRole="TBL_City" ToRole="TBL_State" />
+        </EntityType>
+        <EntityType Name="TBL_Color">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TBL_Vehicle" Relationship="DivarModel.FK_TBL_Vehicle_TBL_Color" FromRole="TBL_Color" ToRole="TBL_Vehicle" />
+        </EntityType>
+        <EntityType Name="TBL_Employment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IdAdvertisement" Type="Int32" />
+          <NavigationProperty Name="TBL_Advertisement" Relationship="DivarModel.FK_TBL_Employment_TBL_Advertisement" FromRole="TBL_Employment" ToRole="TBL_Advertisement" />
+        </EntityType>
+        <EntityType Name="TBL_Image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Url" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="IdAdvertising" Type="Int32" />
+          <NavigationProperty Name="TBL_Advertisement" Relationship="DivarModel.FK_TBL_Image_TBL_Advertising" FromRole="TBL_Image" ToRole="TBL_Advertisement" />
+        </EntityType>
+        <EntityType Name="TBL_Manufacturer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TBL_Vehicle" Relationship="DivarModel.FK_TBL_Vehicle_TBL_Manufacturer" FromRole="TBL_Manufacturer" ToRole="TBL_Vehicle" />
+        </EntityType>
+        <EntityType Name="TBL_Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ExpirationDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="KiloMeters" Type="Int32" Nullable="false" />
+          <Property Name="Color" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IdAdvertisement" Type="Int32" />
+          <Property Name="AdvertisementTypeID" Type="Int32" Nullable="false" />
+          <Property Name="AdvertiserTypeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TBL_Advertisement" Relationship="DivarModel.FK_TBL_Product_TBL_Advertisement" FromRole="TBL_Product" ToRole="TBL_Advertisement" />
+          <NavigationProperty Name="TBL_AdvertisementType" Relationship="DivarModel.FK_TBL_Product_TBL_AdvertisementType" FromRole="TBL_Product" ToRole="TBL_AdvertisementType" />
+          <NavigationProperty Name="TBL_AdvertiserType" Relationship="DivarModel.FK_TBL_Product_TBL_AdvertiserType" FromRole="TBL_Product" ToRole="TBL_AdvertiserType" />
+        </EntityType>
+        <EntityType Name="TBL_Service">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IdAdvertisement" Type="Int32" />
+          <NavigationProperty Name="TBL_Advertisement" Relationship="DivarModel.FK_TBL_Service_TBL_Advertisement" FromRole="TBL_Service" ToRole="TBL_Advertisement" />
+        </EntityType>
+        <EntityType Name="TBL_State">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CityID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TBL_City" Relationship="DivarModel.FK_TBL_State_TBL_City" FromRole="TBL_State" ToRole="TBL_City" />
+        </EntityType>
+        <EntityType Name="TBL_Vehicle">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Year" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="ColorID" Type="Int32" Nullable="false" />
+          <Property Name="VehicleTypeID" Type="Int32" Nullable="false" />
+          <Property Name="ManufacturerID" Type="Int32" Nullable="false" />
+          <Property Name="AssemblerID" Type="Int32" Nullable="false" />
+          <Property Name="Series" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TBL_Advertisement" Relationship="DivarModel.FK_TBL_Advertisement_TBL_Vehicle" FromRole="TBL_Vehicle" ToRole="TBL_Advertisement" />
+          <NavigationProperty Name="TBL_Assembler" Relationship="DivarModel.FK_TBL_Vehicle_TBL_Assembler" FromRole="TBL_Vehicle" ToRole="TBL_Assembler" />
+          <NavigationProperty Name="TBL_Color" Relationship="DivarModel.FK_TBL_Vehicle_TBL_Color" FromRole="TBL_Vehicle" ToRole="TBL_Color" />
+          <NavigationProperty Name="TBL_Manufacturer" Relationship="DivarModel.FK_TBL_Vehicle_TBL_Manufacturer" FromRole="TBL_Vehicle" ToRole="TBL_Manufacturer" />
+          <NavigationProperty Name="TBL_VehicleType" Relationship="DivarModel.FK_TBL_Vehicle_TBL_VehicleType" FromRole="TBL_Vehicle" ToRole="TBL_VehicleType" />
+        </EntityType>
+        <EntityType Name="TBL_VehicleType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TBL_Vehicle" Relationship="DivarModel.FK_TBL_Vehicle_TBL_VehicleType" FromRole="TBL_VehicleType" ToRole="TBL_Vehicle" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="DivarModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DivarModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="DivarModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DivarModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Advertisement_AspNetUsers">
+          <End Type="DivarModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="DivarModel.TBL_Advertisement" Role="TBL_Advertisement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Advertisement">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Advertisement_TBL_City">
+          <End Type="DivarModel.TBL_City" Role="TBL_City" Multiplicity="0..1" />
+          <End Type="DivarModel.TBL_Advertisement" Role="TBL_Advertisement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Advertisement">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Advertisement_TBL_Vehicle">
+          <End Type="DivarModel.TBL_Vehicle" Role="TBL_Vehicle" Multiplicity="0..1" />
+          <End Type="DivarModel.TBL_Advertisement" Role="TBL_Advertisement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Vehicle">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Advertisement">
+              <PropertyRef Name="VehicleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Employment_TBL_Advertisement">
+          <End Type="DivarModel.TBL_Advertisement" Role="TBL_Advertisement" Multiplicity="0..1" />
+          <End Type="DivarModel.TBL_Employment" Role="TBL_Employment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Advertisement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Employment">
+              <PropertyRef Name="IdAdvertisement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Image_TBL_Advertising">
+          <End Type="DivarModel.TBL_Advertisement" Role="TBL_Advertisement" Multiplicity="0..1" />
+          <End Type="DivarModel.TBL_Image" Role="TBL_Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Advertisement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Image">
+              <PropertyRef Name="IdAdvertising" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Product_TBL_Advertisement">
+          <End Type="DivarModel.TBL_Advertisement" Role="TBL_Advertisement" Multiplicity="0..1" />
+          <End Type="DivarModel.TBL_Product" Role="TBL_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Advertisement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Product">
+              <PropertyRef Name="IdAdvertisement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Service_TBL_Advertisement">
+          <End Type="DivarModel.TBL_Advertisement" Role="TBL_Advertisement" Multiplicity="0..1" />
+          <End Type="DivarModel.TBL_Service" Role="TBL_Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Advertisement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Service">
+              <PropertyRef Name="IdAdvertisement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Product_TBL_AdvertisementType">
+          <End Type="DivarModel.TBL_AdvertisementType" Role="TBL_AdvertisementType" Multiplicity="1" />
+          <End Type="DivarModel.TBL_Product" Role="TBL_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_AdvertisementType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Product">
+              <PropertyRef Name="AdvertisementTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Product_TBL_AdvertiserType">
+          <End Type="DivarModel.TBL_AdvertiserType" Role="TBL_AdvertiserType" Multiplicity="1" />
+          <End Type="DivarModel.TBL_Product" Role="TBL_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_AdvertiserType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Product">
+              <PropertyRef Name="AdvertiserTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Vehicle_TBL_Assembler">
+          <End Type="DivarModel.TBL_Assembler" Role="TBL_Assembler" Multiplicity="1" />
+          <End Type="DivarModel.TBL_Vehicle" Role="TBL_Vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Assembler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Vehicle">
+              <PropertyRef Name="AssemblerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_State_TBL_City">
+          <End Type="DivarModel.TBL_City" Role="TBL_City" Multiplicity="1" />
+          <End Type="DivarModel.TBL_State" Role="TBL_State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_State">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Vehicle_TBL_Color">
+          <End Type="DivarModel.TBL_Color" Role="TBL_Color" Multiplicity="1" />
+          <End Type="DivarModel.TBL_Vehicle" Role="TBL_Vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Color">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Vehicle">
+              <PropertyRef Name="ColorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Vehicle_TBL_Manufacturer">
+          <End Type="DivarModel.TBL_Manufacturer" Role="TBL_Manufacturer" Multiplicity="1" />
+          <End Type="DivarModel.TBL_Vehicle" Role="TBL_Vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Manufacturer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Vehicle">
+              <PropertyRef Name="ManufacturerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Vehicle_TBL_VehicleType">
+          <End Type="DivarModel.TBL_VehicleType" Role="TBL_VehicleType" Multiplicity="1" />
+          <End Type="DivarModel.TBL_Vehicle" Role="TBL_Vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_VehicleType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBL_Vehicle">
+              <PropertyRef Name="VehicleTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Type="DivarModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+          <End Type="DivarModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DivarModelStoreContainer" CdmEntityContainer="DivarEntities">
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="DivarModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="DivarModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="DivarModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="DivarModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Statistics">
+            <EntityTypeMapping TypeName="DivarModel.Statistic">
+              <MappingFragment StoreEntitySet="Statistics">
+                <ScalarProperty Name="DateStamp" ColumnName="DateStamp" />
+                <ScalarProperty Name="PageViewed" ColumnName="PageViewed" />
+                <ScalarProperty Name="Referer" ColumnName="Referer" />
+                <ScalarProperty Name="UserOs" ColumnName="UserOs" />
+                <ScalarProperty Name="UserAgent" ColumnName="UserAgent" />
+                <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Advertisement">
+            <EntityTypeMapping TypeName="DivarModel.TBL_Advertisement">
+              <MappingFragment StoreEntitySet="TBL_Advertisement">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_AdvertisementType">
+            <EntityTypeMapping TypeName="DivarModel.TBL_AdvertisementType">
+              <MappingFragment StoreEntitySet="TBL_AdvertisementType">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_AdvertiserType">
+            <EntityTypeMapping TypeName="DivarModel.TBL_AdvertiserType">
+              <MappingFragment StoreEntitySet="TBL_AdvertiserType">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Assembler">
+            <EntityTypeMapping TypeName="DivarModel.TBL_Assembler">
+              <MappingFragment StoreEntitySet="TBL_Assembler">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_City">
+            <EntityTypeMapping TypeName="DivarModel.TBL_City">
+              <MappingFragment StoreEntitySet="TBL_City">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Color">
+            <EntityTypeMapping TypeName="DivarModel.TBL_Color">
+              <MappingFragment StoreEntitySet="TBL_Color">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Employment">
+            <EntityTypeMapping TypeName="DivarModel.TBL_Employment">
+              <MappingFragment StoreEntitySet="TBL_Employment">
+                <ScalarProperty Name="IdAdvertisement" ColumnName="IdAdvertisement" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Image">
+            <EntityTypeMapping TypeName="DivarModel.TBL_Image">
+              <MappingFragment StoreEntitySet="TBL_Image">
+                <ScalarProperty Name="IdAdvertising" ColumnName="IdAdvertising" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Manufacturer">
+            <EntityTypeMapping TypeName="DivarModel.TBL_Manufacturer">
+              <MappingFragment StoreEntitySet="TBL_Manufacturer">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Product">
+            <EntityTypeMapping TypeName="DivarModel.TBL_Product">
+              <MappingFragment StoreEntitySet="TBL_Product">
+                <ScalarProperty Name="AdvertiserTypeID" ColumnName="AdvertiserTypeID" />
+                <ScalarProperty Name="AdvertisementTypeID" ColumnName="AdvertisementTypeID" />
+                <ScalarProperty Name="IdAdvertisement" ColumnName="IdAdvertisement" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="KiloMeters" ColumnName="KiloMeters" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Service">
+            <EntityTypeMapping TypeName="DivarModel.TBL_Service">
+              <MappingFragment StoreEntitySet="TBL_Service">
+                <ScalarProperty Name="IdAdvertisement" ColumnName="IdAdvertisement" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_State">
+            <EntityTypeMapping TypeName="DivarModel.TBL_State">
+              <MappingFragment StoreEntitySet="TBL_State">
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Vehicle">
+            <EntityTypeMapping TypeName="DivarModel.TBL_Vehicle">
+              <MappingFragment StoreEntitySet="TBL_Vehicle">
+                <ScalarProperty Name="Series" ColumnName="Series" />
+                <ScalarProperty Name="AssemblerID" ColumnName="AssemblerID" />
+                <ScalarProperty Name="ManufacturerID" ColumnName="ManufacturerID" />
+                <ScalarProperty Name="VehicleTypeID" ColumnName="VehicleTypeID" />
+                <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_VehicleType">
+            <EntityTypeMapping TypeName="DivarModel.TBL_VehicleType">
+              <MappingFragment StoreEntitySet="TBL_VehicleType">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="DivarModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetUser">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRole">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

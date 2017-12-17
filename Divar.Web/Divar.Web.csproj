@@ -114,6 +114,16 @@
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Divar.Core\Divar.Core.csproj">
+      <Project>{5dc117a1-8a71-4ef8-ae5f-b70f9fb95bb2}</Project>
+      <Name>Divar.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Divar.Infrastructure\Divar.Infrastructure.csproj">
+      <Project>{aa988e2a-67c9-4b54-a307-9d890c7ddd3a}</Project>
+      <Name>Divar.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
