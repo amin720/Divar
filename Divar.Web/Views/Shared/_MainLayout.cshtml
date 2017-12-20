@@ -44,21 +44,21 @@
         <nav class="fh5co-nav" role="navigation">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-xs-2">
+                    <div class="col-md-4 col-xs-3">
                         @if (Request.IsAuthenticated)
                         {
-                            <div class="col-xs-6 text-right">
+                            <div class="text-right">
                                 خوش آمدید  @User.Identity.GetUserName() , <a href="@Url.Action("Logout","Account")" class="text-uppercase">خروج</a>
                             </div>}
                         else
                         {
-                            <div class="col-xs-6 text-right">
-                                خوش آمدید مهمان, <a href="@Url.Action("Index","Account")" class="text-uppercase">ورود</a> | <a href="@Url.Action("Index","Account")" class="text-uppercase">ایجاد یک حساب کاربری جدید</a>
+                            <div class="text-right">
+                                 مهمان خوش آمدید , <a href="@Url.Action("Index","Account")" class="text-uppercase">ورود</a> | <a href="@Url.Action("Index","Account")" class="text-uppercase">ایجاد یک حساب کاربری جدید</a>
                             </div>}
                     </div>
                     <div class="col-md-6 col-xs-6 text-center menu-1">
                         <ul>
-                            <li><a href="index.html" style="font-weight:bold">صفحه اصلی</a></li>
+                            <li><a href="@Url.Action("Index","Home")" style="font-weight:bold">صفحه اصلی</a></li>
                         @if (Request.IsAuthenticated)
                         {
                             <li><a href="New-car.html" style="font-weight: bold">ماشین جدید به نمایش بگذارید</a></li>
@@ -70,7 +70,7 @@
                             <li><a href="contact.html" style="font-weight:bold" >تماس با ما</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-3 col-xs-4 text-right hidden-xs menu-2">
+                    <div class="col-md-2 col-xs-3 text-right hidden-xs menu-2">
                         <div id="fh5co-logo"><a href="index.html">اتوگالری</a></div>
                     </div>
                 </div>
