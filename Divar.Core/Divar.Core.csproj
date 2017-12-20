@@ -128,11 +128,11 @@
       <DependentUpon>Divar.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\UserIdentity.cs" />
+    <Compile Include="Interfaces\IRoleRepository.cs" />
+    <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EntityDeploy Include="Entities\Divar.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
