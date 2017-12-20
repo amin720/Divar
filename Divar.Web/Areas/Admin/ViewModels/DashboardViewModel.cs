@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using Restaurant.Core.Entities;
-
-namespace Restaurant.Web.Areas.Admin.ViewModels
+﻿namespace Divar.Web.Areas.Admin.ViewModels
 {
 	public class DashboardViewModel
 	{
@@ -11,6 +8,6 @@ namespace Restaurant.Web.Areas.Admin.ViewModels
 		public int Users { get; set; }
 		public string UserLogin { get; set; }
 		public string Role { get; set; }
-		public IEnumerable<Category> Categories { get; set; }
+		//public IEnumerable<Category> Categories { get; set; }
 	}
 }

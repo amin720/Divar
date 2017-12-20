@@ -1,11 +1,11 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using Restaurant.Core.Entities;
-using Restaurant.Core.Interfaces;
-using Restaurant.Web.Areas.Admin.ViewModels;
+using Divar.Core.Entities;
+using Divar.Core.Interfaces;
+using Divar.Web.Areas.Admin.ViewModels;
 
-namespace Restaurant.Web.Areas.Admin.Services
+namespace Divar.Web.Areas.Admin.Services
 {
 	public class UserService
 	{

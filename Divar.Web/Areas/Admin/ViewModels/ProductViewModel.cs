@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using Restaurant.Core.Entities;
 
-namespace Restaurant.Web.Areas.Admin.ViewModels
+namespace Divar.Web.Areas.Admin.ViewModels
 {
 	public class ProductViewModel
 	{
@@ -20,6 +19,6 @@ namespace Restaurant.Web.Areas.Admin.ViewModels
 		public int Count { get; set; }
 		public string AuthorId { get; set; }
 		public string ImageUrl { get; set; }
-		public IEnumerable<Category> Categories { get; set; }
+		//public IEnumerable<Category> Categories { get; set; }
 	}
 }

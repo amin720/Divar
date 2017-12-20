@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using Restaurant.Core.Entities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web.Mvc;
+using Divar.Core.Entities;
+using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace Restaurant.Web.Areas.Admin.ViewModels
+namespace Divar.Web.Areas.Admin.ViewModels
 {
 	public class UserViewModel
 	{
