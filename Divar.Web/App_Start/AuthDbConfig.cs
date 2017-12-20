@@ -9,25 +9,6 @@ namespace Divar.Web.App_Start
 	{
 		public static async Task RegisterAdmin()
 		{
-			using (var users = new UserRepository())
-			{
-				var user = await users.GetUserByNameAsync("admin");
-
-				if (user == null)
-				{
-					var adminUser = new UserIdentity
-					{
-						UserName = "admin",
-						Email = "admin@cms.com",
-						DisplayName = "Administrator"
-					};
-
-					await users.CreateAsync(adminUser, "User@1234");
-				}
-
-				await users.AddUserToRoleAsync(user, "admin");
-			}
-
 			using (var roles = new RoleRepository())
 			{
 				if (await roles.GetRoleByNameAsync("admin") == null)
@@ -50,6 +31,27 @@ namespace Divar.Web.App_Start
 					await roles.CreateAsync(new IdentityRole("user"));
 				}
 			}
+
+			using (var users = new UserRepository())
+			{
+				var user = await users.GetUserByNameAsync("admin");
+
+				if (user == null)
+				{
+					var adminUser = new UserIdentity
+					{
+						UserName = "admin",
+						Email = "admin@cms.com",
+						DisplayName = "Administrator"
+					};
+
+					await users.CreateAsync(adminUser, "User@1234");
+				}
+
+				await users.AddUserToRoleAsync(user, "admin");
+			}
+
+			
 		}
 	}
 }

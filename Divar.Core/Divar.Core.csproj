@@ -128,7 +128,9 @@
       <DependentUpon>Divar.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\UserIdentity.cs" />
+    <Compile Include="Interfaces\ICityRepository.cs" />
     <Compile Include="Interfaces\IRoleRepository.cs" />
+    <Compile Include="Interfaces\IStateRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
