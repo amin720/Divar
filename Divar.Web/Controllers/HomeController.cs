@@ -17,5 +17,23 @@ namespace Divar.Web.Controllers
         {
             return View();
         }
-    }
+
+		// GET: FQ
+		[Route("F&Q")]
+	    [HttpGet]
+	    [AllowAnonymous]
+	    public ActionResult FQ()
+	    {
+		    return View();
+	    }
+
+		// GET: Contact
+		[Route("Contact")]
+	    [HttpGet]
+	    [AllowAnonymous]
+	    public ActionResult Contact()
+	    {
+		    return View();
+	    }
+	}
 }
