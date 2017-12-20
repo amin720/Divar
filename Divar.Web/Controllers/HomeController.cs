@@ -12,7 +12,8 @@ namespace Divar.Web.Controllers
         // GET: Home
 		[Route("")]
 		[HttpGet]
-        public ActionResult Index()
+		[AllowAnonymous]
+		public ActionResult Index()
         {
             return View();
         }

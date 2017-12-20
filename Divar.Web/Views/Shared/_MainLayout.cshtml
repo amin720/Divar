@@ -1,6 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
 
-<html>
+<html  lang="fa" xml:lang="fa" class="no-js">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,13 +45,25 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-xs-2">
-                        <div id="fh5co-logo"><a href="index.html">اتوگالری</a></div>
+                        @if (Request.IsAuthenticated)
+                        {
+                            <div class="col-xs-6 text-right">
+                                خوش آمدید  @User.Identity.GetUserName() , <a href="@Url.Action("Logout","Account")" class="text-uppercase">خروج</a>
+                            </div>}
+                        else
+                        {
+                            <div class="col-xs-6 text-right">
+                                خوش آمدید مهمان, <a href="@Url.Action("Index","Account")" class="text-uppercase">ورود</a> | <a href="@Url.Action("Index","Account")" class="text-uppercase">ایجاد یک حساب کاربری جدید</a>
+                            </div>}
                     </div>
                     <div class="col-md-6 col-xs-6 text-center menu-1">
                         <ul>
-                            <li><a href="index.html" style="font-weight:bold">صفحه اصلی</a></li>							
+                            <li><a href="index.html" style="font-weight:bold">صفحه اصلی</a></li>
+                        @if (Request.IsAuthenticated)
+                        {
+                            <li><a href="New-car.html" style="font-weight: bold">ماشین جدید به نمایش بگذارید</a></li>
+                        }
                             <li class="has-dropdown">
-                                <li><a href="New-car.html" style="font-weight:bold">ماشین جدید به نمایش بگذارید</a></li>													
                                 <a href="product.html" style="font-weight:bold">نمایشگاه اتومبیل</a>
                             </li>
                             <li><a href="about.html" style="font-weight:bold">شرایط و راهنما</a></li>
@@ -58,17 +71,7 @@
                         </ul>
                     </div>
                     <div class="col-md-3 col-xs-4 text-right hidden-xs menu-2">
-                        <ul>
-                            <li class="search">
-                                <div class="input-group">
-                                    <input type="text" placeholder="جستوجو..">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary" type="button"><i class="icon-search"></i></button>
-                                    </span>
-                                </div>
-                            </li>
-                            <li class="shopping-cart"><a href="#" class="cart"><span><small>0</small><i class="icon-shopping-cart"></i></span></a></li>
-                        </ul>
+                        <div id="fh5co-logo"><a href="index.html">اتوگالری</a></div>
                     </div>
                 </div>
 			
