@@ -1,13 +1,13 @@
 ﻿@using Divar.Core.Entities
-@model Divar.Web.Areas.Admin.ViewModels.CategoryViewModel<Divar.Core.Entities.TBL_State>
+@model Divar.Web.Areas.Admin.ViewModels.CategoryViewModel<Divar.Core.Entities.State>
 @{
     ViewBag.Title = "EditState";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdminPage.cshtml";
 
-    IEnumerable<TBL_City> cites;
+    IEnumerable<City> cites;
     using (var db = new DivarEntities())
     {
-        cites = db.TBL_City.OrderBy(c => c.Name).ToList();
+        cites = db.City.OrderBy(c => c.Name).ToList();
     }
 }
 

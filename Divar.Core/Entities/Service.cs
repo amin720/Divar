@@ -12,19 +12,13 @@ namespace Divar.Core.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class TBL_Color
+    public partial class Service
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TBL_Color()
-        {
-            this.TBL_Vehicle = new HashSet<TBL_Vehicle>();
-        }
-    
         public int Id { get; set; }
-        public string Code { get; set; }
         public string Name { get; set; }
+        public string Link { get; set; }
+        public Nullable<int> IdAdvertisement { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_Vehicle> TBL_Vehicle { get; set; }
+        public virtual Advertisement Advertisement { get; set; }
     }
 }

@@ -12,15 +12,15 @@ namespace Divar.Core.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class TBL_Advertisement
+    public partial class Advertisement
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TBL_Advertisement()
+        public Advertisement()
         {
-            this.TBL_Employment = new HashSet<TBL_Employment>();
-            this.TBL_Image = new HashSet<TBL_Image>();
-            this.TBL_Product = new HashSet<TBL_Product>();
-            this.TBL_Service = new HashSet<TBL_Service>();
+            this.Employments = new HashSet<Employment>();
+            this.Images = new HashSet<Image>();
+            this.Products = new HashSet<Product>();
+            this.Services = new HashSet<Service>();
         }
     
         public int Id { get; set; }
@@ -30,15 +30,15 @@ namespace Divar.Core.Entities
         public string Description { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
-        public virtual TBL_City TBL_City { get; set; }
-        public virtual TBL_Vehicle TBL_Vehicle { get; set; }
+        public virtual City City { get; set; }
+        public virtual Vehicle Vehicle { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_Employment> TBL_Employment { get; set; }
+        public virtual ICollection<Employment> Employments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_Image> TBL_Image { get; set; }
+        public virtual ICollection<Image> Images { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_Product> TBL_Product { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_Service> TBL_Service { get; set; }
+        public virtual ICollection<Service> Services { get; set; }
     }
 }

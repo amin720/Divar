@@ -58,7 +58,7 @@ namespace Divar.Web.Areas.Admin.Controllers
 
 		// GET: Admin/Address/CityCreate
 		[HttpGet]
-		public ActionResult CityCreate(TBL_City city)
+		public ActionResult CityCreate(City city)
 		{
 			if (!ModelState.IsValid)
 			{
@@ -86,7 +86,7 @@ namespace Divar.Web.Areas.Admin.Controllers
 			{
 				var category = _cityRepository.Get(cityName);
 
-				var model = new CategoryViewModel<TBL_City>
+				var model = new CategoryViewModel<City>
 				{
 					Id = category.Id,
 					Name = category.Name,
@@ -108,7 +108,7 @@ namespace Divar.Web.Areas.Admin.Controllers
 		[ValidateAntiForgeryToken]
 		[Route("edit/{cityName}")]
 		[Authorize(Roles = "admin, editor")]
-		public ActionResult EditCity(string cityName, CategoryViewModel<TBL_City> newCat)
+		public ActionResult EditCity(string cityName, CategoryViewModel<City> newCat)
 		{
 			try
 			{
@@ -122,7 +122,7 @@ namespace Divar.Web.Areas.Admin.Controllers
 					return View(model: newCat);
 				}
 
-				var model = new TBL_City()
+				var model = new City()
 				{
 					Id = newCat.Id,
 					Name = newCat.Name,
@@ -156,7 +156,7 @@ namespace Divar.Web.Areas.Admin.Controllers
 		//        [ValidateAntiForgeryToken]
 		[Route("delete/{cityName}")]
 		[Authorize(Roles = "admin, editor")]
-		public ActionResult DeleteCity(string cityName, TBL_City city)
+		public ActionResult DeleteCity(string cityName, City city)
 		{
 			try
 			{
@@ -189,7 +189,7 @@ namespace Divar.Web.Areas.Admin.Controllers
 
 		// GET: Admin/Address/CityCreate
 		[HttpGet]
-		public ActionResult StateCreate(TBL_State state)
+		public ActionResult StateCreate(State state)
 		{
 			if (!ModelState.IsValid)
 			{
@@ -217,7 +217,7 @@ namespace Divar.Web.Areas.Admin.Controllers
 			{
 				var category = _stateRepository.Get(stateName);
 
-				var model = new CategoryViewModel<TBL_State>
+				var model = new CategoryViewModel<State>
 				{
 					Id = category.Id,
 					Name = category.Name,
@@ -239,7 +239,7 @@ namespace Divar.Web.Areas.Admin.Controllers
 		[ValidateAntiForgeryToken]
 		[Route("edit/{cityName}")]
 		[Authorize(Roles = "admin, editor")]
-		public ActionResult EditState(string stateName, CategoryViewModel<TBL_State> newCat)
+		public ActionResult EditState(string stateName, CategoryViewModel<State> newCat)
 		{
 			try
 			{
@@ -253,7 +253,7 @@ namespace Divar.Web.Areas.Admin.Controllers
 					return View(model: newCat);
 				}
 
-				var model = new TBL_City()
+				var model = new City()
 				{
 					Id = newCat.Id,
 					Name = newCat.Name,
@@ -287,7 +287,7 @@ namespace Divar.Web.Areas.Admin.Controllers
 		//        [ValidateAntiForgeryToken]
 		[Route("delete/{stateName}")]
 		[Authorize(Roles = "admin, editor")]
-		public ActionResult DeleteState(string stateName, TBL_State state)
+		public ActionResult DeleteState(string stateName, State state)
 		{
 			try
 			{

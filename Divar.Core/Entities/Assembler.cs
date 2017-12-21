@@ -12,12 +12,12 @@ namespace Divar.Core.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class TBL_VehicleType
+    public partial class Assembler
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TBL_VehicleType()
+        public Assembler()
         {
-            this.TBL_Vehicle = new HashSet<TBL_Vehicle>();
+            this.Vehicles = new HashSet<Vehicle>();
         }
     
         public int Id { get; set; }
@@ -25,6 +25,6 @@ namespace Divar.Core.Entities
         public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_Vehicle> TBL_Vehicle { get; set; }
+        public virtual ICollection<Vehicle> Vehicles { get; set; }
     }
 }

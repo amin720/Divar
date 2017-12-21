@@ -8,39 +8,39 @@ namespace Divar.Infrastructure.Repository
 {
 	public class CityRepository : ICityRepository
 	{
-		public TBL_City Get(string name)
+		public City Get(string name)
 		{
 			using (var db = new DivarEntities())
 			{
-				return db.TBL_City.SingleOrDefault(c => c.Name == name);
+				return db.Cities.SingleOrDefault(c => c.Name == name);
 			}
 		}
-		public IEnumerable<TBL_City> GetAll()
+		public IEnumerable<City> GetAll()
 		{
 			using (var db = new DivarEntities())
 			{
-				return db.TBL_City.OrderBy(c => c.Name).ToList();
+				return db.Cities.OrderBy(c => c.Name).ToList();
 			}
 		}
-		public void Create(TBL_City city)
+		public void Create(City city)
 		{
 			using (var db = new DivarEntities())
 			{
-				var model = db.TBL_City.SingleOrDefault(c => c.Name == city.Name);
+				var model = db.Cities.SingleOrDefault(c => c.Name == city.Name);
 
 				if (model != null)
 				{
 					throw new KeyNotFoundException("this model with name: " + city.Name + "is exist");
 				}
-				db.TBL_City.Add(city);
+				db.Cities.Add(city);
 				db.SaveChanges();
 			}
 		}
-		public void Update(TBL_City city)
+		public void Update(City city)
 		{
 			using (var db = new DivarEntities())
 			{
-				var model = db.TBL_City.SingleOrDefault(c => c.Name == city.Name);
+				var model = db.Cities.SingleOrDefault(c => c.Name == city.Name);
 				if (model == null)
 				{
 					throw new KeyNotFoundException("this model with name: " + city.Name + "is not exist");
@@ -53,12 +53,12 @@ namespace Divar.Infrastructure.Repository
 		{
 			using (var db = new DivarEntities())
 			{
-				var model = db.TBL_City.SingleOrDefault(c => c.Name == name);
+				var model = db.Cities.SingleOrDefault(c => c.Name == name);
 				if (model == null)
 				{
 					throw new KeyNotFoundException("this model with name: " + name + "is not exist");
 				}
-				db.TBL_City.Remove(model);
+				db.Cities.Remove(model);
 				db.SaveChanges();
 			}
 		}

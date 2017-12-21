@@ -12,21 +12,13 @@ namespace Divar.Core.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class TBL_Product
+    public partial class Employment
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public Nullable<decimal> Price { get; set; }
-        public System.DateTime CreationDate { get; set; }
-        public System.DateTime ExpirationDate { get; set; }
-        public int KiloMeters { get; set; }
-        public string Color { get; set; }
+        public string Link { get; set; }
         public Nullable<int> IdAdvertisement { get; set; }
-        public int AdvertisementTypeID { get; set; }
-        public int AdvertiserTypeID { get; set; }
     
-        public virtual TBL_Advertisement TBL_Advertisement { get; set; }
-        public virtual TBL_AdvertisementType TBL_AdvertisementType { get; set; }
-        public virtual TBL_AdvertiserType TBL_AdvertiserType { get; set; }
+        public virtual Advertisement Advertisement { get; set; }
     }
 }

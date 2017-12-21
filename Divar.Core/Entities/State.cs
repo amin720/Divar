@@ -12,18 +12,12 @@ namespace Divar.Core.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class TBL_AdvertiserType
+    public partial class State
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TBL_AdvertiserType()
-        {
-            this.TBL_Product = new HashSet<TBL_Product>();
-        }
-    
         public int Id { get; set; }
         public string Name { get; set; }
+        public int CityID { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_Product> TBL_Product { get; set; }
+        public virtual City City { get; set; }
     }
 }

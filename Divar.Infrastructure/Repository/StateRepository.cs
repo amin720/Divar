@@ -8,38 +8,38 @@ namespace Divar.Infrastructure.Repository
 {
 	public class StateRepository : IStateRepository
 	{
-		public TBL_State Get(string name)
+		public State Get(string name)
 		{
 			using (var db = new DivarEntities())
 			{
-				return db.TBL_State.SingleOrDefault(c => c.Name == name);
+				return db.States.SingleOrDefault(c => c.Name == name);
 			}
 		}
-		public IEnumerable<TBL_State> GetAll()
+		public IEnumerable<State> GetAll()
 		{
 			using (var db = new DivarEntities())
 			{
-				return db.TBL_State.OrderBy(c => c.Name).ToList();
+				return db.States.OrderBy(c => c.Name).ToList();
 			}
 		}
-		public void Create(TBL_State state)
+		public void Create(State state)
 		{
 			using (var db = new DivarEntities())
 			{
-				var model = db.TBL_State.SingleOrDefault(c => c.Name == state.Name);
+				var model = db.States.SingleOrDefault(c => c.Name == state.Name);
 				if (model != null)
 				{
 					throw new KeyNotFoundException("this model with name: " + state.Name + "is exist");
 				}
-				db.TBL_State.Add(state);
+				db.States.Add(state);
 				db.SaveChanges();
 			}
 		}
-		public void Update(TBL_State state)
+		public void Update(State state)
 		{
 			using (var db = new DivarEntities())
 			{
-				var model = db.TBL_State.SingleOrDefault(c => c.Name == state.Name);
+				var model = db.States.SingleOrDefault(c => c.Name == state.Name);
 				if (model == null)
 				{
 					throw new KeyNotFoundException("this model with name: " + state.Name + "is not exist");
@@ -52,21 +52,21 @@ namespace Divar.Infrastructure.Repository
 		{
 			using (var db = new DivarEntities())
 			{
-				var model = db.TBL_State.SingleOrDefault(c => c.Name == name);
+				var model = db.States.SingleOrDefault(c => c.Name == name);
 				if (model == null)
 				{
 					throw new KeyNotFoundException("this model with name: " + name + "is not exist");
 				}
-				db.TBL_State.Remove(model);
+				db.States.Remove(model);
 				db.SaveChanges();
 			}
 		}
 
-		public IEnumerable<TBL_State> GetAllCityStates()
+		public IEnumerable<State> GetAllCityStates()
 		{
 			using (var db = new DivarEntities())
 			{
-				return db.TBL_State.Include("TBL_City").OrderBy(c => c.Name).ToList();
+				return db.States.Include("City").OrderBy(c => c.Name).ToList();
 			}
 		}
 	}

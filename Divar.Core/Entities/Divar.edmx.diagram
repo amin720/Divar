@@ -25,7 +25,7 @@
         <EntityTypeShape EntityType="DivarModel.Vehicle" Width="1.5" PointX="3.75" PointY="13.375" />
         <EntityTypeShape EntityType="DivarModel.VehicleType" Width="1.5" PointX="1.5" PointY="10.375" />
         <AssociationConnector Association="DivarModel.FK_TBL_Advertisement_AspNetUsers" />
-        <AssociationConnector Association="DivarModel.FK_TBL_Advertisement_TBL_City" />
+        <AssociationConnector Association="DivarModel.FK_TBL_Advertisement_City" />
         <AssociationConnector Association="DivarModel.FK_TBL_Advertisement_TBL_Vehicle" />
         <AssociationConnector Association="DivarModel.FK_TBL_Employment_TBL_Advertisement" />
         <AssociationConnector Association="DivarModel.FK_TBL_Image_TBL_Advertising" />
@@ -36,7 +36,7 @@
         <AssociationConnector Association="DivarModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="DivarModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="DivarModel.FK_TBL_Vehicle_TBL_Assembler" />
-        <AssociationConnector Association="DivarModel.FK_TBL_State_TBL_City" />
+        <AssociationConnector Association="DivarModel.FK_State_City" />
         <AssociationConnector Association="DivarModel.FK_TBL_Vehicle_TBL_Color" />
         <AssociationConnector Association="DivarModel.FK_TBL_Vehicle_TBL_Manufacturer" />
         <AssociationConnector Association="DivarModel.FK_TBL_Vehicle_TBL_VehicleType" />

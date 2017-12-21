@@ -25,24 +25,24 @@ namespace Divar.Core.Entities
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Advertisement> Advertisements { get; set; }
+        public virtual DbSet<AdvertisementType> AdvertisementTypes { get; set; }
+        public virtual DbSet<AdvertiserType> AdvertiserTypes { get; set; }
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
+        public virtual DbSet<Assembler> Assemblers { get; set; }
+        public virtual DbSet<City> Cities { get; set; }
+        public virtual DbSet<Color> Colors { get; set; }
+        public virtual DbSet<Employment> Employments { get; set; }
+        public virtual DbSet<Image> Images { get; set; }
+        public virtual DbSet<Manufacturer> Manufacturers { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Service> Services { get; set; }
+        public virtual DbSet<State> States { get; set; }
         public virtual DbSet<Statistic> Statistics { get; set; }
-        public virtual DbSet<TBL_Advertisement> TBL_Advertisement { get; set; }
-        public virtual DbSet<TBL_AdvertisementType> TBL_AdvertisementType { get; set; }
-        public virtual DbSet<TBL_AdvertiserType> TBL_AdvertiserType { get; set; }
-        public virtual DbSet<TBL_Assembler> TBL_Assembler { get; set; }
-        public virtual DbSet<TBL_City> TBL_City { get; set; }
-        public virtual DbSet<TBL_Color> TBL_Color { get; set; }
-        public virtual DbSet<TBL_Employment> TBL_Employment { get; set; }
-        public virtual DbSet<TBL_Image> TBL_Image { get; set; }
-        public virtual DbSet<TBL_Manufacturer> TBL_Manufacturer { get; set; }
-        public virtual DbSet<TBL_Product> TBL_Product { get; set; }
-        public virtual DbSet<TBL_Service> TBL_Service { get; set; }
-        public virtual DbSet<TBL_State> TBL_State { get; set; }
-        public virtual DbSet<TBL_Vehicle> TBL_Vehicle { get; set; }
-        public virtual DbSet<TBL_VehicleType> TBL_VehicleType { get; set; }
+        public virtual DbSet<Vehicle> Vehicles { get; set; }
+        public virtual DbSet<VehicleType> VehicleTypes { get; set; }
     }
 }

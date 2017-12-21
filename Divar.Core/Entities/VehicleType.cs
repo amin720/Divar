@@ -12,21 +12,19 @@ namespace Divar.Core.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class TBL_City
+    public partial class VehicleType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TBL_City()
+        public VehicleType()
         {
-            this.TBL_Advertisement = new HashSet<TBL_Advertisement>();
-            this.TBL_State = new HashSet<TBL_State>();
+            this.Vehicles = new HashSet<Vehicle>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_Advertisement> TBL_Advertisement { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_State> TBL_State { get; set; }
+        public virtual ICollection<Vehicle> Vehicles { get; set; }
     }
 }

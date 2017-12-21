@@ -4,16 +4,16 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdminPage.cshtml";
 
-    IEnumerable<TBL_City> cites;
+    IEnumerable<City> cites;
     using (var db = new DivarEntities())
     {
-        cites = db.TBL_City.OrderBy(c => c.Name).ToList();
+        cites = db.Cities.OrderBy(c => c.Name).ToList();
     }
 
-    IEnumerable<TBL_State> states;
+    IEnumerable<State> states;
     using (var db = new DivarEntities())
     {
-        states = db.TBL_State.Include("TBL_City").OrderBy(c => c.Name).ToList();
+        states = db.States.Include("City").OrderBy(c => c.Name).ToList();
     }
 
     var i = 1;

@@ -55,6 +55,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Advertisement.cs">
+      <DependentUpon>Divar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AdvertisementType.cs">
+      <DependentUpon>Divar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AdvertiserType.cs">
+      <DependentUpon>Divar.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\AspNetRole.cs">
       <DependentUpon>Divar.tt</DependentUpon>
     </Compile>
@@ -65,6 +74,15 @@
       <DependentUpon>Divar.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\AspNetUserLogin.cs">
+      <DependentUpon>Divar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Assembler.cs">
+      <DependentUpon>Divar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\City.cs">
+      <DependentUpon>Divar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Color.cs">
       <DependentUpon>Divar.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Divar.Context.cs">
@@ -82,52 +100,34 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Divar.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Employment.cs">
+      <DependentUpon>Divar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Image.cs">
+      <DependentUpon>Divar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Manufacturer.cs">
+      <DependentUpon>Divar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Product.cs">
+      <DependentUpon>Divar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Service.cs">
+      <DependentUpon>Divar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\State.cs">
+      <DependentUpon>Divar.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Statistic.cs">
       <DependentUpon>Divar.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\TBL_Advertisement.cs">
-      <DependentUpon>Divar.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\TBL_AdvertisementType.cs">
-      <DependentUpon>Divar.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\TBL_AdvertiserType.cs">
-      <DependentUpon>Divar.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\TBL_Assembler.cs">
-      <DependentUpon>Divar.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\TBL_City.cs">
-      <DependentUpon>Divar.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\TBL_Color.cs">
-      <DependentUpon>Divar.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\TBL_Employment.cs">
-      <DependentUpon>Divar.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\TBL_Image.cs">
-      <DependentUpon>Divar.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\TBL_Manufacturer.cs">
-      <DependentUpon>Divar.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\TBL_Product.cs">
-      <DependentUpon>Divar.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\TBL_Service.cs">
-      <DependentUpon>Divar.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\TBL_State.cs">
-      <DependentUpon>Divar.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\TBL_Vehicle.cs">
-      <DependentUpon>Divar.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\TBL_VehicleType.cs">
-      <DependentUpon>Divar.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entities\UserIdentity.cs" />
+    <Compile Include="Entities\Vehicle.cs">
+      <DependentUpon>Divar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\VehicleType.cs">
+      <DependentUpon>Divar.tt</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\ICityRepository.cs" />
     <Compile Include="Interfaces\IRoleRepository.cs" />
     <Compile Include="Interfaces\IStateRepository.cs" />

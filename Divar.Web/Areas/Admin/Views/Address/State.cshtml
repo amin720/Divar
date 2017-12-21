@@ -1,15 +1,15 @@
 ﻿@using System.Web.UI.WebControls
 @using Divar.Core.Entities
-@model IEnumerable<Divar.Core.Entities.TBL_State>
+@model IEnumerable<Divar.Core.Entities.State>
 
 @{
         ViewBag.Title = "محله ها";
         Layout = "~/Areas/Admin/Views/Shared/_LayoutAdminPage.cshtml";
         var counter = 1;
-        IEnumerable<TBL_City> cites;
+        IEnumerable<City> cites;
         using (var db = new DivarEntities())
         {
-            cites = db.TBL_City.OrderBy(c => c.Name).ToList();
+            cites = db.City.OrderBy(c => c.Name).ToList();
         }
 
     }

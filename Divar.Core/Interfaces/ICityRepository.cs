@@ -9,10 +9,10 @@ namespace Divar.Core.Interfaces
 {
 	public interface ICityRepository
 	{
-		TBL_City Get(string name);
-		IEnumerable<TBL_City> GetAll();
-		void Create(TBL_City city);
-		void Update(TBL_City city);
+		City Get(string name);
+		IEnumerable<City> GetAll();
+		void Create(City city);
+		void Update(City city);
 		void Delete(string name);
 	}
 }
