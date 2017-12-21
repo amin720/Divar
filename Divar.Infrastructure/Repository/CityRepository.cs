@@ -12,7 +12,7 @@ namespace Divar.Infrastructure.Repository
 		{
 			using (var db = new DivarEntities())
 			{
-				return db.TBL_City.SingleOrDefault(c => string.Equals(c.Name, name, StringComparison.CurrentCultureIgnoreCase));
+				return db.TBL_City.SingleOrDefault(c => c.Name == name);
 			}
 		}
 		public IEnumerable<TBL_City> GetAll()
@@ -26,8 +26,8 @@ namespace Divar.Infrastructure.Repository
 		{
 			using (var db = new DivarEntities())
 			{
-				var model = db.TBL_City.SingleOrDefault(c =>
-					string.Equals(c.Name, city.Name, StringComparison.CurrentCultureIgnoreCase));
+				var model = db.TBL_City.SingleOrDefault(c => c.Name == city.Name);
+
 				if (model != null)
 				{
 					throw new KeyNotFoundException("this model with name: " + city.Name + "is exist");
@@ -40,8 +40,7 @@ namespace Divar.Infrastructure.Repository
 		{
 			using (var db = new DivarEntities())
 			{
-				var model = db.TBL_City.SingleOrDefault(c =>
-					string.Equals(c.Name, city.Name, StringComparison.CurrentCultureIgnoreCase));
+				var model = db.TBL_City.SingleOrDefault(c => c.Name == city.Name);
 				if (model == null)
 				{
 					throw new KeyNotFoundException("this model with name: " + city.Name + "is not exist");
@@ -54,8 +53,7 @@ namespace Divar.Infrastructure.Repository
 		{
 			using (var db = new DivarEntities())
 			{
-				var model = db.TBL_City.SingleOrDefault(c =>
-					string.Equals(c.Name, name, StringComparison.CurrentCultureIgnoreCase));
+				var model = db.TBL_City.SingleOrDefault(c => c.Name == name);
 				if (model == null)
 				{
 					throw new KeyNotFoundException("this model with name: " + name + "is not exist");

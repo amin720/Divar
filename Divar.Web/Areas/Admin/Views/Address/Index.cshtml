@@ -1,0 +1,74 @@
+﻿@using Divar.Core.Entities
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdminPage.cshtml";
+
+    IEnumerable<TBL_City> cites;
+    using (var db = new DivarEntities())
+    {
+        cites = db.TBL_City.OrderBy(c => c.Name).ToList();
+    }
+
+    IEnumerable<TBL_State> states;
+    using (var db = new DivarEntities())
+    {
+        states = db.TBL_State.Include("TBL_City").OrderBy(c => c.Name).ToList();
+    }
+
+    var i = 1;
+    var j = 1;
+}
+
+<table class="table table-bordered table-responsive table-hover table-striped" dir="rtl">
+    <thead>
+    <tr >
+        <th>#</th>
+        <th>شهر</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var city in cites)
+    {
+        <tr>
+            <td>
+                @i
+            </td>
+            <td>
+                @city.Name
+            </td>
+            <td>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>محله</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var state in states.Where(c => c.CityID == city.Id).ToList())
+                    {
+                        <tr>
+                            <td>
+                                @j
+                            </td>
+                            <td>
+                                @state.Name
+                            </td>
+                        </tr>
+
+                        j++;
+                    }
+                    </tbody>
+                </table>
+                @{
+                    j = 1;
+                }
+            </td>
+        </tr>
+
+        i++;
+    }
+    </tbody>
+</table>
+

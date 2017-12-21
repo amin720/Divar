@@ -199,9 +199,9 @@ namespace Divar.Web.Areas.Admin.Controllers
 
 					items.Add(new AdminMenuItem()
 					{
-						Text = "Products",
+						Text = "Address",
 						Action = "index",
-						RouteInfo = new { controller = "product", area = "admin" }
+						RouteInfo = new { controller = "address", area = "admin" }
 					});
 				}
 				else

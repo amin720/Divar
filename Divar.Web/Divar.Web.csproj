@@ -684,6 +684,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AddressController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Services\UserService.cs" />
@@ -790,6 +791,13 @@
     <Content Include="Areas\Admin\Views\User\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Address\City.cshtml" />
+    <Content Include="Areas\Admin\Views\Address\EditCity.cshtml" />
+    <Content Include="Areas\Admin\Views\Address\DeleteCity.cshtml" />
+    <Content Include="Areas\Admin\Views\Address\State.cshtml" />
+    <Content Include="Areas\Admin\Views\Address\EditState.cshtml" />
+    <Content Include="Areas\Admin\Views\Address\DeleteState.cshtml" />
+    <Content Include="Areas\Admin\Views\Address\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_MainLayout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
