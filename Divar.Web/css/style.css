@@ -314,15 +314,15 @@ h1, h2, h3, h4, h5, h6, figure {
   z-index: 1000;
 }
 #fh5co-hero .flexslider .flex-control-nav li a {
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: none;
+  background: rgba(205, 205, 155, 0.8);
+  box-shadow: 15px;
   width: 12px;
   height: 12px;
   cursor: pointer;
 }
 #fh5co-hero .flexslider .flex-control-nav li a.flex-active {
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(145, 245, 255, 0.7);
 }
 #fh5co-hero .flexslider .flex-direction-nav {
   display: none;

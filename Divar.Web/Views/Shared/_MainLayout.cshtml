@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNet.Identity
 <!DOCTYPE html>
 
-<html  lang="fa" xml:lang="fa" class="no-js">
+<html lang="fa" xml:lang="fa" class="no-js">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,9 +26,13 @@
     <link rel="stylesheet" href="~/css/bootstrap-rtl.min.css">
     <!-- Theme style  -->
     <link rel="stylesheet" href="~/css/style.css">
+    <!-- Gallary style  -->
+    <link rel="stylesheet" href="~/css/gallaery.css">
+    <link rel="stylesheet" href="~/font-awesome-4.6.3/css/font-awesome.min.css">
+
     <!-- Modernizr JS -->
     <script src="~/js/modernizr-2.6.2.min.js"></script>
-    
+
     <!-- Theme style RTL -->
     <link rel="stylesheet" href="~/css/style.rtl.css">
     <!-- FOR IE9 below -->
@@ -53,45 +57,41 @@
                         else
                         {
                             <div class="text-right">
-                                 مهمان خوش آمدید , <a href="@Url.Action("Index","Account")" class="text-uppercase">ورود</a> | <a href="@Url.Action("Index","Account")" class="text-uppercase">ایجاد یک حساب کاربری جدید</a>
+                                مهمان خوش آمدید , <a href="@Url.Action("Index","Account")" class="text-uppercase">ورود</a> | <a href="@Url.Action("Index","Account")" class="text-uppercase">ایجاد یک حساب کاربری جدید</a>
                             </div>}
                     </div>
                     <div class="col-md-6 col-xs-6 text-center menu-1">
                         <ul>
                             <li><a href="@Url.Action("Index","Home")" style="font-weight:bold">صفحه اصلی</a></li>
-                        @if (Request.IsAuthenticated)
-                        {
-                            <li><a href="New-car.html" style="font-weight: bold">ماشین جدید به نمایش بگذارید</a></li>
-                        }
+                            @if (Request.IsAuthenticated)
+                            {
+                                <li><a href="New-car.html" style="font-weight: bold">ماشین جدید به نمایش بگذارید</a></li>}
                             <li class="has-dropdown">
                                 <a href="product.html" style="font-weight:bold">نمایشگاه اتومبیل</a>
                             </li>
                             <li><a href="@Url.Action("FQ","Home")" style="font-weight:bold">شرایط و راهنما</a></li>
-                            <li><a href="@Url.Action("Contact","Home")" style="font-weight:bold" >تماس با ما</a></li>
+                            <li><a href="@Url.Action("Contact","Home")" style="font-weight:bold">تماس با ما</a></li>
                         </ul>
                     </div>
                     <div class="col-md-2 col-xs-3 text-right hidden-xs menu-2">
                         <div id="fh5co-logo"><a href="@Url.Action("Index","Home")">اتوگالری</a>|<a href="/admin/admin/login" style="font-size: 0.75em;color: crimson">ورود ادمین</a></div>
                     </div>
                 </div>
-			
+
             </div>
         </nav>
-        
-        
-        
+
+
+
         @RenderBody()
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
         <div class="gototop js-top">
             <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
         </div>
-
+        @RenderSection("Modal", false);
         <!-- jQuery -->
         <script src="~/js/jquery.min.js"></script>
         <!-- jQuery Easing -->
@@ -108,6 +108,8 @@
         <script src="~/js/jquery.flexslider-min.js"></script>
         <!-- Main -->
         <script src="~/js/main.js"></script>
+        <!-- Gallery -->
+        <script src="~/js/gallery.js"></script>
     </div>
 </body>
 </html>

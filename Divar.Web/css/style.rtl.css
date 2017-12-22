@@ -8,4 +8,6 @@ body, h1, h2, h3, h4, h5, h6, p, .site-name, .site-name-info, ul, li, .menu-1, a
 input[type="submit"], input[type="email"], input[type="text"], .display-tc, .btn, span {
     font-family: BHoma, Arial, Helvetica, sans-serif !important;
     letter-spacing: normal !important;
+    
 }
+
