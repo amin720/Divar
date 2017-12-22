@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Divar.Core.Interfaces
 {
-    public interface IAdvertismentRepository
+    public interface IAssemblerRepository
     {
     }
 }
