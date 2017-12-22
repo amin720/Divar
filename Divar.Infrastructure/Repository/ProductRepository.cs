@@ -9,7 +9,30 @@ using Divar.Core.Interfaces;
 
 namespace Divar.Infrastructure.Repository
 {
-    public class ProductRepository :IProductsRepository
+    public class ProductRepository : IProductsRepository
     {
+        public Product Get(string Name, DateTime createDate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Product> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+        public void Create(Product product)
+        {
+            throw new NotImplementedException();
+        }
+        public void Update(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(string Name, DateTime createDate)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

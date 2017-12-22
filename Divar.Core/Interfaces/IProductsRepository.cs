@@ -9,10 +9,10 @@ namespace Divar.Core.Interfaces
 {
     public interface IProductsRepository
     {
-        Product Get(String Name);
+        Product Get(String Name,DateTime createDate);
         IEnumerable<Product> GetAll();
         void Create(Product product);
         void Update(Product product);
-        void Delete(String Name);
+        void Delete(String Name,DateTime createDate);
     }
 }
