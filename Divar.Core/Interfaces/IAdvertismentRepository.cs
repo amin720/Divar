@@ -9,10 +9,10 @@ namespace Divar.Core.Interfaces
 {
     public interface IAdvertismentRepository
     {
-        Advertisement Get();
+        Advertisement Get(Int64 vehicleId);
         IEnumerable<Advertisement> GetAll();
         void Create(Advertisement advertisement);
         void Update(Advertisement advertisement);
-        void Delete();
+        void Delete(Int64 vehicleId);
     }
 }

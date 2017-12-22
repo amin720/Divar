@@ -9,11 +9,11 @@ namespace Divar.Core.Interfaces
 {
     public interface IEmploymentRepository
     {
-        Employment Get();
+        Employment Get(String Name);
         IEnumerable<Employment> GetAll();
         void Create(Employment employment);
         void Update(Employment employment);
-        void Delete();
+        void Delete(String Name);
 
     }
 }

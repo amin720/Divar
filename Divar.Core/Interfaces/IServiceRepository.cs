@@ -9,10 +9,10 @@ namespace Divar.Core.Interfaces
 {
     public interface IServiceRepository
     {
-        Service Get();
+        Service Get(String Name);
         IEnumerable<Service> GetAll();
         void Create(Service service);
         void Update(Service service);
-        void Delete();
+        void Delete(String Name);
     }
 }

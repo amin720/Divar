@@ -9,10 +9,10 @@ namespace Divar.Core.Interfaces
 {
     public interface IColorRepository
     {
-        Color Get();
+        Color Get(String Name);
         IEnumerable<Color> GetAll();
         void Create(Color color);
         void Update(Color color);
-        void Delete();
+        void Delete(String Name);
     }
 }

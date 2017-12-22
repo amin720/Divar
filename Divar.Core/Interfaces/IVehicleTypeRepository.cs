@@ -9,10 +9,10 @@ namespace Divar.Core.Interfaces
 {
     public interface IVehicleTypeRepository
     {
-        VehicleType Get();
+        VehicleType Get(String Name);
         IEnumerable<VehicleType> GetAll();
         void Create(VehicleType vehicType);
         void Update(VehicleType vehicType);
-        void Delete();
+        void Delete(String Name);
     }
 }

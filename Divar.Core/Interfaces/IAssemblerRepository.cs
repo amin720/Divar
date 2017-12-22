@@ -9,10 +9,10 @@ namespace Divar.Core.Interfaces
 {
     public interface IAssemblerRepository
     {
-        Assembler Get();
+        Assembler Get(String Name);
         IEnumerable<Assembler> GetAll();
         void Create(Assembler assembler);
         void Update(Assembler assembler);
-        void Delete();
+        void Delete(String Name);
     }
 }

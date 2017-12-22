@@ -9,11 +9,11 @@ namespace Divar.Core.Interfaces
 {
     public interface IAdvertiserTypeRepository
     {
-        AdvertiserType Get();
+        AdvertiserType Get(String Name);
         IEnumerable<AdvertiserType> GetAll();
         void Create(AdvertiserType advType);
         void Update(AdvertiserType advType);
-        void Delete();
+        void Delete(String Name);
 
     }
 }

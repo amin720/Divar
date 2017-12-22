@@ -9,10 +9,10 @@ namespace Divar.Core.Interfaces
 {
     public interface IManufacturerRepository
     {
-        Manufacturer Get();
+        Manufacturer Get(String Name);
         IEnumerable<Manufacturer> GetAll();
         void Create(Manufacturer manufacturer);
         void Update(Manufacturer manufacturer);
-        void Delete();
+        void Delete(String Name);
     }
 }
