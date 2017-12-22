@@ -8,3 +8,8 @@ function toggleChevron(e) {
 }
 $('#accordion').on('hidden.bs.collapse', toggleChevron);
 $('#accordion').on('shown.bs.collapse', toggleChevron);
+
+
+// With JQuery
+$("#ex2").slider({});
+
