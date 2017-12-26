@@ -17,10 +17,9 @@ namespace Divar.Core.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public Nullable<decimal> Price { get; set; }
-        public System.DateTime CreationDate { get; set; }
-        public System.DateTime ExpirationDate { get; set; }
+        public System.DateTime CreateDate { get; set; }
+        public System.DateTime ExpiredDate { get; set; }
         public int KiloMeters { get; set; }
-        public string Color { get; set; }
         public Nullable<int> IdAdvertisement { get; set; }
         public int AdvertisementTypeID { get; set; }
         public int AdvertiserTypeID { get; set; }

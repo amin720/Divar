@@ -136,10 +136,9 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="CreationDate" Type="datetime2" Precision="7" Nullable="false" />
-          <Property Name="ExpirationDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ExpiredDate" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="KiloMeters" Type="int" Nullable="false" />
-          <Property Name="Color" Type="nvarchar" MaxLength="20" />
           <Property Name="IdAdvertisement" Type="int" />
           <Property Name="AdvertisementTypeID" Type="int" Nullable="false" />
           <Property Name="AdvertiserTypeID" Type="int" Nullable="false" />
@@ -194,6 +193,42 @@
           <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
+        <Association Name="FK_Advertisement_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Advertisement" Type="Self.Advertisement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Advertisement">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertisement_City">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Advertisement" Type="Self.Advertisement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Advertisement">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advertisement_Vehicle">
+          <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="0..1" />
+          <End Role="Advertisement" Type="Self.Advertisement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicle">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Advertisement">
+              <PropertyRef Name="VehicleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -247,42 +282,6 @@
             </Principal>
             <Dependent Role="AspNetUserRoles">
               <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TBL_Advertisement_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
-          <End Role="Advertisement" Type="Self.Advertisement" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Advertisement">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TBL_Advertisement_TBL_City">
-          <End Role="City" Type="Self.City" Multiplicity="0..1" />
-          <End Role="Advertisement" Type="Self.Advertisement" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="City">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Advertisement">
-              <PropertyRef Name="CityID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TBL_Advertisement_TBL_Vehicle">
-          <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="0..1" />
-          <End Role="Advertisement" Type="Self.Advertisement" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Vehicle">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Advertisement">
-              <PropertyRef Name="VehicleID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -439,6 +438,18 @@
           <EntitySet Name="Statistics" EntityType="Self.Statistics" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vehicle" EntityType="Self.Vehicle" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VehicleType" EntityType="Self.VehicleType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Advertisement_AspNetUsers" Association="Self.FK_Advertisement_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Advertisement" EntitySet="Advertisement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertisement_City" Association="Self.FK_Advertisement_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Advertisement" EntitySet="Advertisement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advertisement_Vehicle" Association="Self.FK_Advertisement_Vehicle">
+            <End Role="Vehicle" EntitySet="Vehicle" />
+            <End Role="Advertisement" EntitySet="Advertisement" />
+          </AssociationSet>
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -454,18 +465,6 @@
           <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TBL_Advertisement_AspNetUsers" Association="Self.FK_TBL_Advertisement_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Advertisement" EntitySet="Advertisement" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TBL_Advertisement_TBL_City" Association="Self.FK_TBL_Advertisement_TBL_City">
-            <End Role="City" EntitySet="City" />
-            <End Role="Advertisement" EntitySet="Advertisement" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TBL_Advertisement_TBL_Vehicle" Association="Self.FK_TBL_Advertisement_TBL_Vehicle">
-            <End Role="Vehicle" EntitySet="Vehicle" />
-            <End Role="Advertisement" EntitySet="Advertisement" />
           </AssociationSet>
           <AssociationSet Name="FK_TBL_Employment_TBL_Advertisement" Association="Self.FK_TBL_Employment_TBL_Advertisement">
             <End Role="Advertisement" EntitySet="Advertisement" />
@@ -536,15 +535,15 @@
           <EntitySet Name="Statistics" EntityType="DivarModel.Statistic" />
           <EntitySet Name="Vehicles" EntityType="DivarModel.Vehicle" />
           <EntitySet Name="VehicleTypes" EntityType="DivarModel.VehicleType" />
-          <AssociationSet Name="FK_TBL_Advertisement_AspNetUsers" Association="DivarModel.FK_TBL_Advertisement_AspNetUsers">
+          <AssociationSet Name="FK_Advertisement_AspNetUsers" Association="DivarModel.FK_Advertisement_AspNetUsers">
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="Advertisement" EntitySet="Advertisements" />
           </AssociationSet>
-          <AssociationSet Name="FK_TBL_Advertisement_TBL_City" Association="DivarModel.FK_TBL_Advertisement_TBL_City">
+          <AssociationSet Name="FK_Advertisement_City" Association="DivarModel.FK_Advertisement_City">
             <End Role="City" EntitySet="Cities" />
             <End Role="Advertisement" EntitySet="Advertisements" />
           </AssociationSet>
-          <AssociationSet Name="FK_TBL_Advertisement_TBL_Vehicle" Association="DivarModel.FK_TBL_Advertisement_TBL_Vehicle">
+          <AssociationSet Name="FK_Advertisement_Vehicle" Association="DivarModel.FK_Advertisement_Vehicle">
             <End Role="Vehicle" EntitySet="Vehicles" />
             <End Role="Advertisement" EntitySet="Advertisements" />
           </AssociationSet>
@@ -614,9 +613,9 @@
           <Property Name="CityID" Type="Int32" />
           <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUser" Relationship="DivarModel.FK_TBL_Advertisement_AspNetUsers" FromRole="Advertisement" ToRole="AspNetUser" />
-          <NavigationProperty Name="City" Relationship="DivarModel.FK_TBL_Advertisement_TBL_City" FromRole="Advertisement" ToRole="City" />
-          <NavigationProperty Name="Vehicle" Relationship="DivarModel.FK_TBL_Advertisement_TBL_Vehicle" FromRole="Advertisement" ToRole="Vehicle" />
+          <NavigationProperty Name="AspNetUser" Relationship="DivarModel.FK_Advertisement_AspNetUsers" FromRole="Advertisement" ToRole="AspNetUser" />
+          <NavigationProperty Name="City" Relationship="DivarModel.FK_Advertisement_City" FromRole="Advertisement" ToRole="City" />
+          <NavigationProperty Name="Vehicle" Relationship="DivarModel.FK_Advertisement_Vehicle" FromRole="Advertisement" ToRole="Vehicle" />
           <NavigationProperty Name="Employments" Relationship="DivarModel.FK_TBL_Employment_TBL_Advertisement" FromRole="Advertisement" ToRole="Employment" />
           <NavigationProperty Name="Images" Relationship="DivarModel.FK_TBL_Image_TBL_Advertising" FromRole="Advertisement" ToRole="Image" />
           <NavigationProperty Name="Products" Relationship="DivarModel.FK_TBL_Product_TBL_Advertisement" FromRole="Advertisement" ToRole="Product" />
@@ -684,7 +683,7 @@
           <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
           <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Advertisements" Relationship="DivarModel.FK_TBL_Advertisement_AspNetUsers" FromRole="AspNetUser" ToRole="Advertisement" />
+          <NavigationProperty Name="Advertisements" Relationship="DivarModel.FK_Advertisement_AspNetUsers" FromRole="AspNetUser" ToRole="Advertisement" />
           <NavigationProperty Name="AspNetUserClaims" Relationship="DivarModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="DivarModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
           <NavigationProperty Name="AspNetRoles" Relationship="DivarModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
@@ -704,7 +703,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Advertisements" Relationship="DivarModel.FK_TBL_Advertisement_TBL_City" FromRole="City" ToRole="Advertisement" />
+          <NavigationProperty Name="Advertisements" Relationship="DivarModel.FK_Advertisement_City" FromRole="City" ToRole="Advertisement" />
           <NavigationProperty Name="States" Relationship="DivarModel.FK_TBL_State_TBL_City" FromRole="City" ToRole="State" />
         </EntityType>
         <EntityType Name="Color">
@@ -751,10 +750,9 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="ExpirationDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ExpiredDate" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="KiloMeters" Type="Int32" Nullable="false" />
-          <Property Name="Color" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="IdAdvertisement" Type="Int32" />
           <Property Name="AdvertisementTypeID" Type="Int32" Nullable="false" />
           <Property Name="AdvertiserTypeID" Type="Int32" Nullable="false" />
@@ -805,7 +803,7 @@
           <Property Name="ManufacturerID" Type="Int32" Nullable="false" />
           <Property Name="AssemblerID" Type="Int32" Nullable="false" />
           <Property Name="Series" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Advertisements" Relationship="DivarModel.FK_TBL_Advertisement_TBL_Vehicle" FromRole="Vehicle" ToRole="Advertisement" />
+          <NavigationProperty Name="Advertisements" Relationship="DivarModel.FK_Advertisement_Vehicle" FromRole="Vehicle" ToRole="Advertisement" />
           <NavigationProperty Name="Assembler" Relationship="DivarModel.FK_TBL_Vehicle_TBL_Assembler" FromRole="Vehicle" ToRole="Assembler" />
           <NavigationProperty Name="Color" Relationship="DivarModel.FK_TBL_Vehicle_TBL_Color" FromRole="Vehicle" ToRole="Color" />
           <NavigationProperty Name="Manufacturer" Relationship="DivarModel.FK_TBL_Vehicle_TBL_Manufacturer" FromRole="Vehicle" ToRole="Manufacturer" />
@@ -820,7 +818,7 @@
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Vehicles" Relationship="DivarModel.FK_TBL_Vehicle_TBL_VehicleType" FromRole="VehicleType" ToRole="Vehicle" />
         </EntityType>
-        <Association Name="FK_TBL_Advertisement_AspNetUsers">
+        <Association Name="FK_Advertisement_AspNetUsers">
           <End Type="DivarModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
           <End Type="DivarModel.Advertisement" Role="Advertisement" Multiplicity="*" />
           <ReferentialConstraint>
@@ -832,7 +830,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TBL_Advertisement_TBL_City">
+        <Association Name="FK_Advertisement_City">
           <End Type="DivarModel.City" Role="City" Multiplicity="0..1" />
           <End Type="DivarModel.Advertisement" Role="Advertisement" Multiplicity="*" />
           <ReferentialConstraint>
@@ -844,7 +842,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TBL_Advertisement_TBL_Vehicle">
+        <Association Name="FK_Advertisement_Vehicle">
           <End Type="DivarModel.Vehicle" Role="Vehicle" Multiplicity="0..1" />
           <End Type="DivarModel.Advertisement" Role="Advertisement" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1159,10 +1157,9 @@
                 <ScalarProperty Name="AdvertiserTypeID" ColumnName="AdvertiserTypeID" />
                 <ScalarProperty Name="AdvertisementTypeID" ColumnName="AdvertisementTypeID" />
                 <ScalarProperty Name="IdAdvertisement" ColumnName="IdAdvertisement" />
-                <ScalarProperty Name="Color" ColumnName="Color" />
                 <ScalarProperty Name="KiloMeters" ColumnName="KiloMeters" />
-                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ExpiredDate" ColumnName="ExpiredDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
