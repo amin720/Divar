@@ -8,7 +8,7 @@ using Divar.Core.Interfaces;
 
 namespace Divar.Infrastructure.Repository
 {
-    class VehicleTypeRepository : IVehicleTypeRepository
+    public class VehicleTypeRepository : IVehicleTypeRepository
     {
         public VehicleType Get(string Name)
         {

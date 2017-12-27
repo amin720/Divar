@@ -157,6 +157,7 @@
     <Compile Include="Interfaces\ICityRepository.cs" />
     <Compile Include="Interfaces\IColorRepository.cs" />
     <Compile Include="Interfaces\IEmploymentRepository.cs" />
+    <Compile Include="Interfaces\IImageRepository.cs" />
     <Compile Include="Interfaces\IManufacturerRepository.cs" />
     <Compile Include="Interfaces\IProductsRepository.cs" />
     <Compile Include="Interfaces\IRoleRepository.cs" />
