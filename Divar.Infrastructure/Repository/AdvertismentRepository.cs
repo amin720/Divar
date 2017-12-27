@@ -27,7 +27,15 @@ namespace Divar.Infrastructure.Repository
         }
         public void Create(Advertisement advertisement)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                if ((db.Advertisements.Single(d => d.VehicleID == advertisement.VehicleID && d.CityID == advertisement.CityID)) != null)
+                {
+
+                }
+                db.Advertisements.Add(advertisement);
+                db.SaveChanges();
+            }
         }
         public void Update(Advertisement advertisement)
         {

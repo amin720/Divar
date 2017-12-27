@@ -27,7 +27,16 @@ namespace Divar.Infrastructure.Repository
         }
         public void Create(Assembler assembler)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                if ((db.Assemblers.Single(a => a.Name == assembler.Name)) != null)
+                {
+
+                }
+                db.Assemblers.Add(assembler);
+                db.SaveChanges();
+            }
+            
         }
 
         public void Update(Assembler assembler)

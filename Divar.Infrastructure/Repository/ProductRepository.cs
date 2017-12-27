@@ -28,7 +28,16 @@ namespace Divar.Infrastructure.Repository
         }
         public void Create(Product product)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                if ((db.Products.Single(p => p.Name == product.Name && p.CreateDate == product.CreateDate)) != null)
+                {
+
+                }
+                db.Products.Add(product);
+                db.SaveChanges();
+            }
+            
         }
         public void Update(Product product)
         {

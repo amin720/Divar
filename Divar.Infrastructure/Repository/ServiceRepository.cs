@@ -30,7 +30,15 @@ namespace Divar.Infrastructure.Repository
 
         public void Create(Service service)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                if ((db.Services.Single(s => s.Name == service.Name)) != null)
+                {
+
+                }
+                db.Services.Add(service);
+                db.SaveChanges();
+            }
         }
 
         public void Update(Service service)

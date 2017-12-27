@@ -28,7 +28,15 @@ namespace Divar.Infrastructure.Repository
 
         public void Create(AdvertiserType advType)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                if ((db.AdvertiserTypes.Single(d => d.Name == advType.Name)) != null)
+                {
+
+                }
+                db.AdvertiserTypes.Add(advType);
+                db.SaveChanges();
+            }
         }
         public void Update(AdvertiserType advType)
         {

@@ -27,7 +27,15 @@ namespace Divar.Infrastructure.Repository
         }
         public void Create(Manufacturer manufacturer)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                if ((db.Manufacturers.Single(m => m.Name == manufacturer.Name)) != null)
+                {
+
+                }
+                db.Manufacturers.Add(manufacturer);
+                db.SaveChanges();
+            }
         }
 
         public void Update(Manufacturer manufacturer)

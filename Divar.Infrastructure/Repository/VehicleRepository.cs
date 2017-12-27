@@ -27,7 +27,13 @@ namespace Divar.Infrastructure.Repository
         }
         public void Create(Vehicle vehicle)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                if ((db.Vehicles.Single(v => v.Name == vehicle.Name && v.VehicleTypeID == vehicle.VehicleTypeID && v.ManufacturerID == vehicle.ManufacturerID) != null))
+                {
+
+                }
+            }
         }
         public void Update(Vehicle vehicle)
         {
