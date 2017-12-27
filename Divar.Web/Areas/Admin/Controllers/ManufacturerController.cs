@@ -5,7 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using Divar.Core;
 using Divar.Core.Entities;
+using Divar.Core.Interfaces;
 using Divar.Infrastructure;
+using Divar.Infrastructure.Repository;
 
 namespace Divar.Web.Areas.Admin.Controllers
 {
@@ -15,16 +17,18 @@ namespace Divar.Web.Areas.Admin.Controllers
 	public class ManufacturerController : Controller
 	{
 		private readonly IDataServiceRepository<Manufacturer> _repository;
+		private readonly IManufacturerRepository _manufacturerRepository;
 
 		public ManufacturerController()
-			:this(new DataService<Manufacturer>())
+			: this(new DataService<Manufacturer>(), new ManufacturerRepository())
 		{
-			
+
 		}
 
-		public ManufacturerController(IDataServiceRepository<Manufacturer> repository)
+		public ManufacturerController(IDataServiceRepository<Manufacturer> repository, IManufacturerRepository manufacturerRepository)
 		{
 			_repository = repository;
+			_manufacturerRepository = manufacturerRepository;
 		}
 
 		// GET: Admin/Manufacturer
@@ -33,8 +37,8 @@ namespace Divar.Web.Areas.Admin.Controllers
 		{
 			var model = _repository.GetAllObj();
 
-            return View(model);
-        }
+			return View(model);
+		}
 
 		// GET: Admin/Manufacturer/Create
 		[HttpGet]
@@ -48,8 +52,8 @@ namespace Divar.Web.Areas.Admin.Controllers
 		public ActionResult Create(FormCollection obj)
 		{
 			var man = new Manufacturer();
-			this.UpdateModel(man,obj);
-			
+			this.UpdateModel(man, obj);
+
 
 			if (!ModelState.IsValid)
 			{
@@ -60,7 +64,7 @@ namespace Divar.Web.Areas.Admin.Controllers
 			var manufacturer = model.SingleOrDefault(m => m.Name == man.Name);
 			if (manufacturer != null)
 			{
-				ModelState.AddModelError(string.Empty,"این نام وجود دارد" + man.Name);
+				ModelState.AddModelError(string.Empty, "این نام وجود دارد" + man.Name);
 				return View();
 			}
 
@@ -75,30 +79,30 @@ namespace Divar.Web.Areas.Admin.Controllers
 		public ActionResult Edit(int id)
 		{
 			var model = _repository.GetObj(manufacturer => manufacturer.Id == id);
+			//var model = _manufacturerRepository.Get(id);
 			return View(model);
 		}
 
 		// POST: Admin/Manufacturer/Edit
 		[HttpPost]
-		public ActionResult Edit(FormCollection obj)
+		public ActionResult Edit(Manufacturer obj)
 		{
-			var man = new Manufacturer();
-			this.UpdateModel(man, obj);
-
+			
 			if (!ModelState.IsValid)
 			{
 				return HttpNotFound();
 			}
 
 			var model = _repository.GetAllObj();
-			var manufacturer = model.SingleOrDefault(m => m.Name == man.Name);
+			var manufacturer = model.SingleOrDefault(m => m.Name == obj.Name);
 			if (manufacturer == null)
 			{
-				ModelState.AddModelError(string.Empty, "این نام وجود ندارد" + man.Name);
+				ModelState.AddModelError(string.Empty, "این نام وجود ندارد" + obj.Name);
 				return View();
 			}
 
-			_repository.Update(manufacturer);
+			//_repository.Update(manufacturer);
+			_manufacturerRepository.Update(obj);
 
 			return RedirectToAction("Index");
 		}

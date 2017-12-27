@@ -8,7 +8,7 @@ using Divar.Core.Entities;
 
 namespace Divar.Infrastructure.Repository
 {
-    class AdvertismentRepository : IAdvertismentRepository
+    public class AdvertismentRepository : IAdvertismentRepository
     {
         public Advertisement Get(long vehicleId , Int64 cityId)
         {
@@ -41,13 +41,14 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                var model = db.Advertisements.Single(d => d. );
+                var model = db.Advertisements.Single(d => d.Id == advertisement.Id );
                 if (model == null) return;
 
                 model.VehicleID = advertisement.VehicleID;
                 model.CityID = advertisement.CityID;
                 model.UserID = advertisement.UserID;
                 model.Description = advertisement.Description;
+
                 db.SaveChanges();
             }
         }

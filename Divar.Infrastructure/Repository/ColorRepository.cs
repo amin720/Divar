@@ -10,11 +10,11 @@ namespace Divar.Infrastructure.Repository
 {
     public class ColorRepository : IColorRepository
     {
-        public Color Get(string Name)
+        public Color Get(string name)
         {
             using (var db = new DivarEntities())
             {
-                return db.Colors.Single( c => c.Name == Name);
+                return db.Colors.Single( c => c.Name == name);
             }
         }
 
@@ -50,11 +50,11 @@ namespace Divar.Infrastructure.Repository
                 db.SaveChanges();
             }
         }
-        public void Delete(string Name)
+        public void Delete(string name)
         {
             using (var db = new DivarEntities())
             {
-                var model = db.Colors.Single( c => c.Name == Name);
+                var model = db.Colors.Single( c => c.Name == name);
                 if (model == null) return;
 
                 db.Colors.Remove(model);

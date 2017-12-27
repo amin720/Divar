@@ -6,24 +6,24 @@
     <edmx:Diagrams>
       <Diagram DiagramId="35a94687f0c444b7a8d4a6311d7e0d0d" Name="Diagram1">
         <EntityTypeShape EntityType="DivarModel.Advertisement" Width="1.5" PointX="3" PointY="7.375" />
-        <EntityTypeShape EntityType="DivarModel.AdvertisementType" Width="1.5" PointX="3" PointY="1.375" />
-        <EntityTypeShape EntityType="DivarModel.AdvertiserType" Width="1.5" PointX="3" PointY="4" />
+        <EntityTypeShape EntityType="DivarModel.AdvertisementType" Width="1.5" PointX="6" PointY="8" />
+        <EntityTypeShape EntityType="DivarModel.AdvertiserType" Width="1.5" PointX="6" PointY="2.375" />
         <EntityTypeShape EntityType="DivarModel.AspNetRole" Width="1.5" PointX="1.5" PointY="33.25" />
-        <EntityTypeShape EntityType="DivarModel.AspNetUserClaim" Width="1.5" PointX="3" PointY="27.875" />
-        <EntityTypeShape EntityType="DivarModel.AspNetUserLogin" Width="1.5" PointX="3" PointY="30.625" />
+        <EntityTypeShape EntityType="DivarModel.AspNetUserClaim" Width="1.5" PointX="3" PointY="30.375" />
+        <EntityTypeShape EntityType="DivarModel.AspNetUserLogin" Width="1.5" PointX="3" PointY="27.875" />
         <EntityTypeShape EntityType="DivarModel.AspNetUser" Width="1.5" PointX="0.75" PointY="28" />
         <EntityTypeShape EntityType="DivarModel.Assembler" Width="1.5" PointX="1.5" PointY="22.125" />
         <EntityTypeShape EntityType="DivarModel.City" Width="1.5" PointX="0.75" PointY="8.125" />
-        <EntityTypeShape EntityType="DivarModel.Color" Width="1.5" PointX="1.5" PointY="12" />
-        <EntityTypeShape EntityType="DivarModel.Employment" Width="1.5" PointX="5.25" PointY="9.5" />
-        <EntityTypeShape EntityType="DivarModel.Image" Width="1.5" PointX="5.25" PointY="12.25" />
-        <EntityTypeShape EntityType="DivarModel.Manufacturer" Width="1.5" PointX="1.5" PointY="19.625" />
-        <EntityTypeShape EntityType="DivarModel.Product" Width="1.5" PointX="5.25" PointY="5.375" />
-        <EntityTypeShape EntityType="DivarModel.Service" Width="1.5" PointX="5.25" PointY="14.75" />
+        <EntityTypeShape EntityType="DivarModel.Color" Width="1.5" PointX="1.5" PointY="19.625" />
+        <EntityTypeShape EntityType="DivarModel.Employment" Width="1.5" PointX="5.25" PointY="14.75" />
+        <EntityTypeShape EntityType="DivarModel.Image" Width="1.5" PointX="5.25" PointY="5.375" />
+        <EntityTypeShape EntityType="DivarModel.Manufacturer" Width="1.5" PointX="1.5" PointY="24.625" />
+        <EntityTypeShape EntityType="DivarModel.Product" Width="1.5" PointX="8.25" PointY="7.375" />
+        <EntityTypeShape EntityType="DivarModel.Service" Width="1.5" PointX="5.25" PointY="12" />
         <EntityTypeShape EntityType="DivarModel.State" Width="1.5" PointX="3" PointY="16.125" />
-        <EntityTypeShape EntityType="DivarModel.Statistic" Width="1.5" PointX="5.75" PointY="1.375" />
+        <EntityTypeShape EntityType="DivarModel.Statistic" Width="1.5" PointX="2.75" PointY="1.375" />
         <EntityTypeShape EntityType="DivarModel.Vehicle" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DivarModel.VehicleType" Width="1.5" PointX="1.5" PointY="24.625" />
+        <EntityTypeShape EntityType="DivarModel.VehicleType" Width="1.5" PointX="1.5" PointY="12" />
         <AssociationConnector Association="DivarModel.FK_Advertisement_AspNetUsers" />
         <AssociationConnector Association="DivarModel.FK_Advertisement_City" />
         <AssociationConnector Association="DivarModel.FK_Advertisement_Vehicle" />

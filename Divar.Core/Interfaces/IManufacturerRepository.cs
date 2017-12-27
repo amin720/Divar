@@ -9,7 +9,7 @@ namespace Divar.Core.Interfaces
 {
     public interface IManufacturerRepository
     {
-        Manufacturer Get(String Name);
+        Manufacturer Get(int id);
         IEnumerable<Manufacturer> GetAll();
         void Create(Manufacturer manufacturer);
         void Update(Manufacturer manufacturer);

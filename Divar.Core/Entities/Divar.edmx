@@ -140,8 +140,8 @@
           <Property Name="ExpiredDate" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="KiloMeters" Type="int" Nullable="false" />
           <Property Name="IdAdvertisement" Type="int" />
-          <Property Name="AdvertisementTypeID" Type="int" Nullable="false" />
-          <Property Name="AdvertiserTypeID" Type="int" Nullable="false" />
+          <Property Name="AdvertisementTypeID" Type="int" />
+          <Property Name="AdvertiserTypeID" Type="int" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -322,7 +322,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBL_Product_TBL_AdvertisementType">
-          <End Role="AdvertisementType" Type="Self.AdvertisementType" Multiplicity="1" />
+          <End Role="AdvertisementType" Type="Self.AdvertisementType" Multiplicity="0..1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AdvertisementType">
@@ -334,7 +334,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBL_Product_TBL_AdvertiserType">
-          <End Role="AdvertiserType" Type="Self.AdvertiserType" Multiplicity="1" />
+          <End Role="AdvertiserType" Type="Self.AdvertiserType" Multiplicity="0..1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AdvertiserType">
@@ -754,8 +754,8 @@
           <Property Name="ExpiredDate" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="KiloMeters" Type="Int32" Nullable="false" />
           <Property Name="IdAdvertisement" Type="Int32" />
-          <Property Name="AdvertisementTypeID" Type="Int32" Nullable="false" />
-          <Property Name="AdvertiserTypeID" Type="Int32" Nullable="false" />
+          <Property Name="AdvertisementTypeID" Type="Int32" />
+          <Property Name="AdvertiserTypeID" Type="Int32" />
           <NavigationProperty Name="Advertisement" Relationship="DivarModel.FK_TBL_Product_TBL_Advertisement" FromRole="Product" ToRole="Advertisement" />
           <NavigationProperty Name="AdvertisementType" Relationship="DivarModel.FK_TBL_Product_TBL_AdvertisementType" FromRole="Product" ToRole="AdvertisementType" />
           <NavigationProperty Name="AdvertiserType" Relationship="DivarModel.FK_TBL_Product_TBL_AdvertiserType" FromRole="Product" ToRole="AdvertiserType" />
@@ -903,7 +903,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBL_Product_TBL_AdvertisementType">
-          <End Type="DivarModel.AdvertisementType" Role="AdvertisementType" Multiplicity="1" />
+          <End Type="DivarModel.AdvertisementType" Role="AdvertisementType" Multiplicity="0..1" />
           <End Type="DivarModel.Product" Role="Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AdvertisementType">
@@ -915,7 +915,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBL_Product_TBL_AdvertiserType">
-          <End Type="DivarModel.AdvertiserType" Role="AdvertiserType" Multiplicity="1" />
+          <End Type="DivarModel.AdvertiserType" Role="AdvertiserType" Multiplicity="0..1" />
           <End Type="DivarModel.Product" Role="Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AdvertiserType">
@@ -1018,7 +1018,7 @@
           <End Type="DivarModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
           <End Type="DivarModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>

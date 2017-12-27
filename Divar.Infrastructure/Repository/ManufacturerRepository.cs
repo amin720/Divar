@@ -10,11 +10,11 @@ namespace Divar.Infrastructure.Repository
 {
     public class ManufacturerRepository : IManufacturerRepository
     {
-        public Manufacturer Get(string Name)
+        public Manufacturer Get(int id)
         {
             using (var db = new DivarEntities())
             {
-                return db.Manufacturers.Single( m => m.Name == Name);
+                return db.Manufacturers.Single( m => m.Id == id);
             }
         }
 
