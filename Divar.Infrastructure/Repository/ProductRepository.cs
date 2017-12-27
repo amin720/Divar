@@ -13,12 +13,18 @@ namespace Divar.Infrastructure.Repository
     {
         public Product Get(string Name, DateTime createDate)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                return db.Products.Single( p => p.Name == Name && p.CreateDate == createDate);
+            }
         }
 
         public IEnumerable<Product> GetAll()
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                return db.Products.ToList();
+            }
         }
         public void Create(Product product)
         {

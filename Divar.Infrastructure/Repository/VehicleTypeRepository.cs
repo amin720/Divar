@@ -12,12 +12,18 @@ namespace Divar.Infrastructure.Repository
     {
         public VehicleType Get(string Name)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                return db.VehicleTypes.Single( v => v.Name == Name );
+            }
         }
 
         public IEnumerable<VehicleType> GetAll()
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                return db.VehicleTypes.ToList();
+            }
         }
         public void Create(VehicleType vehicType)
         {

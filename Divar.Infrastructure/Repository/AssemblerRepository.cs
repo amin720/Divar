@@ -12,12 +12,18 @@ namespace Divar.Infrastructure.Repository
     {
         public Assembler Get(string Name)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                return db.Assemblers.Single( a => a.Name== Name);
+            }
         }
 
         public IEnumerable<Assembler> GetAll()
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                return db.Assemblers.ToList();
+            }
         }
         public void Create(Assembler assembler)
         {

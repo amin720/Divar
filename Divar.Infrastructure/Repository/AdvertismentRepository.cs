@@ -10,14 +10,20 @@ namespace Divar.Infrastructure.Repository
 {
     class AdvertismentRepository : IAdvertismentRepository
     {
-        public Advertisement Get(long vehicleId)
+        public Advertisement Get(long vehicleId , Int64 cityId)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                return db.Advertisements.Single(d => d.VehicleID == vehicleId && d.CityID == cityId);
+            }
         }
 
         public IEnumerable<Advertisement> GetAll()
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                return db.Advertisements.ToList();
+            }
         }
         public void Create(Advertisement advertisement)
         {

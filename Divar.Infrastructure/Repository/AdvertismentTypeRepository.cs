@@ -13,12 +13,18 @@ namespace Divar.Infrastructure.Repository
 
         public AdvertisementType Get(string Name)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                return db.AdvertisementTypes.Single( d => d.Name == Name);
+            }
         }
 
         public IEnumerable<AdvertisementType> GetAll()
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                return db.AdvertisementTypes.ToList();
+            }
         }
         public void Create(AdvertisementType advType)
         {

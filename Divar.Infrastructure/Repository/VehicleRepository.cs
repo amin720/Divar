@@ -10,14 +10,20 @@ namespace Divar.Infrastructure.Repository
 {
     public class VehicleRepository : IVehicleRepository
     {
-        public Vehicle Get(long vehicleTypeId, long ManufacturerID, string Name)
+        public Vehicle Get(long vehicleTypeId, long manufacturerID, string Name)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                return db.Vehicles.Single(v => v.Name == Name && v.VehicleTypeID == vehicleTypeId && v.ManufacturerID == manufacturerID );
+            }
         }
 
         public IEnumerable<Vehicle> GetAll()
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                return db.Vehicles.ToList();
+            }
         }
         public void Create(Vehicle vehicle)
         {

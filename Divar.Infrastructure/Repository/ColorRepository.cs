@@ -12,12 +12,18 @@ namespace Divar.Infrastructure.Repository
     {
         public Color Get(string Name)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                return db.Colors.Single( c => c.Name == Name);
+            }
         }
 
         public IEnumerable<Color> GetAll()
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                return db.Colors.ToList();
+            }
         }
 
         public void Create(Color color)

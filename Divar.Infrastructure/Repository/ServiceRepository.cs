@@ -12,12 +12,20 @@ namespace Divar.Infrastructure.Repository
     {
         public Service Get(string Name)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                return db.Services.Single( s => s.Name == Name );
+            }
+            
         }
 
         public IEnumerable<Service> GetAll()
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                return db.Services.ToList();
+
+            }
         }
 
         public void Create(Service service)
