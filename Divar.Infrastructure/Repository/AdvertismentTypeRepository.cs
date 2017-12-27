@@ -51,7 +51,15 @@ namespace Divar.Infrastructure.Repository
         }
         public void Delete(string Name)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                var model = db.AdvertisementTypes.Single( d => d.Name == Name);
+                if (model == null) return;
+
+                db.AdvertisementTypes.Remove(model);
+                db.SaveChanges();
+
+            }
         }
 
     }

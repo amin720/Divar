@@ -52,7 +52,14 @@ namespace Divar.Infrastructure.Repository
         }
         public void Delete(string Name)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                var model = db.Colors.Single( c => c.Name == Name);
+                if (model == null) return;
+
+                db.Colors.Remove(model);
+                db.SaveChanges();
+            }
         }
     }
 }
