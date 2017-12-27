@@ -40,7 +40,16 @@ namespace Divar.Infrastructure.Repository
 
         public void Update(Manufacturer manufacturer)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                var model = db.Manufacturers.Single(m => m.Name == manufacturer.Name);
+                if ( model == null) return;
+
+                model.Name = manufacturer.Name;
+                model.Description = manufacturer.Description;
+
+                db.SaveChanges();
+            };
         }
         public void Delete(string Name)
         {

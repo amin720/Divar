@@ -40,7 +40,14 @@ namespace Divar.Infrastructure.Repository
         }
         public void Update(AdvertisementType advType)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                var model = db.AdvertisementTypes.Single( d => d.Name == advType.Name);
+                if (model == null) return;
+
+                model.Name = advType.Name;
+                db.SaveChanges();
+            }
         }
         public void Delete(string Name)
         {

@@ -41,7 +41,15 @@ namespace Divar.Infrastructure.Repository
 
         public void Update(Assembler assembler)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                var model = db.Assemblers.Single( a => a.Name == assembler.Name );
+                if (model == null) return;
+
+                model.Name = assembler.Name;
+                db.SaveChanges();
+
+            }
         }
         public void Delete(string Name)
         {

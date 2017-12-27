@@ -41,7 +41,15 @@ namespace Divar.Infrastructure.Repository
         }
         public void Update(Product product)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                var model = db.Products.Single();
+                if (model == null) return;
+
+                model.Name = product.Name;
+                model.Price = product.Price;
+                db.SaveChanges();
+            }
         }
 
         public void Delete(string Name, DateTime createDate)

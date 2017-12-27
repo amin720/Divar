@@ -40,7 +40,15 @@ namespace Divar.Infrastructure.Repository
         }
         public void Update(Color color)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                var model = db.Colors.Single( c => c.Name == color.Name );
+                if (model == null) return;
+
+                model.Code = color.Code;
+                model.Name = color.Name;
+                db.SaveChanges();
+            }
         }
         public void Delete(string Name)
         {

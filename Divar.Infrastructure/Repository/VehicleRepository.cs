@@ -33,11 +33,28 @@ namespace Divar.Infrastructure.Repository
                 {
 
                 }
+                db.Vehicles.Add(vehicle);
+                db.SaveChanges();
             }
         }
         public void Update(Vehicle vehicle)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                var model = db.Vehicles.Single( v => v.Name == vehicle.Name && v.VehicleTypeID == vehicle.VehicleTypeID && v.ManufacturerID == vehicle.ManufacturerID );
+                if (model == null) return;
+
+                model.Name = vehicle.Name;
+                model.Year = vehicle.Year;
+                model.ColorID = vehicle.ColorID;
+                model.VehicleTypeID = vehicle.VehicleTypeID;
+                model.ManufacturerID = vehicle.ManufacturerID;
+                model.AssemblerID = vehicle.AssemblerID;
+                model.Series = vehicle.Series;
+
+                db.SaveChanges();                
+                
+            }
         }
 
         public void Delete(long vehicleTypeId, long ManufacturerID, string Name)

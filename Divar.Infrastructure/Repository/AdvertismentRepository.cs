@@ -39,7 +39,17 @@ namespace Divar.Infrastructure.Repository
         }
         public void Update(Advertisement advertisement)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                var model = db.Advertisements.Single(d => d. );
+                if (model == null) return;
+
+                model.VehicleID = advertisement.VehicleID;
+                model.CityID = advertisement.CityID;
+                model.UserID = advertisement.UserID;
+                model.Description = advertisement.Description;
+                db.SaveChanges();
+            }
         }
         public void Delete(long vehicleId)
         {

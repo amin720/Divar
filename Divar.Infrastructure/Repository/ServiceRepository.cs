@@ -43,7 +43,17 @@ namespace Divar.Infrastructure.Repository
 
         public void Update(Service service)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                var model = db.Services.Single(s => s.Name == service.Name);
+                if (model == null) return;
+
+                model.Name = service.Name;
+                model.Link = service.Link;
+                model.IdAdvertisement = service.IdAdvertisement;
+
+                db.SaveChanges();
+            }
         }
 
         public void Delete(string Name)

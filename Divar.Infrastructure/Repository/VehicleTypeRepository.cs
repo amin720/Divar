@@ -33,12 +33,24 @@ namespace Divar.Infrastructure.Repository
                 {
 
                 }
+                db.VehicleTypes.Add(vehicType);
+                db.SaveChanges();
             }
         }
 
         public void Update(VehicleType vehicType)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                var model = db.VehicleTypes.Single( v => v.Name == vehicType.Name);
+                if (model == null) return;
+
+                model.Name = vehicType.Name;
+                model.Description = vehicType.Description;
+
+                db.SaveChanges();
+
+            }
         }
         public void Delete(string Name)
         {
