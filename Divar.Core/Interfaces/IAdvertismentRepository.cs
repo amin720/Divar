@@ -13,6 +13,6 @@ namespace Divar.Core.Interfaces
         IEnumerable<Advertisement> GetAll();
         void Create(Advertisement advertisement);
         void Update(Advertisement advertisement);
-        void Delete(Int64 vehicleId);
+        void Delete(Int64 vehicleId , Int64 cityId);
     }
 }

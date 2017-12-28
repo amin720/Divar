@@ -10,7 +10,7 @@ namespace Divar.Infrastructure.Repository
 {
     class AdvertismentRepository : IAdvertismentRepository
     {
-        public Advertisement Get(long vehicleId , Int64 cityId)
+        public Advertisement Get(Int64 vehicleId , Int64 cityId)
         {
             using (var db = new DivarEntities())
             {
@@ -51,9 +51,16 @@ namespace Divar.Infrastructure.Repository
                 db.SaveChanges();
             }
         }
-        public void Delete(long vehicleId)
+        public void Delete(Int64 vehicleId , Int64 cityId)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                var model = db.Advertisements.Single( d => d.CityID == cityId && d.VehicleID == vehicleId);
+                if (model == null) return;
+
+                db.Advertisements.Remove(model);
+                db.SaveChanges();
+            }
         }
     }
 }
