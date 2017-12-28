@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="~/css/bootstrap.css">
     <!-- Flexslider  -->
     <link rel="stylesheet" href="~/css/flexslider.css">
+
+    <link href="~/css/New-car.css" rel="stylesheet" />
     <!-- Owl Carousel  -->
     <link rel="stylesheet" href="~/css/owl.carousel.min.css">
     <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
@@ -29,7 +31,9 @@
     <link rel="stylesheet" href="~/css/style.css">
     <!-- Gallary style  -->
     <link rel="stylesheet" href="~/css/gallaery.css">
-    <link rel="stylesheet" href="~/font-awesome-4.6.3/css/font-awesome.min.css">
+    <link href="~/css/upload.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/font-awesome-4.6.3/css/fontawesome-all.min.css">
 
     <!-- Modernizr JS -->
     <script src="~/js/modernizr-2.6.2.min.js"></script>
@@ -66,10 +70,9 @@
                             <li><a href="@Url.Action("Index","Home")" style="font-weight:bold">صفحه اصلی</a></li>
                             @if (Request.IsAuthenticated)
                             {
-                                <li><a href="New-car.html" style="font-weight: bold">ماشین جدید به نمایش بگذارید</a></li>}
-                            <li class="has-dropdown">
-                                <a href="product.html" style="font-weight:bold">نمایشگاه اتومبیل</a>
-                            </li>
+                                <li><a href="@Url.Action("Index","Advertisement")" style="font-weight: bold; font-size: 1.22em;color: black">آگهی جدید ایجاد کنید</a></li>
+                                
+                            }
                             <li><a href="@Url.Action("FQ","Home")" style="font-weight:bold">شرایط و راهنما</a></li>
                             <li><a href="@Url.Action("Contact","Home")" style="font-weight:bold">تماس با ما</a></li>
                         </ul>
@@ -113,6 +116,7 @@
         <script src="~/js/bootstrap-slider.js"></script>
 
         <script src="~/js/gallery.js"></script>
+        <script src="~/js/upload.js"></script>
     </div>
 </body>
 </html>

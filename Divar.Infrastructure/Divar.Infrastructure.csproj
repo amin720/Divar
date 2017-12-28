@@ -90,6 +90,7 @@
     <Compile Include="Repository\ColorRepository.cs" />
     <Compile Include="Repository\EmploymentRepository.cs" />
     <Compile Include="Repository\IdentityClasses.cs" />
+    <Compile Include="Repository\ImageRepository.cs" />
     <Compile Include="Repository\ManufacturerRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\RoleRepository.cs" />

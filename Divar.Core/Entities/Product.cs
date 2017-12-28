@@ -21,8 +21,8 @@ namespace Divar.Core.Entities
         public System.DateTime ExpiredDate { get; set; }
         public int KiloMeters { get; set; }
         public Nullable<int> IdAdvertisement { get; set; }
-        public int AdvertisementTypeID { get; set; }
-        public int AdvertiserTypeID { get; set; }
+        public Nullable<int> AdvertisementTypeID { get; set; }
+        public Nullable<int> AdvertiserTypeID { get; set; }
     
         public virtual Advertisement Advertisement { get; set; }
         public virtual AdvertisementType AdvertisementType { get; set; }
