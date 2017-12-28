@@ -59,7 +59,10 @@ namespace Divar.Infrastructure.Repository
 
         public void Delete(long vehicleTypeId, long ManufacturerID, string Name)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                var model = db.Vehicles.Single();
+            }
         }
 
 
