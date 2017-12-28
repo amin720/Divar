@@ -54,7 +54,15 @@ namespace Divar.Infrastructure.Repository
 
         public void Delete(string Name, DateTime createDate)
         {
-            throw new NotImplementedException();
+            using (var db = new DivarEntities())
+            {
+                var model = db.Products.Single( p => p.Name == Name && p.CreateDate == createDate );
+                if (model == null) return;
+
+                db.Products.Remove(model);
+                db.SaveChanges();
+
+            }
         }
 
     }

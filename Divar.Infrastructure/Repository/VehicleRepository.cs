@@ -61,7 +61,11 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                var model = db.Vehicles.Single();
+                var model = db.Vehicles.Single( v => v.VehicleTypeID == vehicleTypeId && v.ManufacturerID == ManufacturerID && v.Name == Name );
+                if (model == null) return;
+
+                db.Vehicles.Remove(model);
+                db.SaveChanges();
             }
         }
 
