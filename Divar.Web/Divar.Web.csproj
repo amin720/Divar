@@ -639,6 +639,8 @@
     <Content Include="css\New-car.css" />
     <Content Include="css\owl.carousel.min.css" />
     <Content Include="css\owl.theme.default.min.css" />
+    <Content Include="css\persianDatepicker-default.css" />
+    <Content Include="css\persianDatepicker-latoja.css" />
     <Content Include="css\style.css" />
     <Content Include="css\style.rtl.css" />
     <Content Include="css\upload.css" />
@@ -696,6 +698,7 @@
     <Content Include="js\main.js" />
     <Content Include="js\modernizr-2.6.2.min.js" />
     <Content Include="js\owl.carousel.min.js" />
+    <Content Include="js\persianDatepicker.min.js" />
     <Content Include="js\respond.min.js" />
     <Content Include="js\upload.js" />
     <Content Include="Web.config" />
@@ -722,6 +725,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ItemVehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountViewModel.cs" />
@@ -887,7 +891,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Models\" />
+    <Folder Include="images\products\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Divar.Core\Divar.Core.csproj">

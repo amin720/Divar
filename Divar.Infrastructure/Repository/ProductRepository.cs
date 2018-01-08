@@ -15,7 +15,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                return db.Products.Single( p => p.Name == Name && p.CreateDate == createDate);
+                return db.Products.SingleOrDefault( p => p.Name == Name && p.CreateDate == createDate);
             }
         }
 
@@ -30,10 +30,10 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                if ((db.Products.Single(p => p.Name == product.Name && p.CreateDate == product.CreateDate)) != null)
+                if ((db.Products.SingleOrDefault(p => p.Name == product.Name && p.CreateDate == product.CreateDate)) != null)
                 {
-
-                }
+	                throw new KeyNotFoundException("همچین ساختاری وجود دارد " + product.Name);
+				}
                 db.Products.Add(product);
                 db.SaveChanges();
             }
@@ -43,7 +43,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                var model = db.Products.Single();
+                var model = db.Products.SingleOrDefault();
                 if (model == null) return;
 
                 model.Name = product.Name;
@@ -56,7 +56,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                var model = db.Products.Single( p => p.Name == Name && p.CreateDate == createDate );
+                var model = db.Products.SingleOrDefault( p => p.Name == Name && p.CreateDate == createDate );
                 if (model == null) return;
 
                 db.Products.Remove(model);

@@ -14,7 +14,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                return db.Employments.Single( e => e.Name == Name );
+                return db.Employments.SingleOrDefault( e => e.Name == Name );
             }
         }
 
@@ -29,7 +29,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                if ((db.Employments.Single( e => e.Name == employment.Name )) != null)
+                if ((db.Employments.SingleOrDefault( e => e.Name == employment.Name )) != null)
                 {
 
                 }
@@ -43,7 +43,7 @@ namespace Divar.Infrastructure.Repository
 
             using (var db = new DivarEntities())
             {
-                var model = db.Employments.Single(e => e.Name == employment.Name);
+                var model = db.Employments.SingleOrDefault(e => e.Name == employment.Name);
                 if (model == null) return;
 
                 model.Name = employment.Name;
@@ -58,7 +58,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                var model = db.Manufacturers.Single(e => e.Name == Name);
+                var model = db.Manufacturers.SingleOrDefault(e => e.Name == Name);
                 if (model == null) return;
 
                 db.Manufacturers.Remove(model);

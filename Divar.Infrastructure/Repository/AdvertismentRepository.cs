@@ -14,7 +14,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                return db.Advertisements.Single(d => d.VehicleID == vehicleId && d.CityID == cityId);
+                return db.Advertisements.SingleOrDefault(d => d.VehicleID == vehicleId && d.CityID == cityId);
             }
         }
 
@@ -29,10 +29,10 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                if ((db.Advertisements.Single(d => d.VehicleID == advertisement.VehicleID && d.CityID == advertisement.CityID)) != null)
+                if ((db.Advertisements.SingleOrDefault(d => d.VehicleID == advertisement.VehicleID && d.CityID == advertisement.CityID)) != null)
                 {
-
-                }
+	                throw new KeyNotFoundException("همچین ساختاری وجود دارد " + advertisement.Id);
+				}
                 db.Advertisements.Add(advertisement);
                 db.SaveChanges();
             }
@@ -41,7 +41,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                var model = db.Advertisements.Single(d => d.Id == advertisement.Id );
+                var model = db.Advertisements.SingleOrDefault(d => d.Id == advertisement.Id );
                 if (model == null) return;
 
                 model.VehicleID = advertisement.VehicleID;
@@ -56,7 +56,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                var model = db.Advertisements.Single( d => d.CityID == cityId && d.VehicleID == vehicleId);
+                var model = db.Advertisements.SingleOrDefault( d => d.CityID == cityId && d.VehicleID == vehicleId);
                 if (model == null) return;
 
                 db.Advertisements.Remove(model);

@@ -8,13 +8,13 @@ using Divar.Core.Interfaces;
 
 namespace Divar.Infrastructure.Repository
 {
-    class AdvertiserTypeRepository : IAdvertiserTypeRepository
+    public class AdvertiserTypeRepository : IAdvertiserTypeRepository
     {
         public AdvertiserType Get(string Name)
         {
             using (var db = new DivarEntities())
             {
-                return db.AdvertiserTypes.Single(d => d.Name == Name);
+                return db.AdvertiserTypes.SingleOrDefault(d => d.Name == Name);
             }
         }
 
@@ -30,7 +30,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                if ((db.AdvertiserTypes.Single(d => d.Name == advType.Name)) != null)
+                if ((db.AdvertiserTypes.SingleOrDefault(d => d.Name == advType.Name)) != null)
                 {
 
                 }
@@ -42,7 +42,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                var model = db.AdvertiserTypes.Single( d => d.Name == advType.Name);
+                var model = db.AdvertiserTypes.SingleOrDefault( d => d.Name == advType.Name);
                 if (model == null) return;
 
                 model.Name = advType.Name;
@@ -53,7 +53,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                var model = db.AdvertiserTypes.Single(d => d.Name == Name);
+                var model = db.AdvertiserTypes.SingleOrDefault(d => d.Name == Name);
                 if (model == null) return;
 
                 db.AdvertiserTypes.Remove(model);

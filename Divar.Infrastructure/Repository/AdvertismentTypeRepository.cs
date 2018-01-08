@@ -12,7 +12,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                return db.AdvertisementTypes.Single( d => d.Name == Name);
+                return db.AdvertisementTypes.SingleOrDefault( d => d.Name == Name);
             }
         }
 
@@ -27,7 +27,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                if ((db.AdvertisementTypes.Single(d => d.Name == advType.Name)) != null)
+                if ((db.AdvertisementTypes.SingleOrDefault(d => d.Name == advType.Name)) != null)
                 {
 
                 }
@@ -39,7 +39,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                var model = db.AdvertisementTypes.Single( d => d.Name == advType.Name);
+                var model = db.AdvertisementTypes.SingleOrDefault( d => d.Name == advType.Name);
                 if (model == null) return;
 
                 model.Name = advType.Name;
@@ -50,7 +50,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                var model = db.AdvertisementTypes.Single( d => d.Name == Name);
+                var model = db.AdvertisementTypes.SingleOrDefault( d => d.Name == Name);
                 if (model == null) return;
 
                 db.AdvertisementTypes.Remove(model);

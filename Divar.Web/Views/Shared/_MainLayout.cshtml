@@ -38,6 +38,10 @@
     <!-- Modernizr JS -->
     <script src="~/js/modernizr-2.6.2.min.js"></script>
 
+    <link href="~/css/persianDatepicker-default.css" rel="stylesheet" />
+    <link href="~/css/persianDatepicker-latoja.css" rel="stylesheet" />
+
+
     <!-- Theme style RTL -->
     <link rel="stylesheet" href="~/css/style.rtl.css">
     <!-- FOR IE9 below -->
@@ -55,24 +59,24 @@
                 <div class="row">
                     <div class="col-md-4 col-xs-3">
                         @if (Request.IsAuthenticated)
-                        {
-                            <div class="text-right">
-                                خوش آمدید  @User.Identity.GetUserName() , <a href="@Url.Action("Logout","Account")" class="text-uppercase">خروج</a>
-                            </div>}
-                        else
-                        {
-                            <div class="text-right">
-                                مهمان خوش آمدید , <a href="@Url.Action("Index","Account")" class="text-uppercase">ورود</a> | <a href="@Url.Action("Index","Account")" class="text-uppercase">ایجاد یک حساب کاربری جدید</a>
-                            </div>}
+                    {
+                        <div class="text-right">
+                            خوش آمدید  @User.Identity.GetUserName() , <a href="@Url.Action("Logout","Account")" class="text-uppercase">خروج</a>
+                        </div>}
+                else
+                {
+                    <div class="text-right">
+                        مهمان خوش آمدید , <a href="@Url.Action("Index","Account")" class="text-uppercase">ورود</a> | <a href="@Url.Action("Index","Account")" class="text-uppercase">ایجاد یک حساب کاربری جدید</a>
+                    </div>}
                     </div>
                     <div class="col-md-6 col-xs-6 text-center menu-1">
                         <ul>
                             <li><a href="@Url.Action("Index","Home")" style="font-weight:bold">صفحه اصلی</a></li>
                             @if (Request.IsAuthenticated)
-                            {
-                                <li><a href="@Url.Action("Index","Advertisement")" style="font-weight: bold; font-size: 1.22em;color: black">آگهی جدید ایجاد کنید</a></li>
-                                
-                            }
+                        {
+                            <li><a href="@Url.Action("Index","Advertisement")" style="font-weight: bold; font-size: 1.22em;color: black">آگهی جدید ایجاد کنید</a></li>
+
+                    }
                             <li><a href="@Url.Action("FQ","Home")" style="font-weight:bold">شرایط و راهنما</a></li>
                             <li><a href="@Url.Action("Contact","Home")" style="font-weight:bold">تماس با ما</a></li>
                         </ul>
@@ -117,6 +121,10 @@
 
         <script src="~/js/gallery.js"></script>
         <script src="~/js/upload.js"></script>
+
+        <script src="~/js/persianDatepicker.min.js"></script>
+
+        @RenderSection("DatePicker",false)
     </div>
 </body>
 </html>

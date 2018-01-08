@@ -14,7 +14,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                return db.VehicleTypes.Single( v => v.Name == Name );
+                return db.VehicleTypes.SingleOrDefault( v => v.Name == Name );
             }
         }
 
@@ -29,7 +29,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                if ((db.VehicleTypes.Single(d => d.Name == vehicType.Name)) != null )
+                if ((db.VehicleTypes.SingleOrDefault(d => d.Name == vehicType.Name)) != null )
                 {
 
                 }
@@ -42,7 +42,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                var model = db.VehicleTypes.Single( v => v.Name == vehicType.Name);
+                var model = db.VehicleTypes.SingleOrDefault( v => v.Name == vehicType.Name);
                 if (model == null) return;
 
                 model.Name = vehicType.Name;
@@ -56,7 +56,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                var model = db.VehicleTypes.Single( v => v.Name == Name );
+                var model = db.VehicleTypes.SingleOrDefault( v => v.Name == Name );
                 if (model == null) return;
 
                 db.VehicleTypes.Remove(model);

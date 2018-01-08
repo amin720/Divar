@@ -14,7 +14,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                return db.Assemblers.Single( a => a.Name== Name);
+                return db.Assemblers.SingleOrDefault( a => a.Name== Name);
             }
         }
 
@@ -29,7 +29,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                if ((db.Assemblers.Single(a => a.Name == assembler.Name)) != null)
+                if ((db.Assemblers.SingleOrDefault(a => a.Name == assembler.Name)) != null)
                 {
 
                 }
@@ -43,7 +43,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                var model = db.Assemblers.Single( a => a.Name == assembler.Name );
+                var model = db.Assemblers.SingleOrDefault( a => a.Name == assembler.Name );
                 if (model == null) return;
 
                 model.Name = assembler.Name;
@@ -55,7 +55,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                var model = db.Assemblers.Single( a => a.Name == Name );
+                var model = db.Assemblers.SingleOrDefault( a => a.Name == Name );
                 if (model == null) return;
 
                 db.Assemblers.Remove(model);

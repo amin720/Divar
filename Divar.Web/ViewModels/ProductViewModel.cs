@@ -27,13 +27,24 @@ namespace Divar.Web.ViewModels
 		[Required(ErrorMessage = "لطفا انقضا آگهی را مشخص کنید")]
 		[DataType(DataType.DateTime)]
 		public DateTime ExpiredDate { get; set; }
+		[StringLength(4, ErrorMessage = "لطفا فقط سال را وارد کنید با 4 کاراکتر")]
+		public string Year { get; set; }
 
+		public int KiloMeters { get; set; }
+
+		public string BrandSelect { get; set; }
+		public string ColorSelect { get; set; }
+		public string CitySelect { get; set; }
 		public string Brand { get; set; }
 		public string Color { get; set; }
 		public int? PriceMax { get; set; }
 		public int? PriceMin { get; set; }
 		public string Price { get; set; }
 		public string TypeVehicle { get; set; }
+		public string TypeAdv { get; set; }
+		public string TypeAdver { get; set; }
+		public string City { get; set; }
+		public int State { get; set; }
 		public int? PageNumber { get; set; }
 
 		public IEnumerable<Product> Products { get; set; }
@@ -46,5 +57,6 @@ namespace Divar.Web.ViewModels
 		public IEnumerable<Color> Colors { get; set; }
 		public IEnumerable<Advertisement> Advertisements { get; set; }
 		public IEnumerable<AdvertisementType> AdvertisementTypes { get; set; }
+		public IEnumerable<AdvertiserType> AdvertiserTypes { get; set; }
 	}
 }

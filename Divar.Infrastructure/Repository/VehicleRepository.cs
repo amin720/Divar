@@ -14,7 +14,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                return db.Vehicles.Single(v => v.Name == Name && v.VehicleTypeID == vehicleTypeId && v.ManufacturerID == manufacturerID );
+                return db.Vehicles.SingleOrDefault(v => v.Name == Name && v.VehicleTypeID == vehicleTypeId && v.ManufacturerID == manufacturerID );
             }
         }
 
@@ -29,7 +29,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                if ((db.Vehicles.Single(v => v.Name == vehicle.Name && v.VehicleTypeID == vehicle.VehicleTypeID && v.ManufacturerID == vehicle.ManufacturerID) != null))
+                if ((db.Vehicles.SingleOrDefault(v => v.Name == vehicle.Name && v.VehicleTypeID == vehicle.VehicleTypeID && v.ManufacturerID == vehicle.ManufacturerID) != null))
                 {
 
                 }
@@ -41,7 +41,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                var model = db.Vehicles.Single( v => v.Name == vehicle.Name && v.VehicleTypeID == vehicle.VehicleTypeID && v.ManufacturerID == vehicle.ManufacturerID );
+                var model = db.Vehicles.SingleOrDefault( v => v.Name == vehicle.Name && v.VehicleTypeID == vehicle.VehicleTypeID && v.ManufacturerID == vehicle.ManufacturerID );
                 if (model == null) return;
 
                 model.Name = vehicle.Name;
@@ -61,7 +61,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                var model = db.Vehicles.Single( v => v.VehicleTypeID == vehicleTypeId && v.ManufacturerID == ManufacturerID && v.Name == Name );
+                var model = db.Vehicles.SingleOrDefault( v => v.VehicleTypeID == vehicleTypeId && v.ManufacturerID == ManufacturerID && v.Name == Name );
                 if (model == null) return;
 
                 db.Vehicles.Remove(model);

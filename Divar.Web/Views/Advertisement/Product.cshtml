@@ -1,7 +1,7 @@
 ﻿@model Divar.Web.ViewModels.ProductViewModel
 
 @{
-    ViewBag.Title = "Product";
+    ViewBag.Title = "محصول";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
@@ -22,269 +22,391 @@
 </header>
 
 
-    
-    <div class="all">
-        <div class="single-contect page-content" style="width: 1164px;">
-            <div class="single-post-title" style="height: 46px !important;">
-                <h1 class="title-head-single">ارسال آگهی رایگان</h1>
-            </div>
-            <div class="single-about-post-text">
-                
-            @using (Html.BeginForm("Product","Advertisement", FormMethod.Post, new { @*@class = "form-horizontal form-bordered"*@id = "file-upload-form", enctype = "multipart/form-data" }))
-            {
-                @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                    <ul class="wpuf-form">
+<div class="all">
+    <div class="single-contect page-content" style="width: 1164px;">
+        <div class="single-post-title" style="height: 46px !important;">
+            <h1 class="title-head-single">ارسال آگهی رایگان</h1>
+        </div>
+        <div class="single-about-post-text">
 
-                        <li class="el-name">
-                            <div class="wpuf-label">
-                                <label for="ProductName">عنوان آگهی <span class="required">*</span></label>
-                            </div>
+            @using (Html.BeginForm("Product", "Advertisement", FormMethod.Post, new
+            {@*@class = "form-horizontal form-bordered"*@id = "file-upload-form",
+            enctype = "multipart/form-data"
+        }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                            <div class="wpuf-fields">
-                                @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { required = "required", data_required = "yes", data_type = "text", placeholder = "مثال: خودرو 206", size = "40" } })
-                                @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
-                                @*<input required="required" data-required="yes" data-type="text" placeholder="Autogallery" name="guest_name" value="" size="40" type="text">*@
-                            </div>
-                        </li>
+            <ul class="wpuf-form">
 
-                        @*<li class="el-email">
-                            <div class="wpuf-label">
-                                <label>آدرس ایمیل <span class="required">*</span></label>
-                            </div>
+                <li class="el-name">
+                    <div class="wpuf-label">
+                        <label for="ProductName">عنوان آگهی <span class="required">*</span></label>
+                    </div>
 
-                            <div class="wpuf-fields">
-                                <input style=" width: 378px;" id="ema" required="required" data-required="yes" data-type="email" placeholder="Autogallery@gmail.com" name="guest_email" value="" size="40" type="email">
-                            </div>
-                        </li>*@
-                        @*<script type="text/javascript">
-                wpuf_conditional_items = [];
-                        </script>
-                        <li class="wpuf-el post_title" data-label="عنوان آگهی">
-                            <div class="wpuf-label">
-                                <label for="wpuf-post_title">عنوان آگهی <span class="required">*</span></label>
-                            </div>
+                    <div class="wpuf-fields">
+                        @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { required = "required", data_required = "yes", data_type = "text", placeholder = "مثال: خودرو 206", size = "40" } })
+                        @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+                        @*<input required="required" data-required="yes" data-type="text" placeholder="Autogallery" name="guest_name" value="" size="40" type="text">*@
+                    </div>
+                </li>
 
-                            <div class="wpuf-fields">
-                                <input class="textfield wpuf_post_title_432" id="post_title11" data-required="yes" data-type="text" name="post_title" placeholder="مثال: خودرو 206" value="" size="40" type="text">
+                @*<li class="el-email">
+                        <div class="wpuf-label">
+                            <label>آدرس ایمیل <span class="required">*</span></label>
+                        </div>
 
-                            </div>
-
-                            <script type="text/javascript">
-
-                wpuf_conditional_items.push();
-
+                        <div class="wpuf-fields">
+                            <input style=" width: 378px;" id="ema" required="required" data-required="yes" data-type="email" placeholder="Autogallery@gmail.com" name="guest_email" value="" size="40" type="email">
+                        </div>
+                    </li>*@
+                @*<script type="text/javascript">
+                    wpuf_conditional_items = [];
                             </script>
-                        </li>*@
-                        <li class="wpuf-el post_content" data-label="توضیحات آگهی">
-                            <div class="wpuf-label">
-                                <label for="Description">توضیحات آگهی <span class="required">*</span></label>
-                            </div>
-
-                            <div class="wpuf-fields">
-                                @*@Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "textareafield  wpuf_post_content_432", required = "required", data_required = "yes", data_type = "text", placeholder = "توضیح : در این قسمت توضیحاتی در مورد آگهی قرار دهید از قرار دادن شماره تلفن همراه و جملات بی ربط خودداری نمایید", rows = "5", cols = "25" } })*@
-                                @Html.TextAreaFor(model => model.Description, htmlAttributes: new { @class = "textareafield  wpuf_post_content_432", required = "required", data_required = "yes", data_type = "text", placeholder = "توضیح : در این قسمت توضیحاتی در مورد آگهی قرار دهید از قرار دادن شماره تلفن همراه و جملات بی ربط خودداری نمایید", rows = "5", cols = "25" })
-                                @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
-                                
-                                @*<textarea class="textareafield  wpuf_post_content_432" id="post_content_432" name="post_content" data-required="yes" data-type="textarea" placeholder="توضیح : در این قسمت توضیحاتی در مورد آگهی قرار دهید از قرار دادن شماره تلفن همراه و جملات بی ربط خودداری نمایید" rows="5" cols="25"></textarea>
-                                <span class="wpuf-wordlimit-message wpuf-help"></span>*@
-                            </div>
-                            @*<script type="text/javascript">
-
-                                wpuf_conditional_items.push();
-
-                            </script>*@
-                        </li>
-                        <li class="wpuf-el ________" data-label="نوع قیمت">
-                            <div class="wpuf-label">
-                                <label for="TypeVehicle">نوع قیمت <span class="required">*</span></label>
-                            </div>
-
-                            <div class="wpuf-fields">
-                                <select id="TypeVehicle" name="TypeVehicle" class="select-select2" @*style="width: 100%;"*@ data-placeholder="یک انتخاب..">
-                                    @*<option></option>*@<!-- Required for data-placeholder attribute to work with Select2 plugin -->
-                                    <option value="@string.Empty">- انتخاب یک مورد -</option>
-                                    @foreach (var adv in Model.AdvertisementTypes)
-                                    {
-                                        <option value="@adv.Id">@adv.Name</option>
-                                    }
-                                </select>
-                                @*<select class="multiselect  wpuf__________432" name="________[]" multiple="multiple" data-required="yes" data-type="multiselect">
-
-                                    <option value=""> - انتخاب یک مورد -</option>
-
-                                    <option value="قیمت مقطوع">مقطوع</option>
-                                    <option value="قیمت توافقی">توافقی</option>
-                                    <option value="معاوضه">معاوضه</option>
-                                </select>
-                                <span class="wpuf-help"></span>*@
-                            </div>
-                            @*<script type="text/javascript">
-
-                wpuf_conditional_items.push();
-
-                            </script>*@
-                        </li>
-                        <li class="wpuf-el __________" data-label="قیمت فروش">
-                            <div class="wpuf-label">
-                                <label for="ProductPrice">قیمت فروش</label>
-                            </div>
-
-                            <div class="wpuf-fields">
-                                @Html.EditorFor(model => model.ProductPrice, new { htmlAttributes = new { required = "required", data_required = "yes", data_type = "text", placeholder = "در این قسمت قیمت را وارد نمایید مثال (200.000)", size = "40" } })
-                                @Html.ValidationMessageFor(model => model.ProductPrice, "", new { @class = "text-danger" })
-
-                                @*<input class="textfield wpuf____________432" id="__________" data-required="no" data-type="text" name="__________" placeholder="در این قسمت قیمت را وارد نمایید مثال (200.000)" value="" size="40" type="text">*@
-
-                            </div>
-
-                            @*<script type="text/javascript">
-
-                wpuf_conditional_items.push();
-
-                            </script>*@
-                        </li>
-                        <li class="wpuf-el ____________" data-label="شماره تماس :">
-                            <div class="wpuf-label">
-                                <label for="PhoneNumber">شماره تماس : <span class="required">*</span></label>
-                            </div>
-
-                            <div class="wpuf-fields">
-                                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { required = "required", data_required = "yes", data_type = "text", placeholder = "شماره تماس برای ارتباط با خریدار یا فروشنده", size = "40" } })
-                                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
-
-                               @* <input class="textfield wpuf______________432" id="____________" data-required="yes" data-type="text" name="____________" placeholder="شماره تماس برای ارتباط با خریدار یا فروشنده" value="" size="40" type="text">*@
-
-                            </div>
-
-                            @*<script type="text/javascript">
-
-                wpuf_conditional_items.push();
-
-                            </script>*@
-                        </li>
-                        @*<li class="wpuf-el checkphone" data-label="شماره تلفن">
-                            <div class="wpuf-label">
-                                <label for="wpuf-checkphone">شماره تلفن</label>
-                            </div>
-
-                            <div class="wpuf-fields" data-required="no" data-type="radio">
-
-
-                                <label>
-                                    <input class="wpuf_checkphone_432" name="checkphone[]" value="نشان داده نشود" type="checkbox">
-                                    نشان داده نشود
-                                </label>
+                            <li class="wpuf-el post_title" data-label="عنوان آگهی">
+                                <div class="wpuf-label">
+                                    <label for="wpuf-post_title">عنوان آگهی <span class="required">*</span></label>
+                                </div>
 
                                 <div class="wpuf-fields">
-                                    <span class="wpuf-help">
-                                        <br>
-                                        با تیک زدن این گزینه شماره تلفن شما برای عموم نمایش داده نمی شود
-                                    </span>
+                                    <input class="textfield wpuf_post_title_432" id="post_title11" data-required="yes" data-type="text" name="post_title" placeholder="مثال: خودرو 206" value="" size="40" type="text">
+
                                 </div>
 
-                            </div>
+                                <script type="text/javascript">
 
-                            <script type="text/javascript">
+                    wpuf_conditional_items.push();
 
-                wpuf_conditional_items.push();
+                                </script>
+                            </li>*@
 
-                            </script>
+                <li class="wpuf-el ________" data-label="نوع قیمت">
+                    <div class="wpuf-label">
+                        <label for="TypeAdv">نوع قیمت <span class="required">*</span></label>
+                    </div>
 
-                        </li>*@
-                    <li class="wpuf-el ________" data-label="برند وسیله">
-                        <div class="wpuf-label">
-                            <label for="Brand">برند وسیله <span class="required">*</span></label>
-                        </div>
+                    <div class="wpuf-fields">
+                        <select id="TypeAdv" name="TypeAdv" class="select-select2" @*style="width: 100%;"*@ data-placeholder="یک انتخاب..">
+                            @*<option></option>*@<!-- Required for data-placeholder attribute to work with Select2 plugin -->
+                            <option value="@string.Empty">- انتخاب یک مورد -</option>
+                            @foreach (var adv in Model.AdvertisementTypes)
+                            {
+                                <option value="@adv.Id">@adv.Name</option>
+                            }
+                        </select>
+                        @*<select class="multiselect  wpuf__________432" name="________[]" multiple="multiple" data-required="yes" data-type="multiselect">
 
-                        <div class="wpuf-fields">
-                            <select id="Brand" name="Brand" class="select-select2" @*style="width: 100%;"*@ data-placeholder="یک انتخاب..">
-                                <option></option>
-                                <option value="@string.Empty">- انتخاب یک مورد -</option>
-                                @foreach (var adv in Model.Manufacturers)
-                                {
-                                    <option value="@adv.Id">@adv.Name</option>
-                                }
+                                <option value=""> - انتخاب یک مورد -</option>
+
+                                <option value="قیمت مقطوع">مقطوع</option>
+                                <option value="قیمت توافقی">توافقی</option>
+                                <option value="معاوضه">معاوضه</option>
                             </select>
-                            <br />
-                            اگر نیست
-                            <br />
-                            
-                                @Html.EditorFor(model => model.Brand, new { htmlAttributes = new {  data_type = "text", placeholder = "برند  ", size = "40" } })
-                                @Html.ValidationMessageFor(model => model.Brand, "", new { @class = "text-danger" })
-                            
-                        </div>
-                    </li>
-                    <li class="wpuf-el ________" data-label="رنگ">
-                        <div class="wpuf-label">
-                            <label for="Color">رنگ <span class="required">*</span></label>
-                        </div>
+                            <span class="wpuf-help"></span>*@
+                    </div>
+                    @*<script type="text/javascript">
 
-                        <div class="wpuf-fields">
-                            <select id="Color" name="Color" class="select-select2" @*style="width: 100%;"*@ data-placeholder="یک انتخاب..">
-                                <option></option>
-                                <option value="@string.Empty">- انتخاب یک مورد -</option>
-                                @foreach (var adv in Model.Colors)
-                                {
-                                    <option value="@adv.Id">@adv.Name</option>
-                                }
-                            </select>
-                            <br/>
-                            اگر نیست
-                            <br/>
-                            @Html.EditorFor(model => model.Color, new { htmlAttributes = new {  data_type = "text", placeholder = "رنگ  ", size = "40" } })
-                            @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })
+                        wpuf_conditional_items.push();
 
-                        </div>
-                    </li>
-                        <li class="wpuf-el featured_image" data-label="تصاویر آگهی">
-                            <div class="wpuf-label">
-                                <label for="fileUpload">تصاویر آگهی <span class="required">*</span></label>
-                            </div>
+                                    </script>*@
+                </li>
+                <li class="wpuf-el __________" data-label="قیمت فروش">
+                    <div class="wpuf-label">
+                        <label for="ProductPrice">قیمت فروش</label>
+                    </div>
 
-                            <!-- Upload  -->
-                            <div class="file-upload">
-                                <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">انتخاب یک تصویر</button>
+                    <div class="wpuf-fields">
+                        @Html.EditorFor(model => model.ProductPrice, new { htmlAttributes = new { required = "required", data_required = "yes", data_type = "text", placeholder = "در این قسمت قیمت را وارد نمایید مثال (200.000)", size = "40" } })
+                        @Html.ValidationMessageFor(model => model.ProductPrice, "", new { @class = "text-danger" })
 
-                                <div class="image-upload-wrap">
-                                    <input class="file-upload-input" type='file' name="fileUpload" onchange="readURL(this);" accept="image/*" />
-                                    <div class="drag-text">
-                                        <h3>یک تصویر را انتخاب کنید یا آن را پرت کنید اینجا</h3>
-                                    </div>
+                        @*<input class="textfield wpuf____________432" id="__________" data-required="no" data-type="text" name="__________" placeholder="در این قسمت قیمت را وارد نمایید مثال (200.000)" value="" size="40" type="text">*@
+
+                    </div>
+
+                    @*<script type="text/javascript">
+
+                        wpuf_conditional_items.push();
+
+                                    </script>*@
+                </li>
+                <li class="wpuf-el __________" data-label="سال ساخت">
+                    <div class="wpuf-label">
+                        <label for="Year">سال ساخت <span class="required">*</span></label>
+                    </div>
+
+                    <div class="wpuf-fields">
+                        @Html.EditorFor(model => model.Year, new { htmlAttributes = new { required = "required", data_required = "yes", data_type = "text", placeholder = "1396", size = "40" } })
+                        @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+                    </div>
+
+                </li>
+                <li class="wpuf-el __________" data-label="کیلومتر طی شده">
+                    <div class="wpuf-label">
+                        <label for="KiloMeters">کیلومتر طی شده <span class="required">*</span></label>
+                    </div>
+
+                    <div class="wpuf-fields">
+                        @Html.EditorFor(model => model.KiloMeters, new { htmlAttributes = new { required = "required", data_required = "yes", data_type = "text", placeholder = "1396", size = "40" } })
+                        @Html.ValidationMessageFor(model => model.KiloMeters, "", new { @class = "text-danger" })
+                    </div>
+
+                </li>
+                <li class="wpuf-el ____________" data-label="شماره تماس :">
+                    <div class="wpuf-label">
+                        <label for="PhoneNumber">شماره تماس : <span class="required">*</span></label>
+                    </div>
+
+                    <div class="wpuf-fields">
+                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { required = "required", data_required = "yes", data_type = "text", placeholder = "شماره تماس برای ارتباط با خریدار یا فروشنده", size = "40" } })
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+
+                        @* <input class="textfield wpuf______________432" id="____________" data-required="yes" data-type="text" name="____________" placeholder="شماره تماس برای ارتباط با خریدار یا فروشنده" value="" size="40" type="text">*@
+
+                    </div>
+
+                    @*<script type="text/javascript">
+
+                        wpuf_conditional_items.push();
+
+                                    </script>*@
+                </li>
+                @*<li class="wpuf-el checkphone" data-label="شماره تلفن">
+                                <div class="wpuf-label">
+                                    <label for="wpuf-checkphone">شماره تلفن</label>
                                 </div>
-                                <div class="file-upload-content">
-                                    <img class="file-upload-image" src="#" alt="تصویر" />
-                                    <div class="image-title-wrap">
-                                        <button type="button" onclick="removeUpload()" class="remove-image">حذف <span class="image-title">آپلود تصویر</span></button>
+
+                                <div class="wpuf-fields" data-required="no" data-type="radio">
+
+
+                                    <label>
+                                        <input class="wpuf_checkphone_432" name="checkphone[]" value="نشان داده نشود" type="checkbox">
+                                        نشان داده نشود
+                                    </label>
+
+                                    <div class="wpuf-fields">
+                                        <span class="wpuf-help">
+                                            <br>
+                                            با تیک زدن این گزینه شماره تلفن شما برای عموم نمایش داده نمی شود
+                                        </span>
                                     </div>
+
                                 </div>
+
+                                <script type="text/javascript">
+
+                    wpuf_conditional_items.push();
+
+                                </script>
+
+                            </li>*@
+                <li class="wpuf-el ________" data-label="برند وسیله">
+                    <div class="wpuf-label">
+                        <label for="BrandSelect">برند وسیله <span class="required">*</span></label>
+                    </div>
+
+                    <div class="wpuf-fields">
+                        <select id="BrandSelect" name="BrandSelect" class="select-select2" @*style="width: 100%;"*@ data-placeholder="یک انتخاب..">
+                            <option></option>
+                            <option value="@string.Empty">- انتخاب یک مورد -</option>
+                            @foreach (var adv in Model.Manufacturers)
+                            {
+                                <option value="@adv.Id">@adv.Name</option>
+                            }
+                        </select>
+                        <br />
+                        اگر نیست
+                        <br />
+
+                        @Html.EditorFor(model => model.Brand, new { htmlAttributes = new { data_type = "text", placeholder = "برند  ", size = "40" } })
+                        @Html.ValidationMessageFor(model => model.Brand, "", new { @class = "text-danger" })
+
+                    </div>
+                </li>
+                <li class="wpuf-el ________" data-label="رنگ">
+                    <div class="wpuf-label">
+                        <label for="ColorSelect">رنگ <span class="required">*</span></label>
+                    </div>
+
+                    <div class="wpuf-fields">
+                        <select id="ColorSelect" name="ColorSelect" class="select-select2" @*style="width: 100%;"*@ data-placeholder="یک انتخاب..">
+                            <option></option>
+                            <option value="@string.Empty">- انتخاب یک مورد -</option>
+                            @foreach (var adv in Model.Colors)
+                            {
+                                <option value="@adv.Id">@adv.Name</option>
+                            }
+                        </select>
+                        <br />
+                        اگر نیست
+                        <br />
+                        @Html.EditorFor(model => model.Color, new { htmlAttributes = new { data_type = "text", placeholder = "رنگ  ", size = "40" } })
+                        @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })
+
+                    </div>
+                </li>
+                <li class="wpuf-el ________" data-label="نوع وسلیه نقلیه">
+                    <div class="wpuf-label">
+                        <label for="TypeVehicle">نوع وسلیه نقلیه <span class="required">*</span></label>
+                    </div>
+
+                    <div class="wpuf-fields">
+                        <select id="TypeVehicle" name="TypeVehicle" class="select-select2" @*style="width: 100%;"*@ data-placeholder="یک انتخاب..">
+                            @*<option></option>*@<!-- Required for data-placeholder attribute to work with Select2 plugin -->
+                            <option value="@string.Empty">- انتخاب یک مورد -</option>
+                            @foreach (var adv in Model.VehicleTypes)
+                            {
+                                <option value="@adv.Id">@adv.Name</option>
+                            }
+                        </select>
+
+                    </div>
+                </li>
+                <li class="wpuf-el ________" data-label="نوع آگهی دهنده">
+                    <div class="wpuf-label">
+                        <label for="TypeAdver">نوع آگهی دهنده <span class="required">*</span></label>
+                    </div>
+
+                    <div class="wpuf-fields">
+                        <select id="TypeAdver" name="TypeAdver" class="select-select2" @*style="width: 100%;"*@ data-placeholder="یک انتخاب..">
+                            @*<option></option>*@<!-- Required for data-placeholder attribute to work with Select2 plugin -->
+                            <option value="@string.Empty">- انتخاب یک مورد -</option>
+                            @foreach (var adv in Model.AdvertiserTypes)
+                            {
+                                <option value="@adv.Id">@adv.Name</option>
+                            }
+                        </select>
+
+                    </div>
+                </li>
+                <li class="wpuf-el ________" data-label="شهر">
+                    <div class="wpuf-label">
+                        <label for="CitySelect">شهر <span class="required">*</span></label>
+                    </div>
+
+                    <div class="wpuf-fields">
+                        <select id="CitySelect" name="CitySelect" class="select-select2" @*style="width: 100%;"*@ data-placeholder="یک انتخاب..">
+                            @*<option></option>*@<!-- Required for data-placeholder attribute to work with Select2 plugin -->
+                            <option value="@string.Empty">- انتخاب یک مورد -</option>
+                            @foreach (var adv in Model.Cities)
+                            {
+                                <option value="@adv.Id">@adv.Name</option>
+                            }
+                        </select>
+                        <br />
+                        اگر نیست
+                        <br />
+
+                        @Html.EditorFor(model => model.City, new { htmlAttributes = new { data_type = "text", placeholder = "شهر  ", size = "40" } })
+                        @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+
+                    </div>
+                </li>
+                <li class="wpuf-el ________" data-label="از تاریخ">
+                    <div class="wpuf-label">
+                        <label for="CreateDate">از تاریخ <span class="required">*</span></label>
+                    </div>
+
+                    <div class="wpuf-fields">
+                        <input type="text" id="CreateDate" placeholder="از تاریخ" name="CreateDate" />
+                    </div>
+                </li>
+                <li class="wpuf-el ________" data-label="تا تاریخ">
+                    <div class="wpuf-label">
+                        <label for="ExpiredDate">تا تاریخ <span class="required">*</span></label>
+                    </div>
+
+                    <div class="wpuf-fields">
+                        <input type="text" id="ExpiredDate" placeholder="تا تاریخ" name="ExpiredDate" />
+                    </div>
+                </li>
+                <li class="wpuf-el post_content" data-label="توضیحات آگهی">
+                    <div class="wpuf-label">
+                        <label for="Description">توضیحات آگهی <span class="required">*</span></label>
+                    </div>
+
+                    <div class="wpuf-fields">
+                        @*@Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "textareafield  wpuf_post_content_432", required = "required", data_required = "yes", data_type = "text", placeholder = "توضیح : در این قسمت توضیحاتی در مورد آگهی قرار دهید از قرار دادن شماره تلفن همراه و جملات بی ربط خودداری نمایید", rows = "5", cols = "25" } })*@
+                        @Html.TextAreaFor(model => model.Description, htmlAttributes: new { @class = "textareafield  wpuf_post_content_432", required = "required", data_required = "yes", data_type = "text", placeholder = "توضیح : در این قسمت توضیحاتی در مورد آگهی قرار دهید از قرار دادن شماره تلفن همراه و جملات بی ربط خودداری نمایید", rows = "5", cols = "25" })
+                        @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+
+                        @*<textarea class="textareafield  wpuf_post_content_432" id="post_content_432" name="post_content" data-required="yes" data-type="textarea" placeholder="توضیح : در این قسمت توضیحاتی در مورد آگهی قرار دهید از قرار دادن شماره تلفن همراه و جملات بی ربط خودداری نمایید" rows="5" cols="25"></textarea>
+                            <span class="wpuf-wordlimit-message wpuf-help"></span>*@
+                    </div>
+                    @*<script type="text/javascript">
+
+                            wpuf_conditional_items.push();
+
+                        </script>*@
+                </li>
+                <li class="wpuf-el featured_image" data-label="تصاویر آگهی">
+                    <div class="wpuf-label">
+                        <label for="fileUpload">تصاویر آگهی <span class="required">*</span></label>
+                    </div>
+
+                    <!-- Upload  -->
+                    <div class="file-upload">
+                        <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">انتخاب یک تصویر</button>
+
+                        <div class="image-upload-wrap">
+                            <input class="file-upload-input" type='file' name="fileUpload" onchange="readURL(this);" accept="image/*" />
+                            <div class="drag-text">
+                                <h3>یک تصویر را انتخاب کنید یا آن را پرت کنید اینجا</h3>
                             </div>
-
-                        </li>
-                        <li class="wpuf-submit">
-                            <div class="wpuf-label">
-                                &nbsp;
+                        </div>
+                        <div class="file-upload-content">
+                            <img class="file-upload-image" src="#" alt="تصویر" />
+                            <div class="image-title-wrap">
+                                <button type="button" onclick="removeUpload()" class="remove-image">حذف <span class="image-title">آپلود تصویر</span></button>
                             </div>
+                        </div>
+                    </div>
 
-                            @*<input id="_wpnonce" name="_wpnonce" value="33a18cb134" type="hidden">
-                            <input name="_wp_http_referer" value="/freesend/" type="hidden">
-                            <input name="form_id" value="432" type="hidden">
-                            <input name="page_id" value="381" type="hidden">
-                            <input name="action" value="wpuf_submit_post" type="hidden">*@
-                            <input class="subbb" name="submit" value="ارسال آگهی" type="submit">
+                </li>
+                <li class="wpuf-submit">
+                    <div class="wpuf-label">
+                        &nbsp;
+                    </div>
 
-                            @*<input name="wpuf_form_status" value="new" type="hidden">
+                    @*<input id="_wpnonce" name="_wpnonce" value="33a18cb134" type="hidden">
+                        <input name="_wp_http_referer" value="/freesend/" type="hidden">
+                        <input name="form_id" value="432" type="hidden">
+                        <input name="page_id" value="381" type="hidden">
+                        <input name="action" value="wpuf_submit_post" type="hidden">*@
+                    <input class="subbb" name="submit" value="ارسال آگهی" type="submit">
 
-                            <a href="#" class="btn" id="wpuf-post-draft">ذخیره به عنوان پیش نویس</a>*@
-                        </li>
+                    @*<input name="wpuf_form_status" value="new" type="hidden">
 
-                    </ul>
-            }
-            </div>
+                        <a href="#" class="btn" id="wpuf-post-draft">ذخیره به عنوان پیش نویس</a>*@
+                </li>
 
-            <form id="file-upload-form" class="uploader"></form>
+            </ul>
+        }
         </div>
+
+        <form id="file-upload-form" class="uploader"></form>
     </div>
+</div>
 
 
+
+
+
+
+@section DatePicker{
+    <script>
+        $(function () {
+            ////usage
+            //$("#CreateDate").persianDatepicker();
+
+            
+            //startDate & endDate
+            $("#pdpStartEnd").persianDatepicker({ startDate: "1394/11/12", endDate: "1395/5/5" });
+            $("#CreateDate").persianDatepicker({ startDate: "today", endDate: "" });
+            $("#ExpiredDate").persianDatepicker({ startDate: "today", endDate: "" });
+
+
+        });
+    </script>
+
+}

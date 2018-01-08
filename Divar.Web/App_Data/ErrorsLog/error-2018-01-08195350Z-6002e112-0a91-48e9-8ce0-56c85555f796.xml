@@ -1,0 +1,242 @@
+﻿<error errorId="6002e112-0a91-48e9-8ce0-56c85555f796" application="/LM/W3SVC/2/ROOT" host="DESKTOP-4FUQHT8" type="System.InvalidOperationException" message="Sequence contains no elements" source="System.Core" detail="System.InvalidOperationException: Sequence contains no elements&#xD;&#xA;   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.&lt;GetElementFunction&gt;b__3[TResult](IEnumerable`1 sequence)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)&#xD;&#xA;   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)&#xD;&#xA;   at System.Linq.Queryable.Single[TSource](IQueryable`1 source, Expression`1 predicate)&#xD;&#xA;   at Divar.Infrastructure.Repository.VehicleTypeRepository.Get(String Name) in E:\Project-Work\Uni.Projects\Hossein.Project\Divar\Divar.Infrastructure\Repository\VehicleTypeRepository.cs:line 17&#xD;&#xA;   at Divar.Web.Controllers.AdvertisementController.&lt;Product&gt;d__19.MoveNext() in E:\Project-Work\Uni.Projects\Hossein.Project\Divar\Divar.Web\Controllers\AdvertisementController.cs:line 157&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass37.&lt;BeginInvokeAsynchronousActionMethod&gt;b__36(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__3d()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;&gt;c__DisplayClass46.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__3f()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass33.&lt;BeginInvokeActionMethodWithFilters&gt;b__32(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;&gt;c__DisplayClass2b.&lt;BeginInvokeAction&gt;b__1c()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;BeginInvokeAction&gt;b__1e(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.&lt;BeginExecuteCore&gt;b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.&lt;BeginExecute&gt;b__15(IAsyncResult asyncResult, Controller controller)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.&lt;BeginProcessRequest&gt;b__5(IAsyncResult asyncResult, ProcessRequestState innerState)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)&#xD;&#xA;   at System.Web.HttpApplication.CallHandlerExecutionStep.OnAsyncHandlerCompletion(IAsyncResult ar)" user="admin" time="2018-01-08T19:53:50.4094660Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_CONTENT_LENGTH:15459&#xD;&#xA;HTTP_CONTENT_TYPE:multipart/form-data; boundary=---------------------------692291467069&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.5&#xD;&#xA;HTTP_COOKIE:ai_user=sldFq|2017-09-20T20:33:47.950Z; _ga=GA1.1.130771370.1513324979; ShoppingCart=d6f6d830-c024-4c15-992b-46ac305ef694; __RequestVerificationToken=9drPlQUlgndqJ-_O510Kn0jSMdC5u3f8Caqjy8H3P7k0zNVnCZTKEnKvSbC687t5thTM4OCinrhTefkVxmc8t1rpp2CpKYXFbt10kSE7b2Y1; .AspNet.ApplicationCookie=h00ad4fBndxdeCOW43wX4UL9vSiVRlu1rvaGdMdpQHjGDRPYrUHVKTb6lu-FDL07tRrct7e66Y0gpBlukdSBCxypVlBOxN6ym8V1fDgXFmxNljVWrWanMg4AlHG78xJDK8DbKmfQNzSJY7UQVLbpvJ79AJXa8tKazjTs6201nWYEiIvgKNDOwM7-UDouQ30VRC2K-TCm8Cc__iLhcnb71KpgB_iv_Tf7VTpNWAGSSUs3eK7D1hOBYNVEgv75I4JtM5QAZq6htX5Gp_2_x19h_NS84O8i0rvNjJTUq406FBcsgSdPreNPqgjyVwSkNU0T2VXS0SnABqoIaAybIn454aqQYhFUnf3qR0rx76yWHeAl9prvagUeJJO-MDwX0bndLyti8yPBs_uHs5bZyH2RwKwheEGpyAW4TWmCbItusDoteZZe9VwMb3Pkc_F1Mcs2YVlC2Sd5cwnhymDhVkqyLPrccmgOTw1g2k99GyloswxtEoo31iGK3kOfFeDhB2pG&#xD;&#xA;HTTP_HOST:localhost:1800&#xD;&#xA;HTTP_REFERER:http://localhost:1800/Advertisement/Product&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Content-Length: 15459&#xD;&#xA;Content-Type: multipart/form-data; boundary=---------------------------692291467069&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#xD;&#xA;Accept-Encoding: gzip, deflate&#xD;&#xA;Accept-Language: en-US,en;q=0.5&#xD;&#xA;Cookie: ai_user=sldFq|2017-09-20T20:33:47.950Z; _ga=GA1.1.130771370.1513324979; ShoppingCart=d6f6d830-c024-4c15-992b-46ac305ef694; __RequestVerificationToken=9drPlQUlgndqJ-_O510Kn0jSMdC5u3f8Caqjy8H3P7k0zNVnCZTKEnKvSbC687t5thTM4OCinrhTefkVxmc8t1rpp2CpKYXFbt10kSE7b2Y1; .AspNet.ApplicationCookie=h00ad4fBndxdeCOW43wX4UL9vSiVRlu1rvaGdMdpQHjGDRPYrUHVKTb6lu-FDL07tRrct7e66Y0gpBlukdSBCxypVlBOxN6ym8V1fDgXFmxNljVWrWanMg4AlHG78xJDK8DbKmfQNzSJY7UQVLbpvJ79AJXa8tKazjTs6201nWYEiIvgKNDOwM7-UDouQ30VRC2K-TCm8Cc__iLhcnb71KpgB_iv_Tf7VTpNWAGSSUs3eK7D1hOBYNVEgv75I4JtM5QAZq6htX5Gp_2_x19h_NS84O8i0rvNjJTUq406FBcsgSdPreNPqgjyVwSkNU0T2VXS0SnABqoIaAybIn454aqQYhFUnf3qR0rx76yWHeAl9prvagUeJJO-MDwX0bndLyti8yPBs_uHs5bZyH2RwKwheEGpyAW4TWmCbItusDoteZZe9VwMb3Pkc_F1Mcs2YVlC2Sd5cwnhymDhVkqyLPrccmgOTw1g2k99GyloswxtEoo31iGK3kOfFeDhB2pG&#xD;&#xA;Host: localhost:1800&#xD;&#xA;Referer: http://localhost:1800/Advertisement/Product&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0&#xD;&#xA;Upgrade-Insecure-Requests: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="E:\Project-Work\Uni.Projects\Hossein.Project\Divar\Divar.Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="ApplicationCookie" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="admin" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="admin" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="15459" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="multipart/form-data; boundary=---------------------------692291467069" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Advertisement/Product" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="E:\Project-Work\Uni.Projects\Hossein.Project\Divar\Divar.Web\Advertisement\Product" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="3987" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="POST" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Advertisement/Product" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="1800" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/Advertisement/Product" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_CONTENT_LENGTH">
+      <value string="15459" />
+    </item>
+    <item name="HTTP_CONTENT_TYPE">
+      <value string="multipart/form-data; boundary=---------------------------692291467069" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.5" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="ai_user=sldFq|2017-09-20T20:33:47.950Z; _ga=GA1.1.130771370.1513324979; ShoppingCart=d6f6d830-c024-4c15-992b-46ac305ef694; __RequestVerificationToken=9drPlQUlgndqJ-_O510Kn0jSMdC5u3f8Caqjy8H3P7k0zNVnCZTKEnKvSbC687t5thTM4OCinrhTefkVxmc8t1rpp2CpKYXFbt10kSE7b2Y1; .AspNet.ApplicationCookie=h00ad4fBndxdeCOW43wX4UL9vSiVRlu1rvaGdMdpQHjGDRPYrUHVKTb6lu-FDL07tRrct7e66Y0gpBlukdSBCxypVlBOxN6ym8V1fDgXFmxNljVWrWanMg4AlHG78xJDK8DbKmfQNzSJY7UQVLbpvJ79AJXa8tKazjTs6201nWYEiIvgKNDOwM7-UDouQ30VRC2K-TCm8Cc__iLhcnb71KpgB_iv_Tf7VTpNWAGSSUs3eK7D1hOBYNVEgv75I4JtM5QAZq6htX5Gp_2_x19h_NS84O8i0rvNjJTUq406FBcsgSdPreNPqgjyVwSkNU0T2VXS0SnABqoIaAybIn454aqQYhFUnf3qR0rx76yWHeAl9prvagUeJJO-MDwX0bndLyti8yPBs_uHs5bZyH2RwKwheEGpyAW4TWmCbItusDoteZZe9VwMb3Pkc_F1Mcs2YVlC2Sd5cwnhymDhVkqyLPrccmgOTw1g2k99GyloswxtEoo31iGK3kOfFeDhB2pG" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:1800" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:1800/Advertisement/Product" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <form>
+    <item name="__RequestVerificationToken">
+      <value string="ylLbPChfWmkpeCSjh8UJJXaXhaHfWD38CEtKaOYUOJBfj-XxZCCqgcI_4U_QrHzWrGy7_xFEtOXJH7mIlxkANz-xNz0PfB5auBmuOA865BMhlnFbmuTYUUiGE_EVLT_C88aOvxxeHRoSNKMKK7DUzQ2" />
+    </item>
+    <item name="ProductName">
+      <value string="206" />
+    </item>
+    <item name="TypeAdv">
+      <value string="1" />
+    </item>
+    <item name="ProductPrice">
+      <value string="30.00" />
+    </item>
+    <item name="Year">
+      <value string="1390" />
+    </item>
+    <item name="KiloMeters">
+      <value string="122470" />
+    </item>
+    <item name="PhoneNumber">
+      <value string="09121212121212" />
+    </item>
+    <item name="BrandSelect">
+      <value string="" />
+    </item>
+    <item name="Brand">
+      <value string="پژو" />
+    </item>
+    <item name="ColorSelect">
+      <value string="" />
+    </item>
+    <item name="Color">
+      <value string="خاکستری" />
+    </item>
+    <item name="TypeVehicle">
+      <value string="1" />
+    </item>
+    <item name="TypeAdver">
+      <value string="1002" />
+    </item>
+    <item name="CitySelect">
+      <value string="" />
+    </item>
+    <item name="City">
+      <value string="مشهد" />
+    </item>
+    <item name="CreateDate">
+      <value string="1396/10/18" />
+    </item>
+    <item name="ExpiredDate">
+      <value string="1396/10/25" />
+    </item>
+    <item name="Description">
+      <value string="بدون رنگ" />
+    </item>
+    <item name="submit">
+      <value string="ارسال آگهی" />
+    </item>
+  </form>
+  <cookies>
+    <item name="ai_user">
+      <value string="sldFq|2017-09-20T20:33:47.950Z" />
+    </item>
+    <item name="_ga">
+      <value string="GA1.1.130771370.1513324979" />
+    </item>
+    <item name="ShoppingCart">
+      <value string="d6f6d830-c024-4c15-992b-46ac305ef694" />
+    </item>
+    <item name="__RequestVerificationToken">
+      <value string="9drPlQUlgndqJ-_O510Kn0jSMdC5u3f8Caqjy8H3P7k0zNVnCZTKEnKvSbC687t5thTM4OCinrhTefkVxmc8t1rpp2CpKYXFbt10kSE7b2Y1" />
+    </item>
+    <item name=".AspNet.ApplicationCookie">
+      <value string="h00ad4fBndxdeCOW43wX4UL9vSiVRlu1rvaGdMdpQHjGDRPYrUHVKTb6lu-FDL07tRrct7e66Y0gpBlukdSBCxypVlBOxN6ym8V1fDgXFmxNljVWrWanMg4AlHG78xJDK8DbKmfQNzSJY7UQVLbpvJ79AJXa8tKazjTs6201nWYEiIvgKNDOwM7-UDouQ30VRC2K-TCm8Cc__iLhcnb71KpgB_iv_Tf7VTpNWAGSSUs3eK7D1hOBYNVEgv75I4JtM5QAZq6htX5Gp_2_x19h_NS84O8i0rvNjJTUq406FBcsgSdPreNPqgjyVwSkNU0T2VXS0SnABqoIaAybIn454aqQYhFUnf3qR0rx76yWHeAl9prvagUeJJO-MDwX0bndLyti8yPBs_uHs5bZyH2RwKwheEGpyAW4TWmCbItusDoteZZe9VwMb3Pkc_F1Mcs2YVlC2Sd5cwnhymDhVkqyLPrccmgOTw1g2k99GyloswxtEoo31iGK3kOfFeDhB2pG" />
+    </item>
+  </cookies>
+</error>

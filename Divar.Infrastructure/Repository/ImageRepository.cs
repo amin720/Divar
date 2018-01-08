@@ -14,7 +14,7 @@ namespace Divar.Infrastructure.Repository
 		{
 			using (var db = new DivarEntities())
 			{
-				return db.Images.Single(c => c.Id == id);
+				return db.Images.SingleOrDefault(c => c.Id == id);
 			}
 		}
 
@@ -30,7 +30,7 @@ namespace Divar.Infrastructure.Repository
 		{
 			using (var db = new DivarEntities())
 			{
-				if ((db.Images.Single(c => c.Id == image.Id)) != null)
+				if ((db.Images.SingleOrDefault(c => c.Id == image.Id)) != null)
 				{
 
 				}
@@ -42,7 +42,7 @@ namespace Divar.Infrastructure.Repository
 		{						  
 			using (var db = new DivarEntities())
 			{
-				var model = db.Images.Single(c => c.Id == image.Id);
+				var model = db.Images.SingleOrDefault(c => c.Id == image.Id);
 				if (model == null) return;
 
 				model.Url = image.Url;
@@ -53,7 +53,7 @@ namespace Divar.Infrastructure.Repository
 		{
 			using (var db = new DivarEntities())
 			{
-				var model = db.Images.Single(c => c.Id == id);
+				var model = db.Images.SingleOrDefault(c => c.Id == id);
 				if (model == null) return;
 
 				db.Images.Remove(model);

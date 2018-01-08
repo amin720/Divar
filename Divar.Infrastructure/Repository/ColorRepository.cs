@@ -14,7 +14,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                return db.Colors.Single( c => c.Name == name);
+                return db.Colors.SingleOrDefault( c => c.Name == name);
             }
         }
 
@@ -30,10 +30,10 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                if ((db.Colors.Single(c => c.Name == color.Name)) != null)
+                if ((db.Colors.SingleOrDefault(c => c.Name == color.Name)) != null)
                 {
-
-                }
+	                throw new KeyNotFoundException("همچین ساختاری وجود دارد " + color.Name);
+				}
                 db.Colors.Add(color);
                 db.SaveChanges();
             }
@@ -42,7 +42,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                var model = db.Colors.Single( c => c.Name == color.Name );
+                var model = db.Colors.SingleOrDefault( c => c.Name == color.Name );
                 if (model == null) return;
 
                 model.Code = color.Code;
@@ -54,7 +54,7 @@ namespace Divar.Infrastructure.Repository
         {
             using (var db = new DivarEntities())
             {
-                var model = db.Colors.Single( c => c.Name == name);
+                var model = db.Colors.SingleOrDefault( c => c.Name == name);
                 if (model == null) return;
 
                 db.Colors.Remove(model);

@@ -9,7 +9,7 @@ namespace Divar.Core.Interfaces
 {
     public interface IVehicleRepository
     {
-        Vehicle Get(Int64 vehicleTypeId, Int64 ManufacturerID, String Name);
+        Vehicle Get(long vehicleTypeId, long ManufacturerID, string Name);
         IEnumerable<Vehicle> GetAll();
         void Create(Vehicle vehicle);
         void Update(Vehicle vehicle);
