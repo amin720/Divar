@@ -19,7 +19,7 @@
                                     مژده برای آوودی دوستان عزیز
                                     ماشین لوکس آوودی بسیار شیک و زیبا با فول امکانات با قیمت استثنایی 800.000.000 میلیون تومان
 
-                                    <p>  <span style="font-weight: bold">شماره تماس:</span>09121111111</p>
+                                <p>  <span style="font-weight: bold">شماره تماس:</span>09121111111</p>
                                 </p>
                                 <p><a href="#" class="btn btn-primary btn-outline btn-lg">همین الان بخرید</a></p>
                             </div>
@@ -37,7 +37,7 @@
                                 <p>
                                     مژده برای علاقمندان خوردرو های فراری
                                     ماشین لوکس فراری بسیار شیک و زیبا با فول اسپورت فول امکانات با قیمت استثنایی 500.000.000 میلیون تومان
-                                    <p>  <span style="font-weight: bold">شماره تماس:</span>09121111111</p>
+                                <p>  <span style="font-weight: bold">شماره تماس:</span>09121111111</p>
                                 </p>
                                 <p><a href="#" class="btn btn-primary btn-outline btn-lg">همین الان بخرید</a></p>
                             </div>
@@ -55,7 +55,7 @@
                                 <p>
                                     فروش استثنایی ماشین فول اسپورت ساخت کشور آمریکا برای دوستان عزیز با قیمت عالی و بینظیر برای شما فراهم کردیم
                                     فقط 450.000.000 میلیون تومان
-                                    <p>  <span style="font-weight: bold">شماره تماس:</span>09121111111</p>
+                                <p>  <span style="font-weight: bold">شماره تماس:</span>09121111111</p>
                                 </p>
                                 <p><a href="#" class="btn btn-primary btn-outline btn-lg">همین الان بخرید</a></p>
                             </div>
@@ -73,7 +73,7 @@
                                 <p>
                                     مژده برای پورشه دوستان عزیز
                                     ماشین لوکس پورشه بسیار شیک و زیبا با فول امکانات با قیمت استثنایی 100.000.000 میلیون تومان
-                                    <p>  <span style="font-weight: bold">شماره تماس:</span>09121111111</p>
+                                <p>  <span style="font-weight: bold">شماره تماس:</span>09121111111</p>
                                 </p>
                                 <p><a href="#" class="btn btn-primary btn-outline btn-lg">همین الان بخرید</a></p>
                             </div>
@@ -89,7 +89,7 @@
     <div class="container-fluid">
         <div class="row animate-box">
             <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                <img style="margin-top: -10%;border-top: 5px black solid;width: 100%;border-radius: 1%; " src="~/images/cash-for-commercial-trucks-brisbane.png"/>
+                <img style="margin-top: -10%;border-top: 5px black solid;width: 100%;border-radius: 1%; " src="~/images/cash-for-commercial-trucks-brisbane.png" />
                 <span style="font-weight: bold">آگهی</span>
                 <h2>نمایشگاه</h2>
                 <p>نوع دسته بندی خود را مشخص کنید</p>
@@ -112,9 +112,9 @@
                                 </h4>
                             </div>
                             <div id="collapse0" class="panel-collapse collapse in">
-                                <b>10 تومان</b> 
-                                <input id="ex2" type="text" class="span2" value="" name="Price" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]" /> 
-                                <b>1000 تومان</b>
+                                <b style="font-size: 0.8em"> @Model.PriceMin تومان </b>
+                                <input id="ex2" type="text" class="span2" value="" name="Price" data-slider-min="@Model.PriceMin" data-slider-max="@Model.PriceMax" data-slider-step="5" data-slider-value="[@Model.PriceMin,@Model.PriceMax]" />
+                                <b style="font-size: 0.8em"> @Model.PriceMax تومان </b>
                             </div>
                             <div class="panel-heading ">
                                 <h4 class="panel-title">
@@ -125,30 +125,18 @@
                             </div>
                             <div id="collapse1" class="panel-collapse collapse in">
                                 <ul class="list-group">
-                                    <li class="list-group-item">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="radio" value="" name="Brand">
-                                                citroen
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="radio" value="" name="Brand">
-                                                benz
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="radio" value="" name="Brand">
-                                                bmw
-                                            </label>
-                                        </div>
-                                    </li>
+                                    @foreach (var color in Model.Manufacturers)
+                                    {
+                                        <li class="list-group-item">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="radio" value="@color.Name" name="Brand">
+                                                    @color.Name
+                                                </label>
+                                            </div>
+                                        </li>
+                                    }
+
                                 </ul>
                             </div>
                             <div class="panel-heading">
@@ -158,30 +146,17 @@
                             </div>
                             <div id="collapse3" class="panel-collapse collapse in">
                                 <ul class="list-group">
-                                    <li class="list-group-item">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="radio" value="" name="Color">
-                                                red
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="radio" value="" name="Color">
-                                                blue
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="radio" value="" name="Color">
-                                                green
-                                            </label>
-                                        </div>
-                                    </li>
+                                    @foreach (var color in Model.Colors)
+                                    {
+                                        <li class="list-group-item">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="radio" value="@color.Name" name="Color">
+                                                    @color.Name
+                                                </label>
+                                            </div>
+                                        </li>
+                                    }
                                 </ul>
                             </div>
                             <div class="panel-heading">
@@ -219,16 +194,20 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 }
 
             </div>
             <div class="col-xs-6 col-sm-9">
                 @foreach (var item in Model.Advertisements)
                 {
+                    var imageUrl = Model.Images.SingleOrDefault(i => i.IdAdvertising == item.Id).Url;
+                    var productName = Model.Products.SingleOrDefault(p => p.IdAdvertisement == item.Id).Name;
+                    var productPrice = Model.Products.SingleOrDefault(p => p.IdAdvertisement == item.Id).Price;
+
                     <div class="col-md-4 text-center animate-box">
                         <div class="product">
-                            <div class="product-grid" name="ImageUrl" style="background-image: url(images/product-1.jpg);" >
+                            <div class="product-grid" name="ImageUrl" style="background-image: url('@Url.Content(imageUrl)');">
                                 <div class="inner">
                                     <p>
                                         <a href="#" class="icon" data-toggle="modal" data-target="#ad1"><i class="icon-eye"></i></a>
@@ -236,9 +215,10 @@
                                 </div>
                             </div>
                             <div class="desc">
-                                <h3><a href="#" data-toggle="modal" data-target="#ad1" >لامبورگینی فول اسپورت</a>
+                                <h3>
+                                    <a href="#" data-toggle="modal" data-target="#ad1">@productName</a>
                                 </h3>
-                                <span class="price" style="font-weight: bold">قیمت:</span><span class="price">900 میلیون</span>
+                                <span class="price" style="font-weight: bold">قیمت:</span><span class="price">@productPrice</span>
                             </div>
                         </div>
                     </div>

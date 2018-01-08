@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Divar.Core.Interfaces;
 using Divar.Infrastructure.Repository;
+using Divar.Web.Models;
 using Divar.Web.ViewModels;
 
 namespace Divar.Web.Controllers
@@ -66,14 +67,20 @@ namespace Divar.Web.Controllers
 		[HttpGet]
 		[AllowAnonymous]
 		public ActionResult Index()
+
 		{
 			var model = new ProductViewModel
 			{
-				Products = _productsRepository.GetAll(),
 				Advertisements = _advertismentRepository.GetAll(),
-
+				Images = _imageRepositorysitory.GetAll(),
+				Products = _productsRepository.GetAll(),
+				Manufacturers = _manufacturerRepository.GetAll(),
+				Colors = _colorRepository.GetAll(),
+				PriceMin = _productsRepository.GetAll().Min(p => p.Price),
+				PriceMax = _productsRepository.GetAll().Max(p => p.Price),
 			};
-            return View();
+			
+            return View(model);
         }
 
 		// GET: FQ
