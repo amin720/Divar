@@ -10,3 +10,6 @@ input[type="submit"], input[type="email"], input[type="text"], .display-tc, .btn
     letter-spacing: normal !important;
 }
 
+.amin > tbody > tr > td {
+    vertical-align: middle;
+}

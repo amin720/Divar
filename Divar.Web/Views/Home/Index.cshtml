@@ -210,13 +210,13 @@
                             <div class="product-grid" name="ImageUrl" style="background-image: url('@Url.Content(imageUrl)');">
                                 <div class="inner">
                                     <p>
-                                        <a href="#" class="icon" data-toggle="modal" data-target="#ad1"><i class="icon-eye"></i></a>
+                                        <a href="@Url.Action("Adv","Advertisement",new {advId = item.Id})" class="icon"><i class="icon-eye"></i></a>
                                     </p>
                                 </div>
                             </div>
                             <div class="desc">
                                 <h3>
-                                    <a href="#" data-toggle="modal" data-target="#ad1">@productName</a>
+                                    <a href="@Url.Action("Adv","Advertisement",new {advId = item.Id})" data-toggle="modal" data-target="#ad1">@productName</a>
                                 </h3>
                                 <span class="price" style="font-weight: bold">قیمت:</span><span class="price">@productPrice</span>
                             </div>

@@ -47,6 +47,7 @@ namespace Divar.Web.ViewModels
 		public string City { get; set; }
 		public int State { get; set; }
 		public int? PageNumber { get; set; }
+		public int Id { get; set; }
 
 		public IEnumerable<Product> Products { get; set; }
 		public IEnumerable<Manufacturer> Manufacturers { get; set; }
@@ -60,6 +61,5 @@ namespace Divar.Web.ViewModels
 		public IEnumerable<AdvertisementType> AdvertisementTypes { get; set; }
 		public IEnumerable<AdvertiserType> AdvertiserTypes { get; set; }
 		public IEnumerable<Image> Images { get; set; }
-		public IList<ItemVehicle> ItemVehicles { get; set; }
 	}
 }

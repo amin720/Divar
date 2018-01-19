@@ -14,6 +14,7 @@
           <Property Name="CityID" Type="int" />
           <Property Name="UserID" Type="nvarchar" MaxLength="128" />
           <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsError" Type="bit" />
         </EntityType>
         <EntityType Name="AdvertisementType">
           <Key>
@@ -182,7 +183,7 @@
           <Property Name="ColorID" Type="int" Nullable="false" />
           <Property Name="VehicleTypeID" Type="int" Nullable="false" />
           <Property Name="ManufacturerID" Type="int" Nullable="false" />
-          <Property Name="AssemblerID" Type="int" Nullable="false" />
+          <Property Name="AssemblerID" Type="int" />
           <Property Name="Series" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="VehicleType">
@@ -370,7 +371,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBL_Vehicle_TBL_Assembler">
-          <End Role="Assembler" Type="Self.Assembler" Multiplicity="1" />
+          <End Role="Assembler" Type="Self.Assembler" Multiplicity="0..1" />
           <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Assembler">
@@ -613,6 +614,7 @@
           <Property Name="CityID" Type="Int32" />
           <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsError" Type="Boolean" />
           <NavigationProperty Name="AspNetUser" Relationship="DivarModel.FK_Advertisement_AspNetUsers" FromRole="Advertisement" ToRole="AspNetUser" />
           <NavigationProperty Name="City" Relationship="DivarModel.FK_Advertisement_City" FromRole="Advertisement" ToRole="City" />
           <NavigationProperty Name="Vehicle" Relationship="DivarModel.FK_Advertisement_Vehicle" FromRole="Advertisement" ToRole="Vehicle" />
@@ -801,7 +803,7 @@
           <Property Name="ColorID" Type="Int32" Nullable="false" />
           <Property Name="VehicleTypeID" Type="Int32" Nullable="false" />
           <Property Name="ManufacturerID" Type="Int32" Nullable="false" />
-          <Property Name="AssemblerID" Type="Int32" Nullable="false" />
+          <Property Name="AssemblerID" Type="Int32" />
           <Property Name="Series" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Advertisements" Relationship="DivarModel.FK_Advertisement_Vehicle" FromRole="Vehicle" ToRole="Advertisement" />
           <NavigationProperty Name="Assembler" Relationship="DivarModel.FK_TBL_Vehicle_TBL_Assembler" FromRole="Vehicle" ToRole="Assembler" />
@@ -955,7 +957,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBL_Vehicle_TBL_Assembler">
-          <End Type="DivarModel.Assembler" Role="Assembler" Multiplicity="1" />
+          <End Type="DivarModel.Assembler" Role="Assembler" Multiplicity="0..1" />
           <End Type="DivarModel.Vehicle" Role="Vehicle" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Assembler">
@@ -1027,6 +1029,7 @@
           <EntitySetMapping Name="Advertisements">
             <EntityTypeMapping TypeName="DivarModel.Advertisement">
               <MappingFragment StoreEntitySet="Advertisement">
+                <ScalarProperty Name="IsError" ColumnName="IsError" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="CityID" ColumnName="CityID" />

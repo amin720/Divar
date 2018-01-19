@@ -1,0 +1,99 @@
+﻿@model Divar.Web.ViewModels.ProductViewModel
+@{
+    ViewBag.Title = Model.ProductName;
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@section StyleTable{
+
+}
+<div class="row" style="margin: 20px">
+    <div class="col-md-4">
+        <img src="@Url.Content(Model.ImageUrl)" class="img-responsive" alt="@Model.ProductName" />
+    </div>
+    <div class="col-md-8">
+        <table class="table table-responsive table-striped table-bordered amin">
+            <thead>
+                <tr>
+                    <td>
+                        نام
+                    </td>
+                    <td>
+                        شرکت سازنده
+                    </td>
+                    <td>
+                        رنگ
+                    </td>
+                    <td>
+                        کیلومتر
+                    </td>
+                    <td>
+                        آگهی دهنده
+                    </td>
+                    <td>
+                        نوع آگهی دهنده
+                    </td>
+                    <td>
+                        نوع وسیله نقلیه
+                    </td>
+                    <td>
+                        قیمت
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Model.ProductName
+                    </td>
+                    <td>
+                        @Model.Brand
+                    </td>
+                    <td>
+                        @Model.Color
+                    </td>
+                    <td>
+                        @Model.KiloMeters
+                    </td>
+                    <td>
+                        @Model.TypeAdver
+                    </td>
+                    <td>
+                        @Model.TypeAdv
+                    </td>
+                    <td>
+                        @Model.TypeVehicle
+                    </td>
+                    <td>
+                        @Model.ProductPrice تومان
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <div class="panel panel-default">
+            <div class="panel-heading"> توضیحات:</div>
+            <div class="panel-body">@Model.Description</div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-3">
+                <span class="">اطلاعات تماس:</span>
+            </div>
+            <div class="col-md-3">
+                @if (string.IsNullOrEmpty(Model.PhoneNumber))
+                {
+                    <span class="text-danger">شماره ای ثبت نشده است</span>
+                }
+                else
+                {
+                    <span class="text-danger">@Model.PhoneNumber</span>
+                }
+            </div>
+        </div>
+        <br />
+        <div class="col-md-4">
+            <a href="@Url.Action("ErrorAdvertisment","Advertisement",new {advId = Model.Id})" class="btn btn-danger btn-block">گزارش خطا</a>
+        </div>
+    </div>
+</div>
+

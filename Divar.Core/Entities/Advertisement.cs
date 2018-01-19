@@ -28,6 +28,7 @@ namespace Divar.Core.Entities
         public Nullable<int> CityID { get; set; }
         public string UserID { get; set; }
         public string Description { get; set; }
+        public Nullable<bool> IsError { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual City City { get; set; }

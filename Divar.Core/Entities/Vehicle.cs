@@ -26,7 +26,7 @@ namespace Divar.Core.Entities
         public int ColorID { get; set; }
         public int VehicleTypeID { get; set; }
         public int ManufacturerID { get; set; }
-        public int AssemblerID { get; set; }
+        public Nullable<int> AssemblerID { get; set; }
         public string Series { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using Divar.Core.Entities;
 using Divar.Core.Interfaces;
@@ -240,6 +241,7 @@ namespace Divar.Web.Controllers
 
 		[HttpGet]
 		[Route("Advertisement/{advId}")]
+		[AllowAnonymous]
 		public async Task<ActionResult> Adv(int advId)
 		{
 			var adv = _advertismentRepository.GetAll().SingleOrDefault(a => a.Id == advId);
@@ -247,23 +249,39 @@ namespace Divar.Web.Controllers
 			var users = await _userRepository.GetAllUsersAsync();
 			var vehicle = _vehicleRepository.GetAll().SingleOrDefault(v => v.Id == adv.VehicleID);
 
-			var model = new ProductViewModel
-			{
-				ProductName = product.Name,
-				ProductPrice = product.Price,
-				KiloMeters = product.KiloMeters,
-				TypeAdv = _advertisementTypeRepository.GetAll().SingleOrDefault(a => a.Id == product.AdvertisementTypeID).Name,
-				TypeAdver = _advertiserTypeRepository.GetAll().SingleOrDefault(a => a.Id == product.AdvertisementTypeID).Name,
-				ImageUrl = _imageRepositorysitory.GetAll().SingleOrDefault(i => i.IdAdvertising == adv.Id).Url,
-				City = _cityRepository.GetAll().SingleOrDefault(c => c.Id == adv.CityID).Name,
-				PhoneNumber = users.SingleOrDefault(u => u.Id == adv.UserID).PhoneNumber,
-				Color = _colorRepository.GetAll().SingleOrDefault(c => c.Id == vehicle.ColorID).Name,
-				Brand = _manufacturerRepository.GetAll().SingleOrDefault(m => m.Id == vehicle.ManufacturerID).Name,
-			};
+			var model = new ProductViewModel();
 
-			return View();
+			model.ProductName = product.Name;
+			model.ProductPrice = product.Price;
+			model.KiloMeters = product.KiloMeters;
+			model.TypeAdv = _advertisementTypeRepository.GetAll().SingleOrDefault(a => a.Id == product.AdvertisementTypeID).Name;
+			model.TypeAdver = _advertiserTypeRepository.GetAll().SingleOrDefault(a => a.Id == product.AdvertiserTypeID).Name;
+			model.TypeVehicle = _vehicleTypeRepository.GetAll().SingleOrDefault(m => m.Id == vehicle.VehicleTypeID).Name;
+			model.ImageUrl = _imageRepositorysitory.GetAll().SingleOrDefault(i => i.IdAdvertising == adv.Id).Url;
+			model.City = _cityRepository.GetAll().SingleOrDefault(c => c.Id == adv.CityID).Name;
+			model.PhoneNumber = users.SingleOrDefault(u => u.Id == adv.UserID).PhoneNumber;
+			model.Color = _colorRepository.GetAll().SingleOrDefault(c => c.Id == vehicle.ColorID).Name;
+			model.Brand = _manufacturerRepository.GetAll().SingleOrDefault(m => m.Id == vehicle.ManufacturerID).Name;
+			model.Description = adv.Description;
+			model.Id = adv.Id;
+
+			return View(viewName:"Single", model:model);
 		}
 
+		// POST: Advertisement/ErrorAdvertisment
+		[Route("Error/{advId}")]
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult ErrorAdvertisment(int advId)
+		{
+			var adv = _advertismentRepository.GetAll().SingleOrDefault(a => a.Id == advId);
+
+			adv.IsError = true;
+
+			_advertismentRepository.Update(adv);
+
+			return RedirectToAction("Index", "Home");
+		}
 
 
 

@@ -48,6 +48,7 @@ namespace Divar.Infrastructure.Repository
                 model.CityID = advertisement.CityID;
                 model.UserID = advertisement.UserID;
                 model.Description = advertisement.Description;
+	            model.IsError = advertisement.IsError;
 
                 db.SaveChanges();
             }
