@@ -711,6 +711,7 @@
     <Compile Include="Areas\Admin\Controllers\AddressController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManufacturerController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TroubleShootingController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Services\UserService.cs" />
     <Compile Include="Areas\Admin\ViewModels\AdminMenuItem.cs" />
@@ -726,6 +727,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ProductBusinessLogic.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
@@ -872,6 +874,7 @@
     <Content Include="font-awesome-4.6.3\webfonts\fa-solid-900.ttf" />
     <Content Include="font-awesome-4.6.3\webfonts\fa-solid-900.woff" />
     <Content Include="font-awesome-4.6.3\webfonts\fa-solid-900.woff2" />
+    <Content Include="Areas\Admin\Views\TroubleShooting\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_MainLayout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />

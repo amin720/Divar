@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using Divar.Core.Entities;
-using Divar.Web.Models;
 
 namespace Divar.Web.ViewModels
 {

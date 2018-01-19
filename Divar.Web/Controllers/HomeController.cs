@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Divar.Core.Interfaces;
 using Divar.Infrastructure.Repository;
-using Divar.Web.Models;
+using Divar.Web.Service;
 using Divar.Web.ViewModels;
 
 namespace Divar.Web.Controllers
@@ -82,6 +82,51 @@ namespace Divar.Web.Controllers
 			
             return View(model);
         }
+
+	    // POST: Home
+	    [Route("")]
+	    [HttpPost]
+	    [AllowAnonymous]
+	    public ActionResult Index(ProductViewModel searchModel)
+	    {
+			//var business = new ProductBusinessLogic();
+			//var search = business.GetProducts(searchModel);
+
+			//search.Manufacturers = _manufacturerRepository.GetAll();
+			//search.Colors = _colorRepository.GetAll();
+			//search.PriceMin = _productsRepository.GetAll().Min(p => p.Price);
+			//search.PriceMax = _productsRepository.GetAll().Max(p => p.Price);
+
+			var model = new ProductViewModel
+			{
+				Advertisements = _advertismentRepository.GetAll(),
+				Images = _imageRepositorysitory.GetAll(),
+				Products = _productsRepository.GetAll(),
+				Manufacturers = _manufacturerRepository.GetAll(),
+				Colors = _colorRepository.GetAll(),
+				PriceMin = _productsRepository.GetAll().Min(p => p.Price),
+				PriceMax = _productsRepository.GetAll().Max(p => p.Price),
+			};
+
+		    
+
+			if (!string.IsNullOrEmpty(searchModel.Brand))
+				model.Advertisements = model.Advertisements.Where(x =>
+					x.VehicleID == _vehicleRepository.GetAll().SingleOrDefault(y =>
+						y.ManufacturerID == _manufacturerRepository.GetAll().SingleOrDefault(z => z.Name.Contains(searchModel.Brand)).Id).Id);
+
+			if (!string.IsNullOrEmpty(searchModel.Color))
+				model.Advertisements = model.Advertisements.Where(x =>
+					x.VehicleID == _vehicleRepository.GetAll().SingleOrDefault(y =>
+						y.ManufacturerID == _colorRepository.GetAll().SingleOrDefault(z => z.Name.Contains(searchModel.Brand)).Id).Id);
+			
+		    if (searchModel.PriceMin.HasValue)
+			model.Products = _productsRepository.GetAll().Where(x => x.Price >= searchModel.PriceMin);
+		    if (searchModel.PriceMax.HasValue)
+			    model.Products = _productsRepository.GetAll().Where(x => x.Price <= searchModel.PriceMax);
+
+			return View(model);
+	    }
 
 		// GET: FQ
 		[Route("F&Q")]

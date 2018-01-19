@@ -269,9 +269,9 @@ namespace Divar.Web.Controllers
 		}
 
 		// POST: Advertisement/ErrorAdvertisment
-		[Route("Error/{advId}")]
-		[HttpPost]
-		[ValidateAntiForgeryToken]
+		[Route("ErrorAdvertisment/{advId}")]
+		[HttpGet]
+		
 		public ActionResult ErrorAdvertisment(int advId)
 		{
 			var adv = _advertismentRepository.GetAll().SingleOrDefault(a => a.Id == advId);
