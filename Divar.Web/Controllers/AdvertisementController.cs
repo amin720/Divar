@@ -271,7 +271,7 @@ namespace Divar.Web.Controllers
 		// POST: Advertisement/ErrorAdvertisment
 		[Route("ErrorAdvertisment/{advId}")]
 		[HttpGet]
-		
+		[AllowAnonymous]
 		public ActionResult ErrorAdvertisment(int advId)
 		{
 			var adv = _advertismentRepository.GetAll().SingleOrDefault(a => a.Id == advId);

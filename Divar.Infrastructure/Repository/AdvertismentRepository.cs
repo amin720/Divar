@@ -64,5 +64,30 @@ namespace Divar.Infrastructure.Repository
                 db.SaveChanges();
             }
         }
-    }
+	    public void Delete(Int64 advId)
+	    {
+		    using (var db = new DivarEntities())
+		    {
+			    var model = db.Advertisements.SingleOrDefault(d => d.Id == advId);
+			    if (model == null) return;
+
+			    db.Advertisements.Remove(model);
+			    db.SaveChanges();
+		    }
+	    }
+	    public List<IGrouping<string, Advertisement>> GetAllByCity()
+	    {
+		    using (var db = new DivarEntities())
+		    {
+			    return db.Advertisements.GroupBy(x => x.City.Name).ToList();
+		    }
+	    }
+	    public List<IGrouping<string, Advertisement>> GetAllByBrand()
+	    {
+		    using (var db = new DivarEntities())
+		    {
+			    return db.Advertisements.GroupBy(x => x.Vehicle.Manufacturer.Name).ToList();
+		    }
+	    }
+	}
 }

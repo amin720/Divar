@@ -14,5 +14,7 @@ namespace Divar.Core.Interfaces
         void Create(Product product);
         void Update(Product product);
         void Delete(String Name,DateTime createDate);
+	    void Delete(int id);
+
     }
 }

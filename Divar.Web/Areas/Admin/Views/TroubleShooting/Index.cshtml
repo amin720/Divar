@@ -1,22 +1,17 @@
-﻿@model IEnumerable<Divar.Core.Entities.Advertisement>
+﻿@model IEnumerable<Divar.Web.Areas.Admin.ViewModels.TroubleShootingViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "خطا آگهی";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdminPage.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
+<table class="table table-responsive table-bordered table-striped" dir="rtl">
+    <tr class="text-center">
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.AdvName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IsError)
+            @Html.DisplayNameFor(model => model.Username)
         </th>
        
         <th></th>
@@ -25,16 +20,15 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Description)
+            @Html.DisplayFor(modelItem => item.AdvName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.IsError)
+            @Html.DisplayFor(modelItem => item.Username)
         </td>
         
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @*@Html.ActionLink("جزئیات", "Details", new { advId = item.Id }) |*@
+            @Html.ActionLink("حذف", "Delete", new { advId = item.Id })
         </td>
     </tr>
 }

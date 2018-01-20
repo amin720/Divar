@@ -64,6 +64,18 @@ namespace Divar.Infrastructure.Repository
 
             }
         }
+	    public void Delete(int id)
+	    {
+		    using (var db = new DivarEntities())
+		    {
+			    var model = db.Products.SingleOrDefault(p => p.Id == id);
+			    if (model == null) return;
 
-    }
+			    db.Products.Remove(model);
+			    db.SaveChanges();
+
+		    }
+	    }
+
+	}
 }

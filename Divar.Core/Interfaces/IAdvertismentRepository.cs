@@ -14,5 +14,10 @@ namespace Divar.Core.Interfaces
         void Create(Advertisement advertisement);
         void Update(Advertisement advertisement);
         void Delete(Int64 vehicleId , Int64 cityId);
+	    void Delete(Int64 advId);
+	    List<IGrouping<string, Advertisement>> GetAllByCity();
+	    List<IGrouping<string, Advertisement>> GetAllByBrand();
+
+
     }
 }
